@@ -60,10 +60,16 @@ reserveinnholdet vises i stedet, så tømmer du en liste, må den fylles ut igje
 - **Programmer og elevprosjekter:** `/programs`.
 - **Organisasjonsnummer og adresse:** `frontend/app/lib/site.ts`, vist i footeren på alle sider.
   Dette er det eneste innholdet på undersidene som ikke ligger i Sanity, siden det sjelden
-  endres.
+  endres. Opplysningene tilhører NASA HUNCH Norge, organisasjonsnummer 937 749 570,
+  Buskerudveien 27B, 3024 Drammen.
 
-Kontroller at organisasjonsnummeret og adressen stemmer med Enhetsregisteret før søknaden
-sendes videre.
+Adressen i Enhetsregisteret står oppført med «c/o Ina Christiansen». Den linjen vises ikke i
+footeren, siden gateadressen alene dekker kravet om synlig fysisk adresse. Legg den inn i
+`site.ts` hvis Google ber om nøyaktig samme adresse som i registeret.
+
+`site.purpose` inneholder formålet slik det er registrert i Enhetsregisteret. Det er ikke
+i bruk på nettsiden ennå, men kan brukes som formålsparagraf hvis teksten på forsiden ikke
+holder for Google.
 
 ## Skriveregler
 
@@ -79,7 +85,7 @@ Innholdet er ikke skrevet fritt. Kildene er:
   teachers in Norwegian vocational education partnering with NASA HUNCH», Discover Education
   5:423, <https://doi.org/10.1007/s44217-026-01443-8> (CC BY 4.0). Herfra kommer teksten på
   «Om oss», beskrivelsene av programområdene og hele elevprosjektet.
-- **Enhetsregisteret:** organisasjonsnummer, adresse og organisasjonsform.
+- **Enhetsregisteret:** organisasjonsnummer, adresse, organisasjonsform og formål.
 - **Forsiden av nasahunch.no:** opplysningene om NORSTEC og Sparebankstiftelsen DNB.
 
 ## Det som mangler

@@ -112,12 +112,10 @@ export function Footer({ data }: FooterProps) {
       <div className="mt-40 md:mt-52">
         <div className="grid grid-cols-1 gap-10 text-center md:grid-cols-3 md:gap-8">
           <div className="flex flex-col items-center justify-center">
+            <p className="m-0 mb-2">Personvernerklæring</p>
+
             <p className="m-0 max-w-[22ch]">
-              Vi takker NORSTEC for å
-              <br />
-              overta stafettpinnen
-              <br />
-              for NASA HUNCH Norge
+              Vi henter ikke inn data om deg når du besøker nettsiden.
             </p>
           </div>
 

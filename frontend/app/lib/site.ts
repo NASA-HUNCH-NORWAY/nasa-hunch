@@ -2,32 +2,38 @@
  * Organisasjonsdata som vises offentlig på nettsiden.
  *
  * Disse verdiene kreves av blant annet Google for Nonprofits, og må derfor
- * være synlige på siden (footer og «Om oss»). Endre kun her – footer og
- * «Om oss» henter alt fra denne filen.
+ * være synlige på siden. Footeren henter alt herfra.
+ *
+ * Kilde: Enhetsregisteret, organisasjonsnummer 937749570.
  */
 export const site = {
   /** Kort navn brukt i navigasjon, titler og løpende tekst. */
   shortName: "NASA HUNCH Norge",
-  /** Juridisk navn på organisasjonen som driver nasahunch.no. */
-  legalName: "NORSTEC – Norwegian Space Technology Collective",
+  /** Registrert navn i Enhetsregisteret. */
+  legalName: "NASA HUNCH Norge",
   /** Organisasjonsnummer fra Enhetsregisteret (Charity ID). */
-  organisationNumber: "933 031 152",
+  organisationNumber: "937 749 570",
   /** Organisasjonsform i Enhetsregisteret. */
   organisationForm: "Forening/lag/innretning",
-  /** Registrering som dokumenterer frivillig, ideell virksomhet. */
-  registrations: [
-    "Registrert i Enhetsregisteret",
-    "Registrert i Frivillighetsregisteret",
-  ],
+  /** Sektor i Enhetsregisteret. */
+  sector: "Ideelle organisasjoner",
+  /**
+   * Formålet slik det er registrert i Enhetsregisteret.
+   * Adressen i registeret står med «c/o Ina Christiansen». Den linjen vises
+   * ikke på nettsiden, siden gateadressen alene dekker kravet om synlig
+   * fysisk adresse.
+   */
+  purpose:
+    "Ideell driftsforening med formål å administrere og drifte NASA HUNCH-programmet (High Schools United with NASA to Create Hardware) i Norge.",
   /** Offisiell forretningsadresse. */
   address: {
-    street: "Sem Sælands vei 1",
-    postalCode: "7034",
-    city: "Trondheim",
+    street: "Buskerudveien 27B",
+    postalCode: "3024",
+    city: "Drammen",
     country: "Norge",
   },
   /** Brønnøysundregistrene, for de som vil kontrollere opplysningene. */
-  registryUrl: "https://virksomhet.brreg.no/nb/oppslag/enheter/933031152",
+  registryUrl: "https://virksomhet.brreg.no/nb/oppslag/enheter/937749570",
 } as const;
 
 export const addressLine = `${site.address.street}, ${site.address.postalCode} ${site.address.city}, ${site.address.country}`;
