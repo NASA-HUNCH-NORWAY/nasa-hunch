@@ -122,7 +122,9 @@ export function HeroSection({ data }: HeroSectionProps) {
 
         <div className="flex flex-col gap-10 lg:ml-auto lg:w-[25rem] lg:flex-none">
           <div className="spaced-dashed-border text-center p-5">
-            <p className="uppercase leading-tight">NASA HUNCH</p>
+            <h1 className="m-0 font-sans! text-page-base uppercase leading-tight">
+              NASA HUNCH Norge
+            </h1>
             <p className="mt-1 flex items-center justify-center gap-2 uppercase leading-tight">
               HQ <RiArrowRightLongLine aria-hidden="true" /> OSLO, NORGE
             </p>

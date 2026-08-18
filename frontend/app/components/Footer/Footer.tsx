@@ -1,13 +1,4 @@
-"use client";
-
-import Image from "next/image";
-import { useEffect, useState } from "react";
 import { addressLine, site } from "@/app/lib/site";
-import type { HeroSection as HeroSectionData } from "@/sanity/types";
-
-type FooterProps = {
-  data: HeroSectionData | null;
-};
 
 const CREDIT_LINKS = [
   {
@@ -20,23 +11,7 @@ const CREDIT_LINKS = [
   },
 ] as const;
 
-export function Footer({ data }: FooterProps) {
-  const [isLightMode, setIsLightMode] = useState(false);
-  const lightLogo = data?.logo;
-  const darkLogo = data?.darkLogo ?? data?.logo;
-  const logo = isLightMode ? lightLogo : darkLogo;
-
-  useEffect(() => {
-    const root = document.documentElement;
-    const updateTheme = () => setIsLightMode(root.classList.contains("light"));
-    const observer = new MutationObserver(updateTheme);
-
-    updateTheme();
-    observer.observe(root, { attributes: true, attributeFilter: ["class"] });
-
-    return () => observer.disconnect();
-  }, []);
-
+export function Footer() {
   return (
     <footer className="section relative overflow-visible pt-60 md:pt-72 pb-16 md:pb-24 px-8 md:px-12">
       <div className="pointer-events-none absolute inset-x-0 top-0 overflow-visible">

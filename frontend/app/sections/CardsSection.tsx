@@ -155,10 +155,12 @@ function FlipCard({
           }`}
         >
           {imageUrl ? (
-            <img
+            <Image
               src={imageUrl}
               alt={image.alt}
-              className="block h-full w-full object-cover"
+              fill
+              sizes="(min-width: 1024px) 23rem, 16rem"
+              className="object-cover"
             />
           ) : (
             <span className="flex h-full w-full items-center justify-center font-heading text-page-small uppercase">

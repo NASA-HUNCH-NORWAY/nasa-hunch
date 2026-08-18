@@ -4,16 +4,33 @@ import { DetailPanel } from "@/app/components/DetailPanel";
 import { PageHeader } from "@/app/components/PageHeader";
 import { PageShell } from "@/app/components/PageShell";
 import { programMascots, programsFallback } from "@/app/content/programs";
+import { absoluteUrl, breadcrumbSchema, SITE_NAME } from "@/app/lib/seo";
 import { getProgramsPage } from "@/sanity/fetch";
 import { portableTextToParagraphs } from "@/sanity/utils/portableText";
 import type { ImageWithAlt } from "@/sanity/types";
 
+const DESCRIPTION =
+  "Programområdene i NASA HUNCH Norge – maskinvare, design og prototyping og mat – og elevprosjektene som er levert til NASA.";
+
 export const metadata: Metadata = {
-  title: "Programmer | NASA HUNCH Norge",
-  description:
-    "Programområdene i NASA HUNCH Norge, og elevprosjektene som er levert til NASA.",
-  alternates: {
-    canonical: "https://nasahunch.no/programs",
+  title: "Programmer",
+  description: DESCRIPTION,
+  alternates: { canonical: "/programs" },
+  openGraph: {
+    siteName: SITE_NAME,
+    locale: "nb_NO",
+    title: "Programmer i NASA HUNCH Norge",
+    description: DESCRIPTION,
+    url: absoluteUrl("/programs"),
+    images: [
+      {
+        url: "/NasaHunchOG.png",
+        width: 1200,
+        height: 630,
+        alt: "NASA HUNCH Norge",
+      },
+    ],
+    type: "article",
   },
 };
 
@@ -68,8 +85,28 @@ export default async function ProgramsPage() {
     ? page.projects
     : programsFallback.projects;
 
+  const schema = [
+    breadcrumbSchema([{ name: "Programmer", path: "/programs" }]),
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      name: "Programområder i NASA HUNCH Norge",
+      itemListElement: programs.map((program, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        item: {
+          "@type": "Course",
+          name: program.name,
+          description: program.description,
+          inLanguage: "nb-NO",
+          provider: { "@id": "https://www.nasahunch.no/#organisasjon" },
+        },
+      })),
+    },
+  ];
+
   return (
-    <PageShell>
+    <PageShell schema={schema}>
       <PageHeader
         title={page?.title ?? programsFallback.title}
         paragraphs={paragraphs}

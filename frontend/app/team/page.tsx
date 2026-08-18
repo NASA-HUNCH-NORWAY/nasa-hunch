@@ -4,16 +4,33 @@ import { RiArrowRightUpLine } from "react-icons/ri";
 import { PageHeader } from "@/app/components/PageHeader";
 import { PageShell } from "@/app/components/PageShell";
 import { teamFallback } from "@/app/content/team";
+import { absoluteUrl, breadcrumbSchema, SITE_NAME } from "@/app/lib/seo";
 import { getTeamPage } from "@/sanity/fetch";
 import { portableTextToParagraphs } from "@/sanity/utils/portableText";
 import type { ImageWithAlt } from "@/sanity/types";
 
+const DESCRIPTION =
+  "Menneskene og organisasjonene bak NASA HUNCH Norge, og samarbeidspartnerne i programmet.";
+
 export const metadata: Metadata = {
-  title: "Teamet | NASA HUNCH Norge",
-  description:
-    "Menneskene og organisasjonene bak NASA HUNCH Norge, og samarbeidspartnerne i programmet.",
-  alternates: {
-    canonical: "https://nasahunch.no/team",
+  title: "Teamet",
+  description: DESCRIPTION,
+  alternates: { canonical: "/team" },
+  openGraph: {
+    siteName: SITE_NAME,
+    locale: "nb_NO",
+    title: "Teamet bak NASA HUNCH Norge",
+    description: DESCRIPTION,
+    url: absoluteUrl("/team"),
+    images: [
+      {
+        url: "/NasaHunchOG.png",
+        width: 1200,
+        height: 630,
+        alt: "NASA HUNCH Norge",
+      },
+    ],
+    type: "profile",
   },
 };
 
@@ -86,8 +103,10 @@ export default async function TeamPage() {
     ? page.partners
     : teamFallback.partners;
 
+  const schema = [breadcrumbSchema([{ name: "Teamet", path: "/team" }])];
+
   return (
-    <PageShell>
+    <PageShell schema={schema}>
       <PageHeader
         title={page?.title ?? teamFallback.title}
         paragraphs={paragraphs}

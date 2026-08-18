@@ -2,6 +2,7 @@ import { BuildForNasa } from "@/app/components/BuildForNasa/BuildForNasa";
 import { Footer } from "@/app/components/Footer/Footer";
 import { Navbar } from "@/app/components/Navbar";
 import { Sponsors } from "@/app/components/Sponsors/Sponsors";
+import { StructuredData } from "@/app/components/StructuredData";
 import { CardsSection } from "@/app/sections/CardsSection";
 import { HeroSection } from "@/app/sections/HeroSection";
 import { StatsSection } from "@/app/sections/StatsSection/StatsSection";
@@ -13,6 +14,7 @@ export default async function Home() {
 
   return (
     <main className="bg-background text-foreground">
+      <StructuredData />
       <Navbar data={homePage.hero} />
       <HeroSection data={homePage.hero} />
       <BuildForNasa />
@@ -20,7 +22,7 @@ export default async function Home() {
       <CardsSection data={homePage.cards} />
       <Sponsors />
       <CarouselSection data={homePage.carousel} />
-      <Footer data={homePage.hero} />
+      <Footer />
     </main>
   );
 }
