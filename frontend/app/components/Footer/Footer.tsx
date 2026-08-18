@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { addressLine, site } from "@/app/lib/site";
 import type { HeroSection as HeroSectionData } from "@/sanity/types";
 
 type FooterProps = {
@@ -111,7 +112,7 @@ export function Footer({ data }: FooterProps) {
       <div className="mt-40 md:mt-52">
         <div className="grid grid-cols-1 gap-10 text-center md:grid-cols-3 md:gap-8">
           <div className="flex flex-col items-center justify-center">
-            <p className="m-0 max-w-[22ch] font-heading">
+            <p className="m-0 max-w-[22ch]">
               Vi takker NORSTEC for å
               <br />
               overta stafettpinnen
@@ -137,9 +138,10 @@ export function Footer({ data }: FooterProps) {
           </div>
 
           <div className="flex flex-col items-center justify-center">
-            <p className="m-0 mb-2 ">Personvernerklæring</p>
-
-            <p className="m-0 max-w-[20ch]">Vi henter ikke inn data.</p>
+            <address className="not-italic">
+              <p className="m-0">Org.nr. {site.organisationNumber}</p>
+              <p className="m-0">{addressLine}</p>
+            </address>
           </div>
         </div>
       </div>

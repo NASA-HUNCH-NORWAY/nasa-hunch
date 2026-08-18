@@ -8,6 +8,11 @@
   --foreground: #f7f3e3;
   --accent-blue: #3772ff;
   --accent-pink: #e54f6d;
+  /* Blåtone for løpende tekst. Aksentblå er for lys/mørk til små
+     tekststørrelser, så denne er justert for lesbarhet i hvert tema. */
+  --accent-blue-ink: #8fadff;
+  /* Rosa for løpende tekst og knappetekst, justert per tema. */
+  --accent-pink-ink: #e54f6d;
   --type-small: clamp(0.45rem, 0.42rem + 0.12vw, 0.55rem);
   --type-base: clamp(0.95rem, 0.85rem + 0.4vw, 1.1rem);
   --type-heading-lg: clamp(1.8rem, 1.6rem + 0.8vw, 2.25rem);
@@ -18,6 +23,8 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-accent-blue: var(--accent-blue);
+  --color-accent-blue-ink: var(--accent-blue-ink);
+  --color-accent-pink-ink: var(--accent-pink-ink);
   --color-accent-pink: var(--accent-pink);
   --font-sans: var(--font-josefin-sans);
   --font-heading:
@@ -36,54 +43,60 @@
 
   --background: #f7f3e3;
   --foreground: #0f1a20;
+  --accent-blue-ink: #1e46bd;
+  --accent-pink-ink: #b8294a;
 }
 
-html {
-  min-height: 100%;
-  background: var(--background);
-  scroll-behavior: smooth;
-}
+/* Grunnstilene ligger i `base`-laget, slik at Tailwind-klasser som
+   `font-heading` og `text-[...]` overstyrer dem som forventet. */
+@layer base {
+  html {
+    min-height: 100%;
+    background: var(--background);
+    scroll-behavior: smooth;
+  }
 
-body {
-  min-height: 100%;
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-josefin-sans), system-ui, sans-serif;
-  font-size: var(--type-base);
-  font-weight: 300;
-  line-height: 1.35;
-}
+  body {
+    min-height: 100%;
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-josefin-sans), system-ui, sans-serif;
+    font-size: var(--type-base);
+    font-weight: 300;
+    line-height: 1.35;
+  }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--font-heading);
-  font-weight: 300;
-  line-height: 1.1;
-  text-wrap: balance;
-}
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+    font-weight: 300;
+    line-height: 1.1;
+    text-wrap: balance;
+  }
 
-h1 {
-  font-size: var(--type-heading-lg);
-}
+  h1 {
+    font-size: var(--type-heading-lg);
+  }
 
-h2,
-h3 {
-  font-size: var(--type-heading-md);
-}
+  h2,
+  h3 {
+    font-size: var(--type-heading-md);
+  }
 
-p,
-a,
-span,
-li,
-button,
-input,
-textarea,
-select {
-  font: inherit;
+  p,
+  a,
+  span,
+  li,
+  button,
+  input,
+  textarea,
+  select {
+    font: inherit;
+  }
 }
 
 .spaced-dashed-border {
@@ -136,9 +149,9 @@ select {
   justify-content: center;
   min-width: 9.5rem;
   padding: 0.6rem 1.4rem;
-  border: 2px dashed var(--dotted-button-color, var(--accent-pink));
+  border: 2px dashed var(--dotted-button-color, var(--accent-pink-ink));
   border-radius: 9999px;
-  color: var(--dotted-button-color, var(--accent-pink)) !important;
+  color: var(--dotted-button-color, var(--accent-pink-ink)) !important;
   background: transparent;
   font-family: var(--font-heading);
   line-height: 1;
@@ -150,7 +163,7 @@ select {
 }
 
 .dotted-button-pink {
-  --dotted-button-color: var(--accent-pink);
+  --dotted-button-color: var(--accent-pink-ink);
 }
 
 .dotted-icon-button {
@@ -162,9 +175,9 @@ select {
 }
 
 .dotted-button:hover {
-  color: var(--foreground) !important;
-  border-color: var(--dotted-button-color, var(--accent-pink));
-  background-color: var(--dotted-button-color, var(--accent-pink));
+  color: var(--background) !important;
+  border-color: var(--dotted-button-color, var(--accent-pink-ink));
+  background-color: var(--dotted-button-color, var(--accent-pink-ink));
 }
 
 .theme-logo-button {
@@ -245,4 +258,36 @@ select {
 
 .section {
   @apply px-5 sm:px-10 py-16;
+}
+
+/* Innholdet ligger synlig som utgangspunkt, og løftes inn når det ruller
+   inn i bildet i nettlesere som støtter scroll-drevet animasjon. */
+.reveal-rise {
+  animation: reveal-rise 1ms linear both;
+  animation-timeline: view();
+  animation-range: entry 0% entry 55%;
+}
+
+@supports not (animation-timeline: view()) {
+  .reveal-rise {
+    animation: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-rise {
+    animation: none;
+  }
+}
+
+@keyframes reveal-rise {
+  from {
+    opacity: 0;
+    translate: 0 1.5rem;
+  }
+
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
 }

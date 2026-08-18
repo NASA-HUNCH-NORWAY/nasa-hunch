@@ -10,6 +10,7 @@ const josefinSans = Josefin_Sans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://nasahunch.no"),
   title: "NASA HUNCH Norway",
   description:
     "Empowering students through hands-on engineering, innovation, and collaboration inspired by NASA HUNCH.",

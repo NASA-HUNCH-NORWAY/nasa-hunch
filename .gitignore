@@ -144,3 +144,10 @@ vite.config.ts.timestamp-*
 
 .DS_Store
 **/.DS_Store
+
+# JetBrains IDE
+.idea/
+
+# macOS custom folder icon
+Icon
+Icon?

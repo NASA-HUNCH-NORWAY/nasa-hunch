@@ -253,3 +253,8 @@ Kontakt utvikler hvis du vil:
 - Endre hvor mange kort, bilder eller tall som må være fylt ut.
 
 Tekst, bilder, e-post og lenker kan oppdateres direkte i Sanity.
+
+## Undersidene
+
+Sanity styrer forsiden. Sidene `Om oss`, `Programmer` og `Teamet` ligger i koden, og endres
+av utvikler. Se [Undersidene: Om oss, Programmer og Teamet](UNDERSIDER.md).
