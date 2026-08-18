@@ -112,7 +112,6 @@ const docs = [
     _type: "teamPage",
     title: "Teamet",
     intro: [block("Menneskene og organisasjonene bak NASA HUNCH Norge.")],
-    membersHeading: "Nettsiden",
     members: [
       {
         _type: "teamMemberItem",

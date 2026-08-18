@@ -99,6 +99,7 @@ export default async function TeamPage() {
   const intro = portableTextToParagraphs(page?.intro);
   const paragraphs = intro.length ? intro : teamFallback.intro;
   const members = page?.members?.length ? page.members : teamFallback.members;
+  const membersHeading = page?.membersHeading ?? teamFallback.membersHeading;
   const partners = page?.partners?.length
     ? page.partners
     : teamFallback.partners;
@@ -114,11 +115,11 @@ export default async function TeamPage() {
 
       {members.length ? (
         <section id="personer" className="section py-10!">
-          <h2 className="m-0 uppercase">
-            {page?.membersHeading ?? teamFallback.membersHeading}
-          </h2>
+          {membersHeading ? (
+            <h2 className="m-0 mb-8 uppercase">{membersHeading}</h2>
+          ) : null}
 
-          <ul className="m-0 mt-8 grid list-none grid-cols-1 gap-6 p-0 lg:grid-cols-2">
+          <ul className="m-0 grid list-none grid-cols-1 gap-6 p-0 lg:grid-cols-2">
             {members.map((member) => (
               <TeamCard
                 key={member.name}

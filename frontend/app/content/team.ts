@@ -12,14 +12,14 @@ import type { Partner, TeamMember } from "@/sanity/types";
 export const teamFallback: {
   title: string;
   intro: string[];
-  membersHeading: string;
+  membersHeading: string | null;
   members: Omit<TeamMember, "_key">[];
   partnersHeading: string;
   partners: Omit<Partner, "_key">[];
 } = {
   title: "Teamet",
   intro: ["Menneskene og organisasjonene bak NASA HUNCH Norge."],
-  membersHeading: "Nettsiden",
+  membersHeading: null,
   members: [
     {
       name: "Eirik Engen Kvam",
