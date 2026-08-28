@@ -363,7 +363,7 @@ export function CardsSection({ data }: CardsSectionProps) {
 
   return (
     <section className="py-15 lg:py-25 overflow-hidden">
-      <div className="flex items-stretch gap-5 px-5 uppercase sm:px-10">
+      <div className="flex items-center gap-5 px-5 uppercase sm:px-10">
         <h2 className="m-0 whitespace-pre-line text-[clamp(1.5rem,2.7vw,var(--type-heading-lg))]!">
           {data?.title}
         </h2>
@@ -376,9 +376,9 @@ export function CardsSection({ data }: CardsSectionProps) {
         >
           <span key={logoSpinKey} className="theme-logo-stack">
             <Image
-              src="/norstec-blue.png"
+              src="/nasa-logo.png"
               alt=""
-              width={90}
+              width={108}
               height={90}
               priority
               className={`theme-logo-image ${
@@ -386,9 +386,9 @@ export function CardsSection({ data }: CardsSectionProps) {
               }`}
             />
             <Image
-              src="/norstec-pink.png"
+              src="/nasa-logo.png"
               alt=""
-              width={90}
+              width={108}
               height={90}
               priority
               className={`theme-logo-image ${
