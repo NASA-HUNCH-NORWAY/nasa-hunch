@@ -1,19 +1,12 @@
+import { StructuredData } from "@/app/components/StructuredData";
 import type { Metadata } from "next";
-import { Josefin_Sans } from "next/font/google";
 import "./globals.css";
-import "./styles/embla.css";
 import { DEFAULT_DESCRIPTION, SITE_NAME, SITE_URL } from "@/app/lib/seo";
-
-const josefinSans = Josefin_Sans({
-  variable: "--font-josefin-sans",
-  subsets: ["latin"],
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "NASA HUNCH Norge – romfartsoppdrag for videregående skoler",
+    default: "NASA HUNCH Norge: romfartsoppdrag for videregående skoler",
     template: "%s | NASA HUNCH Norge",
   },
   description: DEFAULT_DESCRIPTION,
@@ -69,38 +62,6 @@ export const metadata: Metadata = {
   },
 };
 
-const themeScript = `
-  try {
-    if (localStorage.getItem("nasa-hunch-theme") === "light") {
-      document.documentElement.classList.add("light");
-    }
-  } catch {}
-`;
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  return (
-    <html
-      lang="nb-NO"
-      className={`${josefinSans.variable} dark h-full antialiased`}
-      suppressHydrationWarning
-    >
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link rel="preconnect" href="https://cdn.sanity.io" />
-        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
-      </head>
-      <body className="mx-auto min-h-full w-full max-w-[100rem] bg-background text-foreground">
-        {children}
-      </body>
-    </html>
-  );
+export default function RootLayout({children}:Readonly<{children:React.ReactNode}>) {
+ return <html lang="nb-NO"><body><StructuredData />{children}</body></html>;
 }
