@@ -5,7 +5,7 @@ export const SITE_URL = "https://www.nasahunch.no";
 export const SITE_NAME = "NASA HUNCH Norge";
 
 export const DEFAULT_DESCRIPTION =
-  "NASA HUNCH Norge gir elever i videregående skole reelle oppdrag for romfart. Elevene designer og produserer deler som tas i bruk av NASA.";
+  "NASA HUNCH Norge gir videregående skoler muligheter til å utforske praktiske oppgaver inspirert av behov hos NASA.";
 
 /** Absolutt URL, brukt i metadata og strukturerte data. */
 export function absoluteUrl(path: string) {

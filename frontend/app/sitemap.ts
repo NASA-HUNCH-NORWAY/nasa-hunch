@@ -7,6 +7,11 @@ const ROUTES = [
   { path: "/programs", priority: 0.8 },
   { path: "/team", priority: 0.6 },
   { path: "/contact", priority: 0.7 },
+  { path: "/skoler", priority: 0.9 },
+  { path: "/partnere", priority: 0.8 },
+  { path: "/prosjekt", priority: 0.8 },
+  { path: "/fagcase", priority: 0.8 },
+  { path: "/personvern", priority: 0.3 },
 ] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {
