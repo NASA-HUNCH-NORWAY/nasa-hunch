@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef } from "react";
 import { SubmissionForm } from "./SubmissionForm";
+import { site } from "@/app/lib/site";
 
 export function ContactPanel() {
   const dialog = useRef<HTMLDialogElement>(null);
@@ -21,12 +22,18 @@ export function ContactPanel() {
     node?.addEventListener("close", restoreFocus);
     return () => { document.removeEventListener("click", open); node?.removeEventListener("close", restoreFocus); node?.close(); };
   }, []);
-  return <dialog ref={dialog} id="contact-panel" className="contact-drawer" aria-labelledby="contact-title" onClick={event => {if (event.target === event.currentTarget) event.currentTarget.close();}}>
+  return <dialog ref={dialog} id="contact-panel" className="contact-drawer" aria-labelledby="contact-title" onClick={event => {
+    // Lukk bare ved klikk på bakgrunnen. Klikk i skuffens egen luft treffer også dialogen.
+    if (event.target !== event.currentTarget) return;
+    const box = event.currentTarget.getBoundingClientRect();
+    const inside = event.clientX >= box.left && event.clientX <= box.right && event.clientY >= box.top && event.clientY <= box.bottom;
+    if (!inside) event.currentTarget.close();
+  }}>
     <div className="drawer-heading"><h2 id="contact-title">Skriv til oss.</h2><button className="drawer-close" type="button" aria-label="Lukk kontaktskjema" onClick={() => dialog.current?.close()}>×</button></div>
-    <p className="drawer-intro">Fortell kort hva du lurer på, så svarer vi på epost.</p>
+    <p className="drawer-intro">Fortell kort hva du lurer på, så svarer vi på e-post. Du kan også skrive direkte til <a href={`mailto:${site.email}`}>{site.email}</a>.</p>
     <SubmissionForm kind="contact" className="contact-form">
       <label>Navn<input name="name" autoComplete="name" maxLength={120} required /></label>
-      <label>Epost<input name="email" type="email" autoComplete="email" maxLength={254} required /></label>
+      <label>E-post<input name="email" type="email" autoComplete="email" maxLength={254} required /></label>
       <label>Skole, bedrift eller organisasjon <span className="optional">(valgfritt)</span><input name="organization" autoComplete="organization" maxLength={160}/></label>
       <label>Hva gjelder henvendelsen?<select name="subject"><option value="">Velg tema</option><option>Skole og elevprosjekt</option><option>Partnerskap og støtte</option><option>Generelt spørsmål</option></select></label>
       <label>Melding<textarea name="message" rows={5} minLength={5} maxLength={5000} required /></label>

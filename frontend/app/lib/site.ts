@@ -32,6 +32,8 @@ export const site = {
     city: "Drammen",
     country: "Norge",
   },
+  /** Felles e-postadresse for skoler, partnere og personvernhenvendelser. */
+  email: "kontakt@nasahunch.no",
   /** Brønnøysundregistrene, for de som vil kontrollere opplysningene. */
   registryUrl: "https://virksomhet.brreg.no/nb/oppslag/enheter/937749570",
 } as const;

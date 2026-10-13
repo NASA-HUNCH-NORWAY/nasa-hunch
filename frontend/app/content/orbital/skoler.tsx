@@ -1,3 +1,4 @@
+import { ContactLinks } from "@/app/components/orbital/ContactLinks";
 import Image from "next/image";
 import { SubmissionForm } from "@/app/components/orbital/SubmissionForm";
 
@@ -219,8 +220,7 @@ export default function Content() { return <>
 </div>
 <div>
 <p>{"Send oss skolens navn, aktuelle fag og en kort beskrivelse av utstyret dere har. Det holder som utgangspunkt for en samtale."}</p>
-<a className="text-link" href="#contact-panel" data-contact-open="" data-contact-subject="Skole og elevprosjekt">{"kontakt@nasahunch.no"}<span aria-hidden="true">{"↗"}</span>
-</a>
+<ContactLinks subject="Skole og elevprosjekt" />
 </div>
 </div>
 </section>

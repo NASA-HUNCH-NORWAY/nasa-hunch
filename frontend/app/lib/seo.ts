@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { addressLine, site } from "@/app/lib/site";
 
 export const SITE_URL = "https://www.nasahunch.no";
@@ -7,9 +8,27 @@ export const SITE_NAME = "NASA HUNCH Norge";
 export const DEFAULT_DESCRIPTION =
   "NASA HUNCH Norge gir videregående skoler muligheter til å utforske praktiske oppgaver inspirert av behov hos NASA.";
 
+const OG_IMAGE = { url: "/NasaHunchOG.png", width: 1200, height: 630, alt: SITE_NAME };
+
 /** Absolutt URL, brukt i metadata og strukturerte data. */
 export function absoluteUrl(path: string) {
   return path === "/" ? SITE_URL : `${SITE_URL}${path}`;
+}
+
+/**
+ * Metadata for én side. Next.js slår sammen metadata grunt, så openGraph og
+ * twitter må settes på hver side. Ellers arver alle sidene forsidens
+ * forhåndsvisning når lenken deles.
+ */
+export function pageMetadata({ title, description, path, absoluteTitle = false }: { title: string; description: string; path: string; absoluteTitle?: boolean }): Metadata {
+  const shareTitle = absoluteTitle ? title : `${title} | ${SITE_NAME}`;
+  return {
+    title: absoluteTitle ? { absolute: title } : title,
+    description,
+    alternates: { canonical: path },
+    openGraph: { title: shareTitle, description, type: "website", url: absoluteUrl(path), siteName: SITE_NAME, locale: "nb_NO", images: [OG_IMAGE] },
+    twitter: { card: "summary_large_image", title: shareTitle, description, images: [OG_IMAGE.url] },
+  };
 }
 
 type OrganizationInput = {

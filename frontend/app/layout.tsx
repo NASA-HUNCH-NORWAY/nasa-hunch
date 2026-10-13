@@ -13,9 +13,6 @@ export const metadata: Metadata = {
   applicationName: SITE_NAME,
   category: "education",
   manifest: "/site.webmanifest",
-  alternates: {
-    canonical: "/",
-  },
   icons: {
     icon: [
       { url: "/favicon.ico" },
