@@ -4,35 +4,34 @@ import { SubmissionForm } from "@/app/components/orbital/SubmissionForm";
 
 export default function Content() { return <>
 <nav className="stop-nav" aria-label="Stopp på forsiden">
-<a href="#oppdrag" data-stop-link="" aria-label="Om HUNCH">
-<span>{"01"}</span>
-<b>{"Om HUNCH"}</b>
+<a href="#oppdrag" data-stop-link="" aria-label="Elever bygger for romfart">
+<span aria-hidden="true" />
+<b>{"Elever bygger for romfart"}</b>
 </a>
-<a href="#program" data-stop-link="" aria-label="Programmet">
-<span>{"02"}</span>
-<b>{"Programmet"}</b>
+<a href="#program" data-stop-link="" aria-label="Lær gjennom å lage">
+<span aria-hidden="true" />
+<b>{"Lær gjennom å lage"}</b>
 </a>
-<a href="#prosjekt" data-stop-link="" aria-label="Prosjektet">
-<span>{"03"}</span>
-<b>{"Prosjektet"}</b>
+<a href="#norge" data-stop-link="" aria-label="Laget i Norge">
+<span aria-hidden="true" />
+<b>{"Laget i Norge"}</b>
 </a>
 <a href="#skoler" data-stop-link="" aria-label="For skoler">
-<span>{"04"}</span>
+<span aria-hidden="true" />
 <b>{"For skoler"}</b>
 </a>
-<a href="#partnere" data-stop-link="" aria-label="Partnere">
-<span>{"05"}</span>
-<b>{"Partnere"}</b>
+<a href="#partnere" data-stop-link="" aria-label="Støtt elevprosjektene">
+<span aria-hidden="true" />
+<b>{"Støtt elevprosjektene"}</b>
 </a>
 </nav>
 <main id="main" tabIndex={-1}>
-<div id="scroll-story" tabIndex={0} aria-label="Forsiden, fem stopp">
+<div id="scroll-story" tabIndex={0} aria-label="Forsiden">
 <section className="scroll-stop" id="oppdrag" data-stop="">
 <div className="shell home-grid">
 <div className="stop-copy">
-<p className="eyebrow">{"NASA HUNCH Norge / For videregående skoler"}</p>
 <h1>{"Elever bygger"}<br />{"for romfart."}</h1>
-<p className="lead">{"La elevene jobbe med praktiske oppgaver inspirert av behov hos NASA. Fra tegning og prototype til testing og dokumentasjon, med et opplegg som passer skolens fag, tid og utstyr."}</p>
+<p className="lead">{"I NASA HUNCH bygger og utvikler elever i videregående skole utstyr etter behov hos NASA. Norge er det første landet utenfor USA med programmet, og det er gratis for skolen å delta."}</p>
 <div className="home-actions">
 <a className="home-primary-link" href="/skoler">{"For skoler "}<span aria-hidden="true">{"↗"}</span>
 </a>
@@ -52,7 +51,7 @@ export default function Content() { return <>
 </g>
 </svg>
 </div>
-<figcaption>{"Et elevbygget kamerafeste i bruk på ISS."}<br />{"Ball Clamp Monopod, Eksempel fra USA, Foto: NASA"}</figcaption>
+<figcaption>{"Et kamerafeste bygget av amerikanske HUNCH-elever, testet på ISS i 2023. Foto: NASA"}</figcaption>
 </figure>
 </div>
 <a className="scroll-hint" href="#program">{"Utforsk programmet "}<span aria-hidden="true">{"↓"}</span>
@@ -100,37 +99,40 @@ export default function Content() { return <>
 </div>
 </div>
 </section>
-<section className="scroll-stop" id="prosjekt" data-stop="">
+<section className="scroll-stop" id="norge" data-stop="">
 <div className="shell home-grid">
 <div className="stop-copy">
-<h2>{"Bygget av elever."}<br />{"Testet på ISS."}</h2>
-<p className="lead">{"Et kamerafeste, mange prototyper og en test på romstasjonen. Se historien bak Ball Clamp Monopod."}</p>
-<a className="text-link" href="/prosjekt">{"Se prosjektet"}<span aria-hidden="true">{"↗"}</span>
+<h2>{"Laget på Eid."}<br />{"Levert til NASA."}</h2>
+<p className="lead">{"Elever på teknologi- og industrifag ved Eid vidaregåande skule i Nordfjordeid har i to år produsert deler etter tegninger og spesifikasjoner fra NASA. Skoleåret 2026/27 er rundt 100 elever med."}</p>
+<div className="home-actions">
+<a className="text-link" href="/fagcase#produksjon">{"Se hvordan elevene jobbet "}<span aria-hidden="true">{"↗"}</span>
+</a>
+<a className="text-link" href="/prosjekt">{"Et eksempel fra USA "}<span aria-hidden="true">{"↗"}</span>
 </a>
 </div>
-<figure className="home-photo home-workshop-photo">
-<div className="photo-orbit-frame orbit-art">
-<Image src="/assets/ball-clamp-students-original.jpg" width={2048} height={1536} loading="lazy" alt="To amerikanske elever arbeider med en tidlig versjon av kamerafestet i verkstedet." />
-<svg viewBox="0 0 1200 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-<path className="photo-orbit-field" d="M 1220 -100 C 1030 180 1040 620 1200 1000 L 1400 1000 L 1400 -100 Z" />
-<path id="home-workshop-photo-route" className="hero-orbit-line" d="M 1220 -100 C 1030 180 1040 620 1200 1000" />
-<g data-orbit-body="" data-path="home-workshop-photo-route" data-orbit-position=".43" data-orbit-drift=".025">
-<circle className="planet-halo" r="29" />
-<circle className="planet" r="19" />
-</g>
-</svg>
 </div>
-<figcaption>{"Elever arbeider med en tidlig versjon av kamerafestet i USA. Foto: NASA"}</figcaption>
-</figure>
+<div className="home-year">
+<p className="home-year-title">{"Et skoleår i HUNCH"}</p>
+<ol className="year-cycle" role="list">
+<li><b>{"Høst"}</b><span>{"Oppstart med elever, lærere og NASA HUNCH fra USA"}</span></li>
+<li><b>{"November"}</b><span>{"Første designgjennomgang med tilbakemelding"}</span></li>
+<li><b>{"Februar"}</b><span>{"Kritisk designgjennomgang før produksjon"}</span></li>
+<li><b>{"Vår"}</b><span>{"Ferdige produkter overleveres"}</span></li>
+</ol>
+</div>
 </div>
 </section>
 <section className="scroll-stop" id="skoler" data-stop="">
 <div className="shell home-grid">
 <div className="stop-copy">
 <h2>{"En plass i"}<br />{"undervisningen."}</h2>
-<p className="lead">{"For lærere og skoleledere i videregående skole. Utforsk oppgaver innen produksjon, teknologi, matfag og IT, og se hva som må avklares før dere starter."}</p>
-<a className="text-link" href="/skoler#spor">{"Finn et fagcase for skolen"}<span aria-hidden="true">{"↗"}</span>
+<p className="lead">{"For lærere og skoleledere i videregående skole. Utforsk oppgaver innen produksjon, teknologi, matfag og IT, og se hva som må være på plass. Deltakelse er gratis for skolen."}</p>
+<div className="home-actions">
+<a className="home-primary-link" href="/skoler">{"For skoler "}<span aria-hidden="true">{"↗"}</span>
 </a>
+<a className="text-link" href="/fagcase">{"Se fagcasene "}<span aria-hidden="true">{"↗"}</span>
+</a>
+</div>
 </div>
 <div className="orbit-art section-orbit-fields" aria-hidden="true">
 <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
@@ -183,7 +185,7 @@ export default function Content() { return <>
 <label htmlFor="newsletter-home">{"Følg elevprosjektene"}</label>
 <p className="home-newsletter-copy">{"Nyheter om prosjekter og muligheter for skoler."}</p>
 <div className="newsletter-entry">
-<input id="newsletter-home" name="email" type="email" autoComplete="email" placeholder="Epostadresse" maxLength={254} required />
+<input id="newsletter-home" name="email" type="email" autoComplete="email" placeholder="E-postadresse" maxLength={254} required />
 <button type="submit">{"Meld meg på "}<span aria-hidden="true">{"↗"}</span>
 </button>
 </div>
@@ -195,7 +197,8 @@ export default function Content() { return <>
 </label>
 </SubmissionForm>
 <div className="home-footer-links">
-<a href="#contact-panel" data-contact-open="">{"Kontakt oss"}</a>
+<a href="/contact" data-contact-open="">{"Kontakt oss"}</a>
+<a href={`mailto:${site.email}`}>{site.email}</a>
 <a href="/personvern">{"Personvern"}</a>
 </div>
 </footer>

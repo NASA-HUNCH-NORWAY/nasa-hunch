@@ -1,6 +1,5 @@
 import { ContactLinks } from "@/app/components/orbital/ContactLinks";
 import Image from "next/image";
-import { SubmissionForm } from "@/app/components/orbital/SubmissionForm";
 
 export default function Content() { return <>
 <div className="page-location">
@@ -13,7 +12,7 @@ export default function Content() { return <>
 <nav className="section-links" aria-label="På denne siden">
 <a href="#arbeidsformer">{"Arbeidsformer"}</a>
 <a href="#prosessen">{"Prosessen"}</a>
-<a href="#veiledning">{"Veiledning"}</a>
+<a href="#skolearet">{"Skoleåret"}</a>
 </nav>
 </div>
 </div>
@@ -21,7 +20,6 @@ export default function Content() { return <>
 <section className="program-workbench">
 <div className="shell workbench-grid">
 <div>
-<p className="eyebrow">{"Programmet / Arbeidsmåten"}</p>
 <h1>{"Fra oppdrag"}<br />{"til løsning."}</h1>
 <p className="lead">{"Les kravene. Bygg og test. Dokumenter resultatet. Veien gjennom prosjektet avhenger av hva elevene skal lage."}</p>
 </div>
@@ -46,19 +44,20 @@ export default function Content() { return <>
 <section className="section paper" id="arbeidsformer">
 <div className="shell">
 <div className="section-heading">
-<h2>{"Ulike oppdrag. Ulike utgangspunkt."}</h2>
+<h2>{"To spor. Ulike utgangspunkt."}</h2>
+<p>{"NASA HUNCH har flere programspor. I Norge kjøres to av dem."}</p>
 </div>
 <div className="two-column">
 <article>
-<h3>{"Arbeid etter tegning"}</h3>
-<p>{"Elevene planlegger produksjonen, velger arbeidsmetode og kontrollerer delen mot kravene. Nøyaktighet og dokumentasjon er en del av leveransen."}</p>
+<h3>{"Produksjon etter tegning"}</h3>
+<p>{"Elevene produserer utstyr etter tegninger og toleransekrav fra NASA. De planlegger produksjonen, velger arbeidsmetode og kontrollerer delen mot kravene. Sporet kjøres på teknologi- og industrifag ved Eid vidaregåande skule."}</p>
 </article>
 <article>
-<h3>{"Utvikle en løsning"}</h3>
-<p>{"Elevene undersøker et behov og prøver ut ulike konsepter. Prototyper og tester gir grunnlag for å velge hva de skal jobbe videre med."}</p>
+<h3>{"Design og prototyping"}</h3>
+<p>{"Astronauter skriver oppgavene ut fra reelle problemer på romstasjonen og kommende måneferder. Elevene utvikler og tester løsninger som vurderes av NASA-ingeniører. Sporet starter i Norge skoleåret 2026/27, og er ikke kjørt utenfor USA før."}</p>
 </article>
 </div>
-<p className="source-note">{"Dette er to av arbeidsformene i det amerikanske programmet. "}<a href="https://engineering.larc.nasa.gov/hunch-program/">{"Les mer hos NASA Langley ↗"}</a>
+<p className="source-note">{"Les mer om programsporene "}<a href="https://engineering.larc.nasa.gov/hunch-program/">{"hos NASA Langley ↗"}</a>
 </p>
 </div>
 </section>
@@ -104,15 +103,20 @@ export default function Content() { return <>
 </div>
 </div>
 </section>
-<section className="section paper" id="veiledning">
+<section className="section paper" id="skolearet">
 <div className="shell editorial">
 <div>
 <h2>{"Gjennomganger underveis."}</h2>
+<p className="lead">{"Et skoleår i HUNCH følger en fast rytme. Elevene presenterer arbeidet for fagfolk, forklarer valgene sine og bruker tilbakemeldingene videre."}</p>
 </div>
 <div className="prose">
-<p>{"I det amerikanske løpet for design og prototyping presenterer elevteam løsningene sine for fagfolk. De må forklare valgene sine og bruke tilbakemeldingene i videre arbeid."}</p>
-<p>{"For en norsk skole må antall gjennomganger, veiledere og frister avtales som del av opplegget. Det er ikke én fast tidsplan for alle typer oppdrag."}</p>
-<a className="text-link" href="https://nasahunch.com/programs/design-and-prototyping">{"Design & Prototyping i USA"}<span aria-hidden="true">{"↗"}</span>
+<ol className="year-cycle year-cycle-wide" role="list">
+<li><b>{"Høst"}</b><span>{"Oppstart ved skolen, med elever, lærere og besøk fra NASA HUNCH i USA."}</span></li>
+<li><b>{"November"}</b><span>{"Første designgjennomgang. Elevene viser hvordan de har forstått oppdraget."}</span></li>
+<li><b>{"Februar"}</b><span>{"Kritisk designgjennomgang før produksjon og testing."}</span></li>
+<li><b>{"Vår"}</b><span>{"Ferdige produkter overleveres ved slutten av skoleåret."}</span></li>
+</ol>
+<a className="text-link" href="https://nasahunch.com/programs/design-and-prototyping">{"Design and Prototyping hos NASA HUNCH"}<span aria-hidden="true">{"↗"}</span>
 </a>
 </div>
 </div>
@@ -134,8 +138,7 @@ export default function Content() { return <>
 <figcaption>{"Ball Clamp Monopod på ISS, Foto: NASA"}</figcaption>
 </figure>
 <div>
-<p className="eyebrow">{"Et eksempel fra USA"}</p>
-<h2>{"Et kamerafeste bygget av elever."}</h2>
+<h2>{"Et kamerafeste bygget av elever i USA."}</h2>
 <p>{"Ball Clamp Monopod ble testet på romstasjonen i 2023. Prosjektet viser hvordan designarbeid og produksjon kan henge sammen."}</p>
 <a className="text-link" href="/prosjekt">{"Se prosjektet"}<span aria-hidden="true">{"↗"}</span>
 </a>

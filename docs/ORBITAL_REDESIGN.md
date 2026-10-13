@@ -44,7 +44,7 @@ Start med felles komponenter og forsiden, og viderefør den godkjente scrolloppf
 
 ## Designregler
 
-Synlig tekst skal ikke bruke bindestrek, tankestrek eller midtpunkt. Tekniske adresser og kode beholder nødvendig syntaks. Bruk én tydelig innholdsoverskrift per seksjon uten ekstra nummer og seksjonsnavn. Behold scrolleindikatoren på forsiden.
+Synlig tekst skal ikke bruke tankestrek eller midtpunkt som skilletegn, og ikke bindestrek som erstatning for tankestrek. Bindestrek brukes der norsk rettskrivning krever det: i sammensetninger med forkortelser og tall (e-post, CAD-verktøy, QR-kode, HMS-rutiner, 3D-print, NASA-ingeniører) og i egennavn (Hewitt-Trussville). Tekniske adresser og kode beholder nødvendig syntaks. Ikke bruk små overskrifter i versaler over hovedoverskriften. Bruk én tydelig innholdsoverskrift per seksjon uten ekstra nummer og seksjonsnavn. Behold scrolleindikatoren på forsiden.
 
 Samle korte kildenotater og videre lenker med innholdet de tilhører. Varier komposisjonen etter sidenes oppgave. Orbitalene skal forme innholdet og holde teksten lesbar.
 

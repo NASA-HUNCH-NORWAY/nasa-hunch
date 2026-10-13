@@ -1,6 +1,4 @@
 import { ContactLinks } from "@/app/components/orbital/ContactLinks";
-import Image from "next/image";
-import { SubmissionForm } from "@/app/components/orbital/SubmissionForm";
 
 export default function Content() { return <>
 <div className="page-location">
@@ -12,6 +10,7 @@ export default function Content() { return <>
 </nav>
 <nav className="section-links" aria-label="På denne siden">
 <a href="#spor">{"Finn ditt fag"}</a>
+<a href="#tilbudet">{"Dette får skolen"}</a>
 <a href="#ansvar">{"Før oppstart"}</a>
 <a href="#interesse">{"Kontakt"}</a>
 </nav>
@@ -21,30 +20,26 @@ export default function Content() { return <>
 <section className="school-masthead">
 <div className="shell school-masthead-grid">
 <div>
-<p className="eyebrow">{"For lærere og skoleledere"}</p>
 <h1>{"Start med faget."}<br />{"Finn et oppdrag."}</h1>
-<p className="lead">{"HUNCH kan passe i både verkstedet, kjøkkenet og datarommet. Se konkrete eksempler og vurder dem opp mot det elevene skal lære."}</p>
+<p className="lead">{"For lærere og skoleledere i videregående skole. HUNCH kan passe i både verkstedet, kjøkkenet og datarommet, og det er gratis for skolen å delta."}</p>
 <a className="text-link" href="#spor">{"Utforsk fagcasene "}<span aria-hidden="true">{"↓"}</span>
 </a>
 </div>
-<div className="orbit-art hero-orbit hero-orbit-school" aria-hidden="true">
+<div className="orbit-art hero-orbit hero-orbit-school subject-orbit" aria-hidden="true">
 <svg viewBox="0 0 600 600" preserveAspectRatio="xMinYMid slice">
-<defs>
-<mask id="school-field-moon">
-<circle r="8" fill="white" />
-<circle cx="4" cy="-4" r="7" fill="black" />
-</mask>
-</defs>
 <path className="hero-orbit-fill" d="M 300 -100 C -30 80 -30 520 300 700 L 700 700 L 700 -100 Z" />
 <path id="school-field-path" className="hero-orbit-line" d="M 300 -100 C -30 80 -30 520 300 700" />
-<g data-orbit-body="" data-path="school-field-path" transform="translate(52.5 300)">
+<g data-orbit-body="" data-path="school-field-path" data-orbit-position=".5" data-orbit-drift=".02">
 <circle className="planet-halo" r="26" />
 <circle className="planet" r="18" />
-<g data-moon="" transform="translate(42 -30)">
-<circle r="8" fill="white" mask="url(#school-field-moon)" />
-</g>
 </g>
 </svg>
+<ul className="subject-orbit-labels">
+<li>{"Industriteknologi"}</li>
+<li>{"Teknologi og forskningslære"}</li>
+<li>{"Restaurant og matfag"}</li>
+<li>{"Informasjonsteknologi"}</li>
+</ul>
 </div>
 </div>
 </section>
@@ -52,32 +47,32 @@ export default function Content() { return <>
 <div className="shell">
 <div className="section-heading">
 <h2>{"Hva kan elevene jobbe med?"}</h2>
-<p>{"Fire eksempler fra HUNCH, med forslag til oppgaver, fagkoblinger og elevarbeid. De norske undervisningsforslagene er våre tilpasninger, ikke ferdige oppdrag fra NASA."}</p>
+<p>{"Fire eksempler fra HUNCH, med forslag til oppgaver, fagkoblinger og elevarbeid. Undervisningsforslagene er våre tilpasninger, ikke oppdrag fra NASA."}</p>
 </div>
 <div className="subject-cards">
 <a className="subject-card subject-produksjon" href="/fagcase#produksjon">
-<span className="eyebrow">{"TIF / Industriteknologi"}</span>
+<span className="subject-label">{"TIF / Industriteknologi"}</span>
 <h3>{"Hylser etter tegning fra NASA"}</h3>
 <p>{"Måling, toleranser og produksjon, fra øvingsmodell til kontrollert del."}</p>
 <span className="card-action">{"Se fagcaset "}<span aria-hidden="true">{"↗"}</span>
 </span>
 </a>
 <a className="subject-card subject-design" href="/fagcase#design">
-<span className="eyebrow">{"Teknologi og forskningslære"}</span>
+<span className="subject-label">{"Teknologi og forskningslære"}</span>
 <h3>{"Et grep som fungerer"}</h3>
 <p>{"CAD, prototyper og forsøksdata. Hvordan vet dere at en løsning er bedre?"}</p>
 <span className="card-action">{"Se fagcaset "}<span aria-hidden="true">{"↗"}</span>
 </span>
 </a>
 <a className="subject-card subject-matfag" href="/fagcase#matfag">
-<span className="eyebrow">{"Restaurant og matfag"}</span>
+<span className="subject-label">{"Restaurant og matfag"}</span>
 <h3>{"En oppskrift med tekniske krav"}</h3>
 <p>{"Råvarevalg, ernæring og sensorisk vurdering. Romfart trenger også matfag."}</p>
 <span className="card-action">{"Se fagcaset "}<span aria-hidden="true">{"↗"}</span>
 </span>
 </a>
 <a className="subject-card subject-it" href="/fagcase#it">
-<span className="eyebrow">{"Informasjonsteknologi"}</span>
+<span className="subject-label">{"Informasjonsteknologi"}</span>
 <h3>{"Finn riktig utstyr med en kode"}</h3>
 <p>{"Brukerbehov, databaser og testing, med et konkret verktøy for verkstedet."}</p>
 <span className="card-action">{"Se fagcaset "}<span aria-hidden="true">{"↗"}</span>
@@ -88,27 +83,6 @@ export default function Content() { return <>
 </a>
 </div>
 </section>
-<div className="orbit-crossing orbit-crossing-school orbit-art" aria-hidden="true">
-<svg viewBox="0 0 1600 620" preserveAspectRatio="xMidYMid slice">
-<defs>
-<mask id="school-crossing-moon">
-<circle r="8" fill="white" />
-<circle cx="4" cy="-4" r="7" fill="black" />
-</mask>
-</defs>
-<path className="orbit-field" d="M -100 40 C 400 260 1100 260 1700 60 L 1700 620 L -100 620 Z" />
-<path id="school-crossing-path" className="orbit-field-edge" d="M -100 40 C 400 260 1100 260 1700 60" />
-<path className="orbit-inner-field" d="M -100 730 C 350 410 1150 410 1700 730 L 1700 800 L -100 800 Z" />
-<path className="orbit-inner-edge" d="M -100 730 C 350 410 1150 410 1700 730" />
-<g data-orbit-body="" data-transit="" data-path="school-crossing-path" transform="translate(-100 40)">
-<circle className="crossing-halo" r="29" />
-<circle className="crossing-planet" r="21" />
-<g data-moon="" transform="translate(-43 -27)">
-<circle r="8" fill="white" mask="url(#school-crossing-moon)" />
-</g>
-</g>
-</svg>
-</div>
 <section className="section " id="laereplan">
 <div className="shell editorial">
 <div>
@@ -128,10 +102,26 @@ export default function Content() { return <>
 <h2>{"Fra øvingsmodell til levert del."}</h2>
 </div>
 <div className="prose">
-<p>{"En norsk studie publisert i 2026 beskriver elever som laget hylser etter NASAs tegninger. Undervisningen gikk fra forstørrede øvingsmodeller til deler i riktig størrelse."}</p>
+<p>{"Pilotprosjektet ved Eid vidaregåande skule er beskrevet i en norsk studie publisert i 2026. Elevene laget hylser etter NASAs tegninger, og undervisningen gikk fra forstørrede øvingsmodeller til deler i riktig størrelse."}</p>
 <p>{"Intervjuer med elleve elever og tre lærere pekte på motivasjon og fellesskap rundt oppdraget. Studien er liten og kvalitativ; den dokumenterer ikke en generell effekt på læringsresultater."}</p>
 <a className="text-link" href="https://link.springer.com/article/10.1007/s44217-026-01443-8">{"Les studien av Garrels og Brevik"}<span aria-hidden="true">{"↗"}</span>
 </a>
+</div>
+</div>
+</section>
+<section className="section school-offer" id="tilbudet">
+<div className="shell editorial">
+<div>
+<h2>{"Dette får skolen."}</h2>
+<p className="lead">{"Deltakelse er gratis. Skolen stiller med lærertid, elever og et sted å jobbe."}</p>
+</div>
+<div className="prose">
+<ul className="offer-list" role="list">
+<li><h3>{"Et ekte oppdrag"}</h3><p>{"Tegninger, krav og oppgavetekster fra NASA HUNCH, tilpasset faget og elevgruppen."}</p></li>
+<li><h3>{"Et skoleår med struktur"}</h3><p>{"Oppstart om høsten, designgjennomganger i november og februar, og overlevering av ferdige produkter om våren."}</p></li>
+<li><h3>{"Tilbakemelding fra fagfolk"}</h3><p>{"Elevene presenterer arbeidet og får respons fra ingeniører og mentorer i NASA HUNCH."}</p></li>
+<li><h3>{"Oppfølging av lærerne"}</h3><p>{"Vi koordinerer med NASA HUNCH i USA og følger opp lærerne gjennom hele året."}</p></li>
+</ul>
 </div>
 </div>
 </section>
@@ -170,46 +160,22 @@ export default function Content() { return <>
 <div className="prose">
 <div className="faq">
 <details>
+<summary>{"Hva koster det å delta?"}</summary>
+<p>{"Det er gratis for skolen å delta. Krever et oppdrag spesielle materialer, utstyr eller reiser, avklarer vi hvordan det dekkes før skolen forplikter seg."}</p>
+</details>
+<details>
 <summary>{"Må skolen ha et avansert verksted?"}</summary>
 <p>{"Utstyrskravene avhenger av oppdraget. Et prototypeprosjekt og et produksjonsoppdrag kan ha svært ulike behov. Utstyrslisten må avklares før dere velger."}</p>
 </details>
 <details>
 <summary>{"Hvor lang tid tar et prosjekt?"}</summary>
-<p>{"Det må avtales for det enkelte oppdraget. Arbeidet kan organiseres rundt innføring, bygging, testing og presentasjon, men omfanget må passe inn i skolens plan."}</p>
+<p>{"Et oppdrag følger skoleåret, fra oppstart om høsten til overlevering om våren. Hvor mye undervisningstid det tar, avhenger av oppdraget og faget. Det avtaler vi med skolen før oppstart."}</p>
 </details>
 <details>
 <summary>{"Blir det elevene lager sendt til rommet?"}</summary>
 <p>{"Ikke nødvendigvis. Et prosjekt kan ende i en prototype eller brukes til trening og videre utvikling. Bruk i rommet krever egne vurderinger og godkjenninger."}</p>
 </details>
-<details>
-<summary>{"Hva koster det å delta?"}</summary>
-<p>{"Vi oppgir ikke en fast pris her. Materialer, utstyr, veiledning og eventuelle reiser må avklares før skolen forplikter seg."}</p>
-</details>
 </div>
-</div>
-</div>
-</section>
-<section className="newsletter-feature section paper" aria-labelledby="school-newsletter-title">
-<div className="shell newsletter-feature-grid">
-<div>
-<h2 id="school-newsletter-title">{"Nytt fra HUNCH."}</h2>
-</div>
-<div>
-<p>{"Få beskjed når vi deler nytt om oppdrag, elevprosjekter og muligheter for skoler."}</p>
-<SubmissionForm kind="newsletter" className="newsletter-form newsletter-inline">
-<div className="newsletter-entry">
-<label className="visually-hidden" htmlFor="newsletter-schools">{"Epostadresse"}</label>
-<input id="newsletter-schools" name="email" type="email" autoComplete="email" placeholder="Epostadresse" maxLength={254} required />
-<button type="submit" className="form-submit">{"Meld meg på "}<span aria-hidden="true">{"↗"}</span>
-</button>
-</div>
-<label className="newsletter-consent">
-<input type="checkbox" name="consent" required />
-<span>{"Jeg samtykker til å motta nyhetsbrev. Jeg kan melde meg av når som helst. "}<a href="/personvern">{"Personvern"}</a>{"."}</span>
-</label>
-<label className="form-honeypot" aria-hidden="true">{"La dette feltet stå tomt"}<input name="website" tabIndex={-1} autoComplete="off" />
-</label>
-</SubmissionForm>
 </div>
 </div>
 </section>

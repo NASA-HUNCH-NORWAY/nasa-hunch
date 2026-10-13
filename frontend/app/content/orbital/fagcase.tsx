@@ -1,5 +1,3 @@
-import Image from "next/image";
-import { SubmissionForm } from "@/app/components/orbital/SubmissionForm";
 
 export default function Content() { return <>
 <div className="page-location">
@@ -35,11 +33,10 @@ export default function Content() { return <>
 </g>
 </svg>
 </div>
-<p className="eyebrow">{"For skoler / Fagcase"}</p>
 <h1>{"Fra romoppdrag"}<br />{"til faglig arbeid."}</h1>
 <div className="casebook-lead">
 <p className="lead">{"Hva kan elevene gjøre, og hva kan læreren vurdere? Her er fire konkrete innganger."}</p>
-<p className="casebook-note">{"Hvert case skiller mellom et dokumentert prosjekt i HUNCH og et forslag til norsk undervisning. Oppgavene er ikke godkjente NASA leveranser eller bekreftede norske tilbud."}</p>
+<p className="casebook-note">{"Hvert case skiller mellom et dokumentert prosjekt i HUNCH og et forslag til norsk undervisning. Undervisningsforslagene er våre tilpasninger, ikke oppdrag godkjent av NASA."}</p>
 </div>
 </section>
 <nav className="casebook-index shell" id="caseoversikt" aria-label="Fagcase">
@@ -64,17 +61,17 @@ export default function Content() { return <>
 <article className="subject-study subject-produksjon" id="produksjon">
 <header className="study-header">
 <div>
-<p className="eyebrow">{"TIF / Industriteknologi"}</p>
+<p className="subject-label">{"TIF / Industriteknologi"}</p>
 <h2>{"Hylser etter tegning fra NASA"}</h2>
-<p className="study-origin">{"Norge, dokumentert i studie fra 2026"}</p>
+<p className="study-origin">{"Eid vidaregåande skule, dokumentert i en studie fra 2026"}</p>
 </div>
 </header>
 <div className="study-grid">
 <aside className="study-evidence">
-<p className="eyebrow">{"Det dokumenterte prosjektet"}</p>
+<span className="proposal-label evidence-label">{"Det dokumenterte prosjektet"}</span>
 <h3>{"Deler levert til NASA"}</h3>
-<p>{"En norsk skole fikk tegninger, spesifikasjoner og stål fra NASA for å produsere hylser til en transportbeholder. Lærerne la opp et løp med forstørrede øvingsmodeller før elevene laget deler i riktig størrelse. Studien beskriver at hylsene ble overlevert til NASA, ikke at de allerede hadde vært i rommet."}</p>
-<a href="https://link.springer.com/article/10.1007/s44217-026-01443-8">{"Garrels og Brevik: norsk HUNCH studie ↗"}</a>
+<p>{"Elever på teknologi- og industrifag ved Eid vidaregåande skule fikk tegninger, spesifikasjoner og stål fra NASA for å produsere hylser til en transportbeholder. Lærerne la opp et løp med forstørrede øvingsmodeller før elevene laget deler i riktig størrelse. Studien beskriver at hylsene ble overlevert til NASA, ikke at de allerede hadde vært i rommet."}</p>
+<a href="https://link.springer.com/article/10.1007/s44217-026-01443-8">{"Garrels og Brevik: norsk HUNCH-studie ↗"}</a>
 </aside>
 <div className="study-teaching">
 <span className="proposal-label">{"Forslag til norsk undervisning"}</span>
@@ -95,7 +92,7 @@ export default function Content() { return <>
 <p>{"Læreren kan se etter begrunnede metodevalg, riktig bruk av måleutstyr og om eleven klarer å vurdere eget resultat."}</p>
 <p className="study-practical">
 <strong>{"Utstyr og rammer"}</strong>
-<br />{"Verksted, relevante maskiner og måleutstyr. Arbeidet må tilpasses opplæring og skolens HMS rutiner."}</p>
+<br />{"Verksted, relevante maskiner og måleutstyr. Arbeidet må tilpasses opplæring og skolens HMS-rutiner."}</p>
 </div>
 </div>
 <a className="back-to-cases" href="#caseoversikt">{"↑ Til alle fagcase"}</a>
@@ -103,16 +100,16 @@ export default function Content() { return <>
 <article className="subject-study subject-design" id="design">
 <header className="study-header">
 <div>
-<p className="eyebrow">{"Teknologi og forskningslære"}</p>
+<p className="subject-label">{"Teknologi og forskningslære"}</p>
 <h2>{"Et grep som fungerer"}</h2>
 <p className="study-origin">{"USA, Ball Clamp Monopod, 2023"}</p>
 </div>
 </header>
 <div className="study-grid">
 <aside className="study-evidence">
-<p className="eyebrow">{"Det dokumenterte prosjektet"}</p>
+<span className="proposal-label evidence-label">{"Det dokumenterte prosjektet"}</span>
 <h3>{"Kamerafeste testet på ISS"}</h3>
-<p>{"I Ball Clamp Monopod prosjektet arbeidet elever med tommelskruen i et kamerafeste. De prøvde ut former med CAD og 3D print før løsningen gikk videre. Kamerafestet ble testet på ISS i 2023."}</p>
+<p>{"I Ball Clamp Monopod-prosjektet arbeidet elever med tommelskruen i et kamerafeste. De prøvde ut former med CAD og 3D-print før løsningen gikk videre. Kamerafestet ble testet på ISS i 2023."}</p>
 <a href="https://www.nasa.gov/podcasts/houston-we-have-a-podcast/the-student-built-camera-mount/">{"NASA: The Student Built Camera Mount ↗"}</a>
 <p>
 <a href="/prosjekt">{"Les hele prosjekthistorien ↗"}</a>
@@ -128,7 +125,7 @@ export default function Content() { return <>
 <div className="study-delivery">
 <h3>{"Elevene kan levere"}</h3>
 <ul>
-<li>{"En enkel kravspesifikasjon og CAD modeller"}</li>
+<li>{"En enkel kravspesifikasjon og CAD-modeller"}</li>
 <li>{"Prototyper og en begrunnet testmetode"}</li>
 <li>{"Resultater, usikkerhet og anbefalt løsning"}</li>
 </ul>
@@ -137,7 +134,7 @@ export default function Content() { return <>
 <p>{"Eleven kan vise om testen faktisk undersøker kravet, hvordan dataene brukes og hvorfor én løsning velges fremfor en annen."}</p>
 <p className="study-practical">
 <strong>{"Utstyr og rammer"}</strong>
-<br />{"CAD verktøy, tilgang til prototyping og en enkel testbenk. En skolemodell er ikke romgodkjent maskinvare."}</p>
+<br />{"CAD-verktøy, tilgang til prototyping og en enkel testbenk. En skolemodell er ikke romgodkjent maskinvare."}</p>
 </div>
 </div>
 <a className="back-to-cases" href="#caseoversikt">{"↑ Til alle fagcase"}</a>
@@ -145,17 +142,17 @@ export default function Content() { return <>
 <article className="subject-study subject-matfag" id="matfag">
 <header className="study-header">
 <div>
-<p className="eyebrow">{"Restaurant og matfag"}</p>
+<p className="subject-label">{"Restaurant og matfag"}</p>
 <h2>{"En oppskrift med tekniske krav"}</h2>
-<p className="study-origin">{"USA, Hewitt Trussville High School, 2020"}</p>
+<p className="study-origin">{"USA, Hewitt-Trussville High School, 2020"}</p>
 </div>
 </header>
 <div className="study-grid">
 <aside className="study-evidence">
-<p className="eyebrow">{"Det dokumenterte prosjektet"}</p>
+<span className="proposal-label evidence-label">{"Det dokumenterte prosjektet"}</span>
 <h3>{"Vinner av HUNCHs matkonkurranse"}</h3>
-<p>{"Elever ved Hewitt Trussville High School vant HUNCHs matkonkurranse i 2020 med marokkansk kyllingtagine. Retten måtte møte ernæringskrav og egne krav til videre behandling. Både maten og dokumentasjonen inngikk i vurderingen. NASAs artikkel omtaler en planlagt vei videre, ikke en bekreftet servering på ISS."}</p>
-<a href="https://www.nasa.gov/centers-and-facilities/marshall/alabama-high-school-students-create-a-meal-nasa-will-send-to-astronauts-in-space/">{"NASA: Hewitt Trussvilles vinnermåltid ↗"}</a>
+<p>{"Elever ved Hewitt-Trussville High School vant HUNCHs matkonkurranse i 2020 med marokkansk kyllingtagine. Retten måtte møte ernæringskrav og egne krav til videre behandling. Både maten og dokumentasjonen inngikk i vurderingen. NASAs artikkel omtaler en planlagt vei videre, ikke en bekreftet servering på ISS."}</p>
+<a href="https://www.nasa.gov/centers-and-facilities/marshall/alabama-high-school-students-create-a-meal-nasa-will-send-to-astronauts-in-space/">{"NASA: Hewitt-Trussvilles vinnermåltid ↗"}</a>
 </aside>
 <div className="study-teaching">
 <span className="proposal-label">{"Forslag til norsk undervisning"}</span>
@@ -184,22 +181,22 @@ export default function Content() { return <>
 <article className="subject-study subject-it" id="it">
 <header className="study-header">
 <div>
-<p className="eyebrow">{"Informasjonsteknologi"}</p>
+<p className="subject-label">{"Informasjonsteknologi"}</p>
 <h2>{"Finn riktig utstyr med en kode"}</h2>
 <p className="study-origin">{"USA, Poquoson High School, 2019"}</p>
 </div>
 </header>
 <div className="study-grid">
 <aside className="study-evidence">
-<p className="eyebrow">{"Det dokumenterte prosjektet"}</p>
+<span className="proposal-label evidence-label">{"Det dokumenterte prosjektet"}</span>
 <h3>{"Konsept vurdert i designgjennomgang"}</h3>
 <p>{"NASA omtalte Poquoson High Schools prosjekt «Augmented Reality Object Recognition: QR Code» etter en designgjennomgang i 2019. Teamet ble vurdert som en kandidat til den avsluttende gjennomgangen. Kilden dokumenterer et elevkonsept, ikke et system satt i drift på ISS."}</p>
-<a href="https://www.nasa.gov/centers-and-facilities/langley/high-school-students-look-to-improve-astronauts-palates-workspaces-via-hunch-program/">{"NASA Langley: prosjekt i HUNCHer i 2019 ↗"}</a>
+<a href="https://www.nasa.gov/centers-and-facilities/langley/high-school-students-look-to-improve-astronauts-palates-workspaces-via-hunch-program/">{"NASA Langley: HUNCH-prosjekter i 2019 ↗"}</a>
 </aside>
 <div className="study-teaching">
 <span className="proposal-label">{"Forslag til norsk undervisning"}</span>
 <h3>{"En mulig oppgave"}</h3>
-<p>{"Lag en liten utstyrsoversikt for skolens verksted. En QR kode på en gjenstand åpner riktig utstyrsside med plassering og bruksinformasjon. Start uten AR. Test hva som skjer når koden er ukjent, en gjenstand er flyttet eller informasjonen mangler."}</p>
+<p>{"Lag en liten utstyrsoversikt for skolens verksted. En QR-kode på en gjenstand åpner riktig utstyrsside med plassering og bruksinformasjon. Start uten AR. Test hva som skjer når koden er ukjent, en gjenstand er flyttet eller informasjonen mangler."}</p>
 <h3>{"Kobling til faget"}</h3>
 <p>{"Vg2 informasjonsteknologi, utvikling: behovskartlegging, funksjonelle krav, brukergrensesnitt, databaser, testing og teknisk dokumentasjon."}</p>
 <a className="curriculum-link" href="https://www.udir.no/lk20/itk02-01/kompetansemaal-og-vurdering/kv374">{"Læreplan: Vg2 informasjonsteknologi, utvikling ↗"}</a>
@@ -215,7 +212,7 @@ export default function Content() { return <>
 <p>{"Elevene kan vise hvordan løsningen dekker behovet, håndterer feil og er testet. Bruk et eksempelregister uten personopplysninger."}</p>
 <p className="study-practical">
 <strong>{"Utstyr og rammer"}</strong>
-<br />{"Datamaskiner, kamera eller mobil og utviklingsverktøy. Oppgaven kan gjennomføres lokalt uten tilgang til NASA systemer."}</p>
+<br />{"Datamaskiner, kamera eller mobil og utviklingsverktøy. Oppgaven kan gjennomføres lokalt uten tilgang til NASA-systemer."}</p>
 </div>
 </div>
 <a className="back-to-cases" href="#caseoversikt">{"↑ Til alle fagcase"}</a>
@@ -228,7 +225,7 @@ export default function Content() { return <>
 </div>
 <div className="prose">
 <p>{"En målerapport kan også gi materiale til beregninger og grafisk fremstilling. En teknisk presentasjon kan gi en konkret oppgave med skriftlig og muntlig formidling på engelsk."}</p>
-<p>{"Dette er forslag til samarbeid mellom lærere, ikke en egen dokumentert case eller en automatisk læreplankobling. Avtal hva hvert fag skal bidra med og vurdere."}</p>
+<p>{"Dette er forslag til samarbeid mellom lærere, ikke et eget dokumentert case eller en automatisk læreplankobling. Avtal hva hvert fag skal bidra med og vurdere."}</p>
 <a className="text-link" href="/skoler#interesse">{"Diskuter et opplegg for skolen "}<span aria-hidden="true">{"↗"}</span>
 </a>
 </div>

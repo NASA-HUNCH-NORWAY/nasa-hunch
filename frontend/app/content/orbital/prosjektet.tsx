@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { SubmissionForm } from "@/app/components/orbital/SubmissionForm";
 
 export default function Content() { return <>
 <div className="page-location">
@@ -18,10 +17,8 @@ export default function Content() { return <>
 </div>
 <main id="main">
 <section className="case-intro shell">
-<a className="back-link" href="/#prosjekt">{"← Forsiden"}</a>
-<p className="eyebrow">{"Prosjekthistorie / USA / 2023"}</p>
 <h1>{"Et kamerafeste til romstasjonen."}</h1>
-<p className="lead">{"Ball Clamp Monopod ble utviklet og produsert med bidrag fra amerikanske elever i HUNCH. I 2023 ble det testet på ISS."}</p>
+<p className="lead">{"Et eksempel fra USA. Ball Clamp Monopod ble utviklet og produsert med bidrag fra amerikanske elever i HUNCH, og testet på ISS i 2023."}</p>
 </section>
 <figure className="case-cover shell">
 <div className="photo-orbit-frame orbit-art">
@@ -69,16 +66,16 @@ export default function Content() { return <>
 </div>
 <div className="prose">
 <p>{"Elevene Shane Johnson og Matthew Rubis arbeidet med tommelskruen som strammer ballklemmen. Formen måtte gi et godt grep, og skruen måtte passe i den eksisterende mekanismen."}</p>
-<p>{"De justerte modeller i CAD, laget prøver med 3D printing og testet ulike former. Prosjektet omfattet også elevarbeid med kamerasko, ballklemme og produksjon av deler."}</p>
+<p>{"De justerte modeller i CAD, laget prøver med 3D-printing og testet ulike former. Prosjektet omfattet også elevarbeid med kamerasko, ballklemme og produksjon av deler."}</p>
 </div>
 </div>
 <div className="shell detail-gallery">
 <figure>
-<Image src="/assets/ball-clamp-iterations.png" width={320} height={180} loading="lazy" alt="varianter laget med 3D printing ved siden av den ferdige metalldelen." />
+<Image src="/assets/ball-clamp-iterations.png" width={320} height={180} loading="lazy" alt="Varianter laget med 3D-printing ved siden av den ferdige metalldelen." />
 <figcaption>{"Utprøving av tommelskruen, NASA HUNCH"}</figcaption>
 </figure>
 <figure>
-<Image src="/assets/ball-clamp-assembled.jpg" width={320} height={142} loading="lazy" alt="Ferdigmonterte Ball Clamp Monopod enheter." />
+<Image src="/assets/ball-clamp-assembled.jpg" width={320} height={142} loading="lazy" alt="Ferdigmonterte Ball Clamp Monopod-enheter." />
 <figcaption>{"Ferdigmonterte enheter, NASA HUNCH"}</figcaption>
 </figure>
 </div>

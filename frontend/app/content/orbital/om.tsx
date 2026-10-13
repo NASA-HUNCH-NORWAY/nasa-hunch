@@ -1,6 +1,4 @@
 import { AboutClosing } from "@/app/components/orbital/AboutClosing";
-import Image from "next/image";
-import { SubmissionForm } from "@/app/components/orbital/SubmissionForm";
 
 export default function Content() { return <>
 <div className="page-location">
@@ -12,7 +10,7 @@ export default function Content() { return <>
 </nav>
 <nav className="section-links" aria-label="På denne siden">
 <a href="#bakgrunn">{"Bakgrunn"}</a>
-<a href="#norge">{"I Norge"}</a>
+<a href="#i-norge">{"I Norge"}</a>
 <a href="/team">{"Teamet bak"}</a>
 </nav>
 </div>
@@ -21,9 +19,8 @@ export default function Content() { return <>
 <section className="about-masthead">
 <div className="page-hero shell about-hero-grid">
 <div>
-<p className="eyebrow">{"Om NASA HUNCH"}</p>
 <h1>{"Skole, verksted"}<br />{"og romfart."}</h1>
-<p className="lead">{"I HUNCH utvikler og produserer elever løsninger for NASA. Her er bakgrunnen for programmet og hvordan det kan brukes i Norge."}</p>
+<p className="lead">{"I HUNCH designer og produserer elever i videregående skole utstyr etter behov hos NASA. Her er bakgrunnen for programmet, og slik drives det i Norge."}</p>
 <a className="text-link" href="#bakgrunn">{"Hva er HUNCH? "}<span aria-hidden="true">{"↓"}</span>
 </a>
 </div>
@@ -54,34 +51,30 @@ export default function Content() { return <>
 <h2>{"Fra idé til praktisk arbeid."}</h2>
 </div>
 <div className="prose">
-<p>{"HUNCH står for High school students United with NASA to Create Hardware. Programmet kobler undervisning til behov innen romfart og lar elever bidra med både design og produksjon."}</p>
+<p>{"HUNCH står for High Schools United with NASA to Create Hardware. Programmet kobler undervisning til behov innen romfart og lar elever bidra med både design og produksjon. Voyager Technologies driver programmet internasjonalt."}</p>
 <p>{"Noen prosjekter blir brukt til trening eller videre utvikling. Andre blir vurdert for bruk i rommet. Deltakelse er ikke en garanti for at et produkt blir sendt til ISS."}</p>
 <a className="text-link" href="https://www.nasa.gov/stem-content/high-school-students-united-with-nasa-to-create-hardware-hunch/">{"Om HUNCH hos NASA"}<span aria-hidden="true">{"↗"}</span>
 </a>
 </div>
 </div>
 </section>
-<div className="orbit-crossing orbit-crossing-about orbit-art" aria-hidden="true">
-<svg viewBox="0 0 1600 620" preserveAspectRatio="xMidYMid slice">
-<defs>
-<mask id="about-crossing-moon">
-<circle r="8" fill="white" />
-<circle cx="4" cy="-4" r="7" fill="black" />
-</mask>
-</defs>
-<path className="orbit-field" d="M -100 420 C 350 100 1100 100 1700 420 L 1700 620 L -100 620 Z" />
-<path id="about-crossing-path" className="orbit-field-edge" d="M -100 420 C 350 100 1100 100 1700 420" />
-<path className="orbit-inner-field" d="M -100 780 C 350 360 1100 360 1700 780 L 1700 850 L -100 850 Z" />
-<path className="orbit-inner-edge" d="M -100 780 C 350 360 1100 360 1700 780" />
-<g data-orbit-body="" data-transit="" data-path="about-crossing-path" transform="translate(-100 420)">
-<circle className="crossing-halo" r="29" />
-<circle className="crossing-planet" r="21" />
-<g data-moon="" transform="translate(-43 -27)">
-<circle r="8" fill="white" mask="url(#about-crossing-moon)" />
-</g>
-</g>
-</svg>
+<section className="section norway-section" id="i-norge">
+<div className="shell editorial">
+<div>
+<h2>{"Første land utenfor USA."}</h2>
 </div>
+<div className="prose">
+<p>{"Norge er det første landet utenfor USA som har fått drive NASA HUNCH. Hadeland videregående skole ble i 2024 den første skolen utenfor USA som ble tatt opp i programmet."}</p>
+<p>{"I dag drives programmet ved Eid vidaregåande skule i Nordfjordeid. Elever på teknologi- og industrifag har i to år produsert deler etter tegninger fra NASA. Skoleåret 2026/27 starter også sporet for design og prototyping, som ikke er kjørt utenfor USA før."}</p>
+<p>{"NASA HUNCH Norge er en ideell forening, stiftet i 2026. Vi drifter programmet i Norge i avtale med Voyager Technologies."}</p>
+<dl className="fact-row">
+<div><dt>{"Deltakerskole"}</dt><dd>{"Eid vidaregåande skule"}</dd></div>
+<div><dt>{"Elever 2026/27"}</dt><dd>{"Rundt 100"}</dd></div>
+<div><dt>{"Pris for skolen"}</dt><dd>{"Gratis"}</dd></div>
+</dl>
+</div>
+</div>
+</section>
 <AboutClosing />
 </main>
 </>; }

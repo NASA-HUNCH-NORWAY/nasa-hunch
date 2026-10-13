@@ -1,6 +1,4 @@
 import { ContactLinks } from "@/app/components/orbital/ContactLinks";
-import Image from "next/image";
-import { SubmissionForm } from "@/app/components/orbital/SubmissionForm";
 
 export default function Content() { return <>
 <div className="page-location">
@@ -11,6 +9,7 @@ export default function Content() { return <>
 <span aria-current="page">{"Partnere"}</span>
 </nav>
 <nav className="section-links" aria-label="På denne siden">
+<a href="#samarbeid">{"Hvem vi jobber med"}</a>
 <a href="#bidrag">{"Bidra"}</a>
 <a href="#slik-starter-det">{"Samarbeidet"}</a>
 <a href="#kontakt">{"Kontakt"}</a>
@@ -20,12 +19,11 @@ export default function Content() { return <>
 <main id="main">
 <section className="partner-invitation">
 <div className="shell">
-<p className="eyebrow">{"Partnere / Bedrifter og fagmiljøer"}</p>
 <div className="partner-invitation-grid">
 <div>
 <h1>{"Gi elevene"}<br />{"muligheter."}</h1>
 <p className="lead">{"Vi søker partnere som vil støtte NASA HUNCH Norge økonomisk og bidra til at flere elever får jobbe med romfart. Fagkunnskap, materialer og tilgang til utstyr er også verdifulle bidrag."}</p>
-<a className="text-link" href="#kontakt">{"Bli partner "}<span aria-hidden="true">{"↗"}</span>
+<a className="home-primary-link" href="/contact" data-contact-open="" data-contact-subject="Partnerskap og støtte">{"Bli partner "}<span aria-hidden="true">{"↗"}</span>
 </a>
 </div>
 <div className="orbit-art hero-orbit hero-orbit-partner" aria-hidden="true">
@@ -47,6 +45,22 @@ export default function Content() { return <>
 </g>
 </svg>
 </div>
+</div>
+</div>
+</section>
+<section className="section partner-context" id="samarbeid">
+<div className="shell editorial">
+<div>
+<h2>{"Programmet bak oppdragene."}</h2>
+</div>
+<div className="prose">
+<p>{"NASA HUNCH er et utdanningsprogram fra NASA. Voyager Technologies driver programmet internasjonalt, og NASA HUNCH Norge har avtale med Voyager om å drive det i Norge."}</p>
+<p>{"Oppdragene, tegningene og tilbakemeldingene elevene får, kommer gjennom programmet. Norske partnere gjør det mulig å nå flere skoler, kjøpe materialer og følge opp lærerne."}</p>
+<dl className="fact-row">
+<div><dt>{"Programmet"}</dt><dd>{"NASA"}</dd></div>
+<div><dt>{"Drives internasjonalt av"}</dt><dd>{"Voyager Technologies"}</dd></div>
+<div><dt>{"I Norge"}</dt><dd>{"NASA HUNCH Norge, ideell forening"}</dd></div>
+</dl>
 </div>
 </div>
 </section>
@@ -99,7 +113,7 @@ export default function Content() { return <>
 <h2>{"Flere fag i samme prosjekt."}</h2>
 </div>
 <div className="prose">
-<p>{"Det amerikanske kamerafestet Ball Clamp Monopod kombinerte elevbidrag innen design, 3D print og maskinering. Les om oppgaven og resultatet på ISS."}</p>
+<p>{"Det amerikanske kamerafestet Ball Clamp Monopod kombinerte elevbidrag innen design, 3D-print og maskinering. Les om oppgaven og resultatet på ISS."}</p>
 <a className="text-link" href="/prosjekt">{"Se Ball Clamp Monopod"}<span aria-hidden="true">{"↗"}</span>
 </a>
 </div>
