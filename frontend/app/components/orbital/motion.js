@@ -195,7 +195,8 @@ export function setupMotion() {
     });
   }
   layoutProcesses();
-  listen(window, 'resize', layoutProcesses);
+  let resizeFrame = 0;
+  listen(window, 'resize', () => { cancelAnimationFrame(resizeFrame); resizeFrame = requestAnimationFrame(layoutProcesses); });
 
   // SVG path and planet share one coordinate system. Only visible artwork is
   // animated; hidden tabs and reduced-motion preferences stop the frame loop.
@@ -207,9 +208,11 @@ export function setupMotion() {
   let animationFrame = 0, lastTime = 0, elapsed = 0;
   function paint() {
     const scroll = reduced.matches ? 0 : (story && snapMode.matches ? story.scrollTop : window.scrollY);
+    // Read every layout box before writing any transform, so the browser lays out once per frame.
+    const rects = bodies.map(item => item.visible && item.transit ? item.art.getBoundingClientRect() : null);
     bodies.forEach((item, index) => {
       if (!item.visible) return;
-      const rect = item.art.getBoundingClientRect();
+      const rect = rects[index] || {top: 0, height: 0};
       const passage = Math.max(0, Math.min(1, (innerHeight - rect.top) / (innerHeight + rect.height)));
       const progress = item.transit
         ? (reduced.matches ? .5 : .02 + passage * .96)

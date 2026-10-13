@@ -41,7 +41,7 @@ export default function Content() { return <>
 </div>
 <figure className="home-hero-media">
 <div className="hero-photo-frame">
-<Image src="/assets/ball-clamp-iss.jpg" width={2200} height={1466} priority alt="NASA astronaut Stephen Bowen tester et kamerafeste utviklet med bidrag fra amerikanske elever i HUNCH på ISS." />
+<Image src="/assets/ball-clamp-iss.jpg" width={2200} height={1466} priority sizes="(max-width: 720px) 100vw, (max-width: 1180px) 45vw, 540px" alt="NASA astronaut Stephen Bowen tester et kamerafeste utviklet med bidrag fra amerikanske elever i HUNCH på ISS." />
 <svg className="hero-photo-orbit" viewBox="0 0 600 150" aria-hidden="true">
 <path className="photo-orbit-field" d="M -40 130 Q 300 -20 640 130 L 640 190 L -40 190 Z" />
 <path id="home-photo-path" className="hero-orbit-line" d="M -40 130 Q 300 -20 640 130" />

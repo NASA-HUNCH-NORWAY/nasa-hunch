@@ -22,7 +22,7 @@ export default function Content() { return <>
 </section>
 <figure className="case-cover shell">
 <div className="photo-orbit-frame orbit-art">
-<Image src="/assets/ball-clamp-iss.jpg" width={2200} height={1466} priority alt="NASA astronaut Stephen Bowen med Ball Clamp Monopod på romstasjonen." />
+<Image src="/assets/ball-clamp-iss.jpg" width={2200} height={1466} priority sizes="(max-width: 720px) 100vw, 1180px" alt="NASA astronaut Stephen Bowen med Ball Clamp Monopod på romstasjonen." />
 <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
 <path className="photo-orbit-field" d="M -100 850 C 250 550 750 590 1300 780 L 1300 950 L -100 950 Z" />
 <path id="case-cover-photo-route" className="hero-orbit-line" d="M -100 850 C 250 550 750 590 1300 780" />
@@ -71,11 +71,11 @@ export default function Content() { return <>
 </div>
 <div className="shell detail-gallery">
 <figure>
-<Image src="/assets/ball-clamp-iterations.png" width={320} height={180} loading="lazy" alt="Varianter laget med 3D-printing ved siden av den ferdige metalldelen." />
+<Image src="/assets/ball-clamp-iterations.png" width={320} height={180} loading="lazy" sizes="320px" alt="Varianter laget med 3D-printing ved siden av den ferdige metalldelen." />
 <figcaption>{"Utprøving av tommelskruen, NASA HUNCH"}</figcaption>
 </figure>
 <figure>
-<Image src="/assets/ball-clamp-assembled.jpg" width={320} height={142} loading="lazy" alt="Ferdigmonterte Ball Clamp Monopod-enheter." />
+<Image src="/assets/ball-clamp-assembled.jpg" width={320} height={142} loading="lazy" sizes="320px" alt="Ferdigmonterte Ball Clamp Monopod-enheter." />
 <figcaption>{"Ferdigmonterte enheter, NASA HUNCH"}</figcaption>
 </figure>
 </div>

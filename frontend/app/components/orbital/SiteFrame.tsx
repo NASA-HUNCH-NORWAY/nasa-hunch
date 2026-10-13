@@ -10,7 +10,7 @@ export function SiteFrame({children, pageClass, current, home = false}: {childre
  return <div className={`site-page ${pageClass}`}>
   <a className="skip-link" href="#main">Hopp til innhold</a>
   <header className="site-header">
-   <a className="brand" href="/" aria-label="NASA HUNCH Norge: forsiden"><Image src="/assets/logo-white.svg" width={1109} height={811} alt="NASA HUNCH Norge" priority /></a>
+   <a className="brand" href="/" aria-label="NASA HUNCH Norge: forsiden"><Image src="/assets/logo-white.svg" width={1109} height={811} alt="NASA HUNCH Norge" priority sizes="107px" /></a>
    <button className="menu-toggle" aria-expanded="false" aria-controls="main-nav" hidden>Meny <span aria-hidden="true">+</span></button>
    <nav id="main-nav" aria-label="Hovedmeny">{navigation.map(([href,label]) => <a key={href} href={href} aria-current={current === href ? "page" : undefined}>{label}</a>)}<a className="nav-contact" href="/contact" data-contact-open="" aria-current={current === "/contact" ? "page" : undefined}>Kontakt</a></nav>
   </header>

@@ -125,7 +125,7 @@ export default function Content() { return <>
 <div className="shell feature">
 <figure>
 <div className="photo-orbit-frame orbit-art">
-<Image src="/assets/ball-clamp-iss.jpg" width={2200} height={1466} loading="lazy" alt="Astronaut Stephen Bowen tester et kamerafeste på ISS." />
+<Image src="/assets/ball-clamp-iss.jpg" width={2200} height={1466} loading="lazy" sizes="(max-width: 720px) 100vw, (max-width: 1180px) 50vw, 590px" alt="Astronaut Stephen Bowen tester et kamerafeste på ISS." />
 <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
 <path className="photo-orbit-field" d="M -100 850 C 250 550 750 590 1300 780 L 1300 950 L -100 950 Z" />
 <path id="program-case-photo-route" className="hero-orbit-line" d="M -100 850 C 250 550 750 590 1300 780" />
