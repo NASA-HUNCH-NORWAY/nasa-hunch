@@ -1,58 +1,8 @@
-import type { Metadata } from "next";
-import { ContactForm } from "@/app/components/ContactForm/ContactForm";
-import { PageHeader } from "@/app/components/PageHeader";
-import { PageShell } from "@/app/components/PageShell";
-import { contactFallback } from "@/app/content/contact";
-import { absoluteUrl, breadcrumbSchema, SITE_NAME } from "@/app/lib/seo";
-import { getContactPage } from "@/sanity/fetch";
-
-const DESCRIPTION =
-  "Vil skolen din være med i NASA HUNCH Norge? Ta kontakt, og vi går gjennom hva som trengs av utstyr, fag og timer.";
-
-export const metadata: Metadata = {
-  title: "Kontakt",
-  description: DESCRIPTION,
-  alternates: { canonical: "/contact" },
-  openGraph: {
-    siteName: SITE_NAME,
-    locale: "nb_NO",
-    title: "Kontakt NASA HUNCH Norge",
-    description: DESCRIPTION,
-    url: absoluteUrl("/contact"),
-    images: [
-      {
-        url: "/NasaHunchOG.png",
-        width: 1200,
-        height: 630,
-        alt: "NASA HUNCH Norge",
-      },
-    ],
-    type: "website",
-  },
-};
-
-export default async function ContactPage() {
-  const page = await getContactPage();
-
-  const schema = [
-    breadcrumbSchema([{ name: "Kontakt", path: "/contact" }]),
-    {
-      "@context": "https://schema.org",
-      "@type": "ContactPage",
-      name: "Kontakt NASA HUNCH Norge",
-      url: absoluteUrl("/contact"),
-      about: { "@id": "https://www.nasahunch.no/#organisasjon" },
-    },
-  ];
-
-  return (
-    <PageShell schema={schema}>
-      <PageHeader
-        title={page?.title ?? contactFallback.title}
-        paragraphs={[page?.lead ?? contactFallback.lead]}
-      />
-
-      <ContactForm />
-    </PageShell>
-  );
+import { Arrow } from "@/app/components/orbital/Arrow";
+import { SiteFrame } from "@/app/components/orbital/SiteFrame";
+import { pageMetadata } from "@/app/lib/seo";
+import { site } from "@/app/lib/site";
+export const metadata = pageMetadata({title: "Kontakt", description: "Ta kontakt med NASA HUNCH Norge om skoledeltakelse, elevprosjekter eller partnerskap. Skriv til oss, eller send e-post til kontakt@nasahunch.no.", path: "/contact"});
+export default function Page() {
+ return <SiteFrame pageClass="contact-page" current="/contact"><div className="page-location"><div className="shell"><nav className="breadcrumb" aria-label="Brødsmulesti"><a href="/">Forsiden</a><span aria-hidden="true">/</span><span aria-current="page">Kontakt</span></nav></div></div><main id="main" className="contact-landing shell"><h1>La oss snakke<br/>om mulighetene.</h1><p className="lead">Har du spørsmål om et opplegg for skolen, eller ønsker dere å bidra som partner? Skriv til oss, så finner vi veien videre sammen. Vi svarer på e-post.</p><div className="home-actions"><a className="home-primary-link" href={`mailto:${site.email}?subject=Skole%20og%20elevprosjekt`} data-contact-open="" data-contact-subject="Skole og elevprosjekt">Jeg representerer en skole <Arrow /></a><a className="text-link" href={`mailto:${site.email}?subject=Partnerskap%20og%20st%C3%B8tte`} data-contact-open="" data-contact-subject="Partnerskap og støtte">Jeg vil bidra som partner <Arrow /></a></div><p className="contact-email">Et annet spørsmål? <a href={`mailto:${site.email}`} data-contact-open="" data-contact-subject="Generelt spørsmål">Skriv til oss</a>, eller send e-post til <a href={`mailto:${site.email}`}>{site.email}</a>.</p></main></SiteFrame>;
 }
