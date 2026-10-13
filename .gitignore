@@ -151,3 +151,9 @@ vite.config.ts.timestamp-*
 # macOS custom folder icon
 Icon
 Icon?
+.vercel
+.env*
+!.env.example
+
+# Lokale designgjennomganger (impeccable)
+.impeccable/
