@@ -90,6 +90,57 @@ export function setupMotion() {
   let resizeFrame = 0;
   listen(window, 'resize', () => { cancelAnimationFrame(resizeFrame); resizeFrame = requestAnimationFrame(layoutProcesses); });
 
+  // The school year marks the current phase from today's date. Months count from August.
+  const schoolMonth = month => (month + 5) % 12; // getMonth(): August (7) becomes 0
+  const now = schoolMonth(new Date().getMonth());
+  document.querySelectorAll('.year-cycle').forEach(list => {
+    const phases = [...list.querySelectorAll('li[data-from]')];
+    const current = phases.filter(li => schoolMonth(Number(li.dataset.from) - 1) <= now).pop();
+    if (!current) return;
+    current.classList.add('is-now');
+    current.setAttribute('aria-current', 'step');
+  });
+
+  // Process journey: when the section comes into view, the planet travels from the
+  // first node to the last, and each step appears as the planet reaches it.
+  const journeys = new Map();
+  if (!reduced.matches && !matchMedia('(max-width: 720px)').matches) {
+    document.querySelectorAll('.process-orbit').forEach(art => {
+      if (art.getBoundingClientRect().top < innerHeight * .8) return;
+      art.dataset.journey = 'pending';
+      journeys.set(art, { start: 0, nodes: [...art.querySelectorAll('[data-process-node]')], steps: [...art.querySelectorAll('[data-process-step]')] });
+    });
+    const journeyObserver = new IntersectionObserver(entries => entries.forEach(entry => {
+      if (!entry.isIntersecting || entry.target.dataset.journey !== 'pending') return;
+      const art = entry.target, journey = journeys.get(art);
+      art.dataset.journey = 'running';
+      journey.start = performance.now();
+      // If the frame loop is paused (background tab), never leave the steps hidden.
+      setTimeout(() => {
+        if (art.dataset.journey !== 'running') return;
+        [...journey.nodes, ...journey.steps].forEach(item => item.classList.add('is-reached'));
+        art.dataset.journey = 'done';
+      }, journeyTime + 800);
+      journeyObserver.unobserve(entry.target);
+    }), { threshold: .45 });
+    journeys.forEach((_, art) => journeyObserver.observe(art));
+    observers.push(journeyObserver);
+  }
+  const journeyFrom = .03, journeyTo = .83, journeyTime = 2600;
+  const easeInOut = t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+  function journeyProgress(art) {
+    const journey = journeys.get(art);
+    if (!journey || art.dataset.journey === 'done') return null;
+    if (art.dataset.journey === 'pending') return journeyFrom;
+    const t = Math.min(1, (performance.now() - journey.start) / journeyTime);
+    const progress = journeyFrom + easeInOut(t) * (journeyTo - journeyFrom);
+    const reached = item => Number(item.dataset.processNode ?? item.dataset.processStep) <= progress + .005;
+    journey.nodes.forEach(node => node.classList.toggle('is-reached', reached(node)));
+    journey.steps.forEach(step => step.classList.toggle('is-reached', reached(step)));
+    if (t === 1) art.dataset.journey = 'done';
+    return progress;
+  }
+
   // SVG path and planet share one coordinate system. Only visible artwork is
   // animated; hidden tabs and reduced-motion preferences stop the frame loop.
   // The gap around a planet is cut out of the orbit line with a mask, so it shows
@@ -145,8 +196,10 @@ export function setupMotion() {
       const progress = item.transit
         ? (reduced.matches ? .5 : .02 + passage * .96)
         : ((item.art.classList.contains('hero-orbit') ? .3 : .14) + index * .18 + elapsed / 100000 + scroll / 30000) % 1;
+      const journey = item.art.classList.contains('process-orbit') ? journeyProgress(item.art) : null;
+      if (journey === null && item.art.dataset.journey === 'done' && !item.settled) { item.settled = true; item.body.dataset.orbitPosition = String(journeyTo); }
       const base = Number(item.body.dataset.orbitPosition);
-      const boundedProgress = item.body.hasAttribute('data-orbit-position')
+      const boundedProgress = journey !== null ? journey : item.body.hasAttribute('data-orbit-position')
         ? base + (reduced.matches ? 0 : Math.sin(elapsed / 15000) * Number(item.body.dataset.orbitDrift || .025))
         : progress;
       const point = item.path.getPointAtLength(boundedProgress * item.length);

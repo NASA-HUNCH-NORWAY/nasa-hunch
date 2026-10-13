@@ -115,10 +115,10 @@ export default function Content() { return <>
 <div className="home-year">
 <p className="home-year-title">{"Et skoleår i HUNCH"}</p>
 <ol className="year-cycle" role="list">
-<li><b>{"Høst"}</b><span>{"Oppstart med elever, lærere og NASA HUNCH fra USA"}</span></li>
-<li><b>{"November"}</b><span>{"Første designgjennomgang med tilbakemelding"}</span></li>
-<li><b>{"Februar"}</b><span>{"Kritisk designgjennomgang før produksjon"}</span></li>
-<li><b>{"Vår"}</b><span>{"Ferdige produkter overleveres"}</span></li>
+<li data-from="8"><b>{"Høst"}</b><span>{"Oppstart med elever, lærere og NASA HUNCH fra USA"}</span></li>
+<li data-from="11"><b>{"November"}</b><span>{"Første designgjennomgang med tilbakemelding"}</span></li>
+<li data-from="2"><b>{"Februar"}</b><span>{"Kritisk designgjennomgang før produksjon"}</span></li>
+<li data-from="4"><b>{"Vår"}</b><span>{"Ferdige produkter overleveres"}</span></li>
 </ol>
 </div>
 </div>

@@ -111,10 +111,10 @@ export default function Content() { return <>
 </div>
 <div className="prose">
 <ol className="year-cycle year-cycle-wide" role="list">
-<li><b>{"Høst"}</b><span>{"Oppstart ved skolen, med elever, lærere og besøk fra NASA HUNCH i USA."}</span></li>
-<li><b>{"November"}</b><span>{"Første designgjennomgang. Elevene viser hvordan de har forstått oppdraget."}</span></li>
-<li><b>{"Februar"}</b><span>{"Kritisk designgjennomgang før produksjon og testing."}</span></li>
-<li><b>{"Vår"}</b><span>{"Ferdige produkter overleveres ved slutten av skoleåret."}</span></li>
+<li data-from="8"><b>{"Høst"}</b><span>{"Oppstart ved skolen, med elever, lærere og besøk fra NASA HUNCH i USA."}</span></li>
+<li data-from="11"><b>{"November"}</b><span>{"Første designgjennomgang. Elevene viser hvordan de har forstått oppdraget."}</span></li>
+<li data-from="2"><b>{"Februar"}</b><span>{"Kritisk designgjennomgang før produksjon og testing."}</span></li>
+<li data-from="4"><b>{"Vår"}</b><span>{"Ferdige produkter overleveres ved slutten av skoleåret."}</span></li>
 </ol>
 <a className="text-link" href="https://nasahunch.com/programs/design-and-prototyping">{"Design and Prototyping hos NASA HUNCH"}<span aria-hidden="true">{"↗"}</span>
 </a>

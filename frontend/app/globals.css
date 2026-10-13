@@ -3,6 +3,7 @@
   --line: #35343f; --violet: #24135b; --header: 92px;
   --orbit-fill: #1c104f; --orbit-fill-2: #211058; --violet-hover: #332078; --accent-light: #a998ef; --accent-soft: #bcacd9;
   --paper-muted: #5e5b65; --paper-line: #cfcdc6; --focus: var(--accent-light); --field-line: #6a6878;
+  --ease-out: cubic-bezier(.16,1,.3,1); --ease-in-out: cubic-bezier(.65,0,.35,1); --dur-quick: .2s; --dur-base: .5s; --dur-slow: 1.1s;
   color-scheme: dark; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 * { box-sizing: border-box; }
@@ -751,3 +752,76 @@ figcaption { font-size: 12px; color: var(--muted); margin-top: 12px; line-height
 @media (max-width: 720px) {
  .home .stop-mirrored .stop-copy { margin-left: 0; }
 }
+
+/* ---------- Motion and detail ---------- */
+
+/* Browser surfaces in the brand palette. */
+::selection { background: var(--violet-hover); color: #fff; }
+html { scrollbar-color: #3d344f var(--ink); caret-color: var(--accent-light); }
+
+/* Links: the arrow nudges along the orbit direction, and text links draw their underline. */
+.text-link span[aria-hidden], .home-primary-link span[aria-hidden], .about-pathways > a > span > span[aria-hidden] { display: inline-block; transition: transform var(--dur-quick) var(--ease-out); }
+.text-link:hover span[aria-hidden], .home-primary-link:hover span[aria-hidden], .about-pathways > a:hover > span > span[aria-hidden] { transform: translate(3px, -3px); }
+.text-link { border-bottom: 0; background: linear-gradient(currentColor, currentColor) left bottom / 100% 1px no-repeat; transition: background-size var(--dur-base) var(--ease-out); }
+.text-link:hover { background-size: 0 1px; background-position: right bottom; }
+.site-header nav a:not(.nav-contact) { background: linear-gradient(currentColor, currentColor) left calc(100% - 6px) / 0 1px no-repeat; transition: background-size var(--dur-base) var(--ease-out), color var(--dur-quick); }
+.site-header nav a:not(.nav-contact):hover { background-size: 100% 1px; }
+.home-primary-link, .form-submit, .nav-contact { transition: background-color var(--dur-quick), border-color var(--dur-quick); }
+
+/* The school year: the current phase is marked from today's date (set in motion.js). */
+.year-cycle li.is-now b::after { content: "Nå"; margin-left: 10px; padding: 1px 8px; border-radius: 99px; font-size: 12px; font-weight: 500; letter-spacing: .02em; vertical-align: 3px; background: var(--accent-light); color: var(--ink); }
+.year-cycle li.is-now::before { background: var(--accent-light); }
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Page changes: the header stays, the page underneath crossfades. */
+  @view-transition { navigation: auto; }
+  .site-header { view-transition-name: site-header; }
+  ::view-transition-old(root) { animation: vt-fade-out .22s ease both; }
+  ::view-transition-new(root) { animation: vt-fade-in .4s ease .05s both; }
+
+  /* Arrival: the hero orbit draws in from the top, the heading and lead rise after it. */
+  .hero-orbit svg, .subpage-orbit svg { animation: orbit-wipe var(--dur-slow) var(--ease-out) .1s both; }
+  .hero-photo-frame > img { animation: photo-reveal 1.3s var(--ease-out) .05s both; }
+  .hero-photo-orbit { animation: orbit-wipe-x 1.2s var(--ease-out) .45s both; }
+  :is(#oppdrag .stop-copy, .about-hero-grid > div:first-child, .school-masthead-grid > div:first-child, .partner-invitation-grid > div:first-child, .workbench-grid > div:first-child, .team-masthead > div:first-child, .case-intro, .contact-landing) > *,
+  .casebook-intro > h1, .casebook-intro .casebook-lead { animation: rise .9s var(--ease-out) both; }
+  :is(#oppdrag .stop-copy, .about-hero-grid > div:first-child, .school-masthead-grid > div:first-child, .partner-invitation-grid > div:first-child, .workbench-grid > div:first-child, .team-masthead > div:first-child, .case-intro, .contact-landing) > :nth-child(2), .casebook-intro .casebook-lead { animation-delay: .12s; }
+  :is(#oppdrag .stop-copy, .about-hero-grid > div:first-child, .school-masthead-grid > div:first-child, .partner-invitation-grid > div:first-child, .workbench-grid > div:first-child, .team-masthead > div:first-child, .case-intro, .contact-landing) > :nth-child(n+3) { animation-delay: .24s; }
+  [data-orbit-body] { animation: fade-in .6s ease .6s both; }
+  .subject-orbit-labels li { animation: rise .8s var(--ease-out) both; }
+  .subject-orbit-labels li:nth-child(2) { animation-delay: .5s; } .subject-orbit-labels li:nth-child(3) { animation-delay: .62s; } .subject-orbit-labels li:nth-child(4) { animation-delay: .74s; } .subject-orbit-labels li:nth-child(1) { animation-delay: .38s; }
+
+  /* Process: the planet travels from node to node; each step appears as it is reached (motion.js). */
+  .process-orbit[data-journey] .orbital-steps li { transition: opacity .7s var(--ease-out), translate .7s var(--ease-out); }
+  .process-orbit[data-journey="pending"] .orbital-steps li, .process-orbit[data-journey="running"] .orbital-steps li:not(.is-reached) { opacity: 0; translate: 0 12px; }
+  [data-process-node] circle { transition: fill .5s var(--ease-out); }
+  [data-process-node].is-reached circle { fill: var(--violet); }
+
+  .year-cycle li.is-now::before { animation: now-pulse 2.4s ease-out infinite; }
+}
+@keyframes vt-fade-out { to { opacity: 0; } }
+@keyframes vt-fade-in { from { opacity: 0; } }
+@keyframes orbit-wipe { from { clip-path: inset(0 0 100% 0); } to { clip-path: inset(0); } }
+@keyframes orbit-wipe-x { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0); } }
+@keyframes photo-reveal { from { clip-path: inset(22% 0 0 0); scale: 1.06; } to { clip-path: inset(0); scale: 1; } }
+@keyframes rise { from { opacity: 0; translate: 0 18px; } to { opacity: 1; translate: 0 0; } }
+@keyframes fade-in { from { opacity: 0; } }
+@keyframes now-pulse { 0% { box-shadow: 0 0 0 5px var(--ink), 0 0 0 5px #a998ef90; } 70%, 100% { box-shadow: 0 0 0 5px var(--ink), 0 0 0 16px #a998ef00; } }
+
+/* ---------- Study: one orbit through the front page (/studie/bane) ---------- */
+.orbit-study { position: relative; }
+.orbit-study #scroll-story { position: relative; }
+.orbit-thread { position: absolute; left: 0; z-index: 5; pointer-events: none; overflow: visible; }
+.orbit-thread-line { fill: none; stroke: var(--accent-light); stroke-width: 1.5; opacity: .35; }
+.orbit-thread-trail { fill: none; stroke: var(--accent-light); stroke-width: 2.5; }
+.orbit-thread-node { fill: var(--ink); stroke: var(--accent-light); stroke-width: 1.5; }
+.orbit-thread-planet circle { fill: #fff; }
+.orbit-thread-planet .orbit-thread-halo { fill: none; stroke: var(--accent-light); stroke-width: 1.5; opacity: .6; }
+.orbit-study[data-thread="veving"] .section-orbit-fields, .orbit-study[data-thread="veving"] .stop-nav, .orbit-study[data-thread="skinne"] .stop-nav { display: none; }
+.study-panel { position: fixed; left: 20px; bottom: 20px; z-index: 40; width: min(320px, calc(100% - 40px)); padding: 16px 18px; background: #0e0d16f2; border: 1px solid #3d344f; font-size: 13px; }
+.study-panel-title { margin: 0 0 10px; color: var(--text); font-weight: 500; }
+.study-panel-options { display: flex; gap: 6px; }
+.study-panel-options button { flex: 1; padding: 7px 10px; border: 1px solid var(--line); background: transparent; color: var(--muted); cursor: pointer; font-size: 13px; }
+.study-panel-options button[aria-checked="true"] { background: var(--violet); border-color: var(--accent-light); color: var(--text); }
+.study-panel-note { margin: 10px 0 0; color: var(--muted); line-height: 1.5; }
+@media (max-width: 960px) { .orbit-thread { display: none; } .orbit-study .section-orbit-fields { display: block !important; } }
