@@ -27,7 +27,7 @@ export default function Content() { return <>
 </a>
 </nav>
 <main id="main" tabIndex={-1}>
-<div id="scroll-story" tabIndex={0} aria-label="Forsiden">
+<div id="scroll-story">
 <section className="scroll-stop" id="oppdrag" data-stop="">
 <div className="shell home-grid">
 <div className="stop-copy">

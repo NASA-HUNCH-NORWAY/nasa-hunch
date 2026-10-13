@@ -41,137 +41,29 @@ export function setupMotion() {
   listen(navigation, 'click', event => { if (event.target.closest('a')) closeMenu(); });
   listen(narrow, 'change', closeMenu);
 
+  // Front page: ordinary document scrolling. The stop dots follow the section in view.
   const story = document.getElementById('scroll-story');
   const stops = story ? [...story.querySelectorAll('[data-stop]')] : [];
   const links = [...document.querySelectorAll('[data-stop-link]')];
-  const snapMode = matchMedia('(min-width: 961px) and (min-height: 681px)');
-  let active = 0, scrollFrame = 0;
-  const nearest = () => stops.reduce((best, stop, index) =>
-    Math.abs(stop.getBoundingClientRect().top) < Math.abs(stops[best].getBoundingClientRect().top) ? index : best, 0);
   function setActive(index) {
-    active = index;
     document.querySelector('.site-page').dataset.tone = stops[index]?.classList.contains('paper') ? 'paper' : 'dark';
     links.forEach((link, i) => {
       if (i === index) link.setAttribute('aria-current', 'location');
       else link.removeAttribute('aria-current');
     });
   }
-  function cancelScroll() {
-    cancelAnimationFrame(scrollFrame);
-    scrollFrame = 0;
-    if (story) story.style.scrollSnapType = '';
-  }
-  function goTo(index, instant = false) {
-    if (!story) return;
-    cancelScroll();
-    index = Math.max(0, Math.min(stops.length - 1, index));
-    if (!snapMode.matches) {
-      setActive(index);
-      stops[index].scrollIntoView({ behavior: instant || reduced.matches ? 'instant' : 'smooth', block: 'start' });
-      return;
-    }
-    const from = story.scrollTop, to = stops[index].offsetTop;
-    setActive(index);
-    if (instant || reduced.matches || Math.abs(to - from) < 2) {
-      story.scrollTop = to;
-      return;
-    }
-    story.style.scrollSnapType = 'none';
-    const start = performance.now();
-    const duration = Math.min(850, 580 + Math.abs(to - from) * .08);
-    function step(now) {
-      const t = Math.min(1, (now - start) / duration);
-      const eased = t * t * (3 - 2 * t);
-      story.scrollTop = from + (to - from) * eased;
-      if (t < 1) scrollFrame = requestAnimationFrame(step);
-      else { cancelScroll(); setActive(index); }
-    }
-    scrollFrame = requestAnimationFrame(step);
-  }
-  if (story) {
-    let scrollPending = false;
-    const updateScroll = () => {
-      if (scrollPending) return;
-      scrollPending = true;
-      requestAnimationFrame(() => { scrollPending = false; if (!scrollFrame) setActive(nearest()); });
+  if (stops.length) {
+    // The current stop is the last one whose top has passed 40 % of the window height.
+    const current = () => stops.reduce((found, stop, index) => stop.getBoundingClientRect().top <= innerHeight * .4 ? index : found, 0);
+    let pending = false;
+    const update = () => {
+      if (pending) return;
+      pending = true;
+      requestAnimationFrame(() => { pending = false; setActive(current()); });
     };
-    listen(story, 'scroll', updateScroll, { passive: true });
-    listen(window, 'scroll', updateScroll, { passive: true });
-    // One section per swipe. Recognise a fresh acceleration even while the
-    // previous swipe's momentum is still producing wheel events.
-    function createWheelGesture() {
-      let lastTime = -Infinity, direction = 0, total = 0, consumed = false, tail = Infinity;
-      return (delta, now, animating) => {
-        const magnitude = Math.abs(delta), nextDirection = Math.sign(delta);
-        if (magnitude < 1) return 0;
-        const freshSwipe = now - lastTime > 140 || nextDirection !== direction
-          || (consumed && !animating && magnitude >= Math.max(12, tail * 2.5) && magnitude - tail >= 10);
-        if (freshSwipe) { total = 0; consumed = false; tail = Infinity; }
-        lastTime = now;
-        direction = nextDirection;
-        if (consumed) tail = Math.min(tail, magnitude);
-        if (animating || consumed) return 0;
-        total += delta;
-        if (Math.abs(total) < 45) return 0;
-        consumed = true;
-        tail = magnitude;
-        total = 0;
-        return direction;
-      };
-    }
-    const wheelGesture = createWheelGesture();
-    listen(story, 'wheel', event => {
-      if (!snapMode.matches || event.ctrlKey || event.defaultPrevented
-        || Math.abs(event.deltaX) > Math.abs(event.deltaY)
-        || menu.getAttribute('aria-expanded') === 'true') return;
-      const delta = event.deltaY * (event.deltaMode === 1 ? 16 : event.deltaMode === 2 ? story.clientHeight : 1);
-      if (!delta) return;
-      const index = scrollFrame ? active : nearest();
-      const stop = stops[index];
-      const top = stop.offsetTop, bottom = top + stop.offsetHeight - story.clientHeight;
-      // Allow normal scrolling inside a section that has more content than
-      // fits on screen; only advance once its edge has been reached.
-      if (!scrollFrame && stop.offsetHeight > story.clientHeight + 2
-        && (delta > 0 ? story.scrollTop < bottom - 2 : story.scrollTop > top + 2)) return;
-      event.preventDefault();
-      const move = wheelGesture(delta, performance.now(), Boolean(scrollFrame));
-      if (move) goTo(index + move);
-    }, { passive: false });
-    listen(story, 'touchstart', cancelScroll, { passive: true });
-    listen(document, 'keydown', event => {
-      if (!snapMode.matches || event.defaultPrevented || event.altKey || event.ctrlKey || event.metaKey
-        || event.target.closest('a,button,input,textarea,select,summary,[contenteditable="true"]')
-        || menu.getAttribute('aria-expanded') === 'true'
-        || stops[nearest()]?.offsetHeight > story.clientHeight + 2) return;
-      const moves = { ArrowDown: 1, PageDown: 1, ArrowUp: -1, PageUp: -1, ' ': event.shiftKey ? -1 : 1 };
-      if (!(event.key in moves) && !['Home','End'].includes(event.key)) return;
-      event.preventDefault();
-      if (event.repeat || scrollFrame) return;
-      goTo(event.key === 'Home' ? 0 : event.key === 'End' ? stops.length - 1 : nearest() + moves[event.key]);
-    });
-    document.querySelectorAll('a[href^="#"]').forEach(link => {
-      const index = stops.findIndex(stop => '#' + stop.id === link.getAttribute('href'));
-      if (index < 0) return;
-      listen(link, 'click', event => {
-        if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-        event.preventDefault();
-        history.pushState(null, '', '#' + stops[index].id);
-        goTo(index);
-      });
-    });
-    function restoreHash() {
-      const index = stops.findIndex(stop => '#' + stop.id === location.hash);
-      if (index < 0 && !snapMode.matches) return;
-      goTo(index < 0 ? 0 : index, true);
-    }
-    listen(window, 'hashchange', restoreHash);
-    listen(window, 'popstate', restoreHash);
-    listen(window, 'pageshow', () => { if (location.hash) restoreHash(); else setActive(nearest()); });
-    listen(window, 'resize', () => {
-      cancelScroll();
-      if (snapMode.matches) goTo(active, true);
-    });
-    restoreHash();
+    listen(window, 'scroll', update, { passive: true });
+    listen(window, 'resize', update);
+    setActive(current());
   }
 
   // Place process markers and their labels from the same SVG path.
@@ -243,7 +135,7 @@ export function setupMotion() {
   });
   let animationFrame = 0, lastTime = 0, elapsed = 0;
   function paint() {
-    const scroll = reduced.matches ? 0 : (story && snapMode.matches ? story.scrollTop : window.scrollY);
+    const scroll = reduced.matches ? 0 : window.scrollY;
     // Read every layout box before writing any transform, so the browser lays out once per frame.
     const rects = bodies.map(item => item.visible && item.transit ? item.art.getBoundingClientRect() : null);
     bodies.forEach((item, index) => {
@@ -289,7 +181,7 @@ export function setupMotion() {
   }, { threshold: 0 });
   bodies.forEach(item => observer.observe(item.art));
   observers.push(observer);
-  listen(reduced, 'change', () => { cancelScroll(); syncMotion(); });
+  listen(reduced, 'change', syncMotion);
   listen(document, 'visibilitychange', syncMotion);
   syncMotion();
 })();
