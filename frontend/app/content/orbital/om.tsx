@@ -1,3 +1,4 @@
+import { Arrow } from "@/app/components/orbital/Arrow";
 import { AboutClosing } from "@/app/components/orbital/AboutClosing";
 
 export default function Content() { return <>
@@ -21,7 +22,7 @@ export default function Content() { return <>
 <div>
 <h1>{"Skole, verksted"}<br />{"og romfart."}</h1>
 <p className="lead">{"I HUNCH designer og produserer elever i videregående skole utstyr etter behov hos NASA. Her er bakgrunnen for programmet, og slik drives det i Norge."}</p>
-<a className="text-link" href="#bakgrunn">{"Hva er HUNCH? "}<span aria-hidden="true">{"↓"}</span>
+<a className="text-link" href="#bakgrunn">{"Hva er HUNCH? "}<Arrow dir="down" />
 </a>
 </div>
 <div className="orbit-art hero-orbit hero-orbit-about" aria-hidden="true">
@@ -53,7 +54,7 @@ export default function Content() { return <>
 <div className="prose">
 <p>{"HUNCH står for High Schools United with NASA to Create Hardware. Programmet kobler undervisning til behov innen romfart og lar elever bidra med både design og produksjon. Voyager Technologies driver programmet internasjonalt."}</p>
 <p>{"Noen prosjekter blir brukt til trening eller videre utvikling. Andre blir vurdert for bruk i rommet. Deltakelse er ikke en garanti for at et produkt blir sendt til ISS."}</p>
-<a className="text-link" href="https://www.nasa.gov/stem-content/high-school-students-united-with-nasa-to-create-hardware-hunch/">{"Om HUNCH hos NASA"}<span aria-hidden="true">{"↗"}</span>
+<a className="text-link" href="https://www.nasa.gov/stem-content/high-school-students-united-with-nasa-to-create-hardware-hunch/">{"Om HUNCH hos NASA"}<Arrow />
 </a>
 </div>
 </div>

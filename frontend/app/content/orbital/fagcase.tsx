@@ -1,3 +1,4 @@
+import { Arrow } from "@/app/components/orbital/Arrow";
 
 export default function Content() { return <>
 <div className="page-location">
@@ -18,7 +19,7 @@ export default function Content() { return <>
 <main id="main">
 <section className="casebook-intro shell">
 <div className="orbit-art subpage-orbit composed-orbit" aria-hidden="true">
-<svg viewBox="0 0 600 600" preserveAspectRatio="xMidYMid slice">
+<svg viewBox="0 0 600 600" preserveAspectRatio="xMinYMid slice">
 <path fill="#211058" d="M 480 -100 C 180 60 150 420 460 720 L 720 720 L 720 -100 Z" />
 <path id="case-intro-field" className="hero-orbit-line" d="M 480 -100 C 180 60 150 420 460 720" />
 <g data-orbit-body="" data-path="case-intro-field" data-orbit-position=".4" data-orbit-drift=".035">
@@ -42,19 +43,19 @@ export default function Content() { return <>
 <nav className="casebook-index shell" id="caseoversikt" aria-label="Fagcase">
 <a href="#produksjon">
 <strong>{"TIF / Industriteknologi"}</strong>
-<span aria-hidden="true">{"↓"}</span>
+<Arrow dir="down" />
 </a>
 <a href="#design">
 <strong>{"Teknologi og forskningslære"}</strong>
-<span aria-hidden="true">{"↓"}</span>
+<Arrow dir="down" />
 </a>
 <a href="#matfag">
 <strong>{"Restaurant og matfag"}</strong>
-<span aria-hidden="true">{"↓"}</span>
+<Arrow dir="down" />
 </a>
 <a href="#it">
 <strong>{"Informasjonsteknologi"}</strong>
-<span aria-hidden="true">{"↓"}</span>
+<Arrow dir="down" />
 </a>
 </nav>
 <div className="casebook shell">
@@ -71,7 +72,7 @@ export default function Content() { return <>
 <span className="proposal-label evidence-label">{"Det dokumenterte prosjektet"}</span>
 <h3>{"Deler levert til NASA"}</h3>
 <p>{"Elever på teknologi- og industrifag ved Eid vidaregåande skule fikk tegninger, spesifikasjoner og stål fra NASA for å produsere hylser til en transportbeholder. Lærerne la opp et løp med forstørrede øvingsmodeller før elevene laget deler i riktig størrelse. Studien beskriver at hylsene ble overlevert til NASA, ikke at de allerede hadde vært i rommet."}</p>
-<a href="https://link.springer.com/article/10.1007/s44217-026-01443-8">{"Garrels og Brevik: norsk HUNCH-studie ↗"}</a>
+<a href="https://link.springer.com/article/10.1007/s44217-026-01443-8">{"Garrels og Brevik: norsk HUNCH-studie "}<Arrow /></a>
 </aside>
 <div className="study-teaching">
 <span className="proposal-label">{"Forslag til norsk undervisning"}</span>
@@ -79,7 +80,7 @@ export default function Content() { return <>
 <p>{"La elevene produsere en enkel hylse fra en arbeidstegning, først som øvingsmodell. De planlegger rekkefølgen på operasjonene, måler delen og forklarer eventuelle avvik. Bruk bare et godkjent teknisk underlag hvis arbeidet skal leveres til en ekstern mottaker."}</p>
 <h3>{"Kobling til faget"}</h3>
 <p>{"Vg2 industriteknologi: valg av målemetode og måleutstyr, vurdering mot toleranser og dokumentasjon av eget arbeid."}</p>
-<a className="curriculum-link" href="https://www.udir.no/lk20/pin02-03/kompetansemaal-og-vurdering/kv343">{"Læreplan: Vg2 industriteknologi, teknologi ↗"}</a>
+<a className="curriculum-link" href="https://www.udir.no/lk20/pin02-03/kompetansemaal-og-vurdering/kv343">{"Læreplan: Vg2 industriteknologi, teknologi "}<Arrow /></a>
 <div className="study-delivery">
 <h3>{"Elevene kan levere"}</h3>
 <ul>
@@ -95,7 +96,7 @@ export default function Content() { return <>
 <br />{"Verksted, relevante maskiner og måleutstyr. Arbeidet må tilpasses opplæring og skolens HMS-rutiner."}</p>
 </div>
 </div>
-<a className="back-to-cases" href="#caseoversikt">{"↑ Til alle fagcase"}</a>
+<a className="back-to-cases" href="#caseoversikt"><Arrow dir="up" />{" Til alle fagcase"}</a>
 </article>
 <article className="subject-study subject-design" id="design">
 <header className="study-header">
@@ -110,9 +111,9 @@ export default function Content() { return <>
 <span className="proposal-label evidence-label">{"Det dokumenterte prosjektet"}</span>
 <h3>{"Kamerafeste testet på ISS"}</h3>
 <p>{"I Ball Clamp Monopod-prosjektet arbeidet elever med tommelskruen i et kamerafeste. De prøvde ut former med CAD og 3D-print før løsningen gikk videre. Kamerafestet ble testet på ISS i 2023."}</p>
-<a href="https://www.nasa.gov/podcasts/houston-we-have-a-podcast/the-student-built-camera-mount/">{"NASA: The Student Built Camera Mount ↗"}</a>
+<a href="https://www.nasa.gov/podcasts/houston-we-have-a-podcast/the-student-built-camera-mount/">{"NASA: The Student Built Camera Mount "}<Arrow /></a>
 <p>
-<a href="/prosjekt">{"Les hele prosjekthistorien ↗"}</a>
+<a href="/prosjekt">{"Les hele prosjekthistorien "}<Arrow /></a>
 </p>
 </aside>
 <div className="study-teaching">
@@ -121,7 +122,7 @@ export default function Content() { return <>
 <p>{"Utvikle et grep til en ufarlig modellklemme. Lag to eller tre varianter og bestem på forhånd hvordan dere skal sammenligne dem. Mål for eksempel tiden det tar å stramme klemmen, og registrer brukerens opplevelse av grepet. Hold belastning og testoppsett likt."}</p>
 <h3>{"Kobling til faget"}</h3>
 <p>{"Teknologi og forskningslære 1: utvikling og testing ut fra krav og arbeidstegninger, kvantitative forsøk og vurdering av usikkerhet."}</p>
-<a className="curriculum-link" href="https://www.udir.no/lk20/tnf01-03/kompetansemaal-og-vurdering/kv975">{"Læreplan: Teknologi og forskningslære 1 ↗"}</a>
+<a className="curriculum-link" href="https://www.udir.no/lk20/tnf01-03/kompetansemaal-og-vurdering/kv975">{"Læreplan: Teknologi og forskningslære 1 "}<Arrow /></a>
 <div className="study-delivery">
 <h3>{"Elevene kan levere"}</h3>
 <ul>
@@ -137,7 +138,7 @@ export default function Content() { return <>
 <br />{"CAD-verktøy, tilgang til prototyping og en enkel testbenk. En skolemodell er ikke romgodkjent maskinvare."}</p>
 </div>
 </div>
-<a className="back-to-cases" href="#caseoversikt">{"↑ Til alle fagcase"}</a>
+<a className="back-to-cases" href="#caseoversikt"><Arrow dir="up" />{" Til alle fagcase"}</a>
 </article>
 <article className="subject-study subject-matfag" id="matfag">
 <header className="study-header">
@@ -152,7 +153,7 @@ export default function Content() { return <>
 <span className="proposal-label evidence-label">{"Det dokumenterte prosjektet"}</span>
 <h3>{"Vinner av HUNCHs matkonkurranse"}</h3>
 <p>{"Elever ved Hewitt-Trussville High School vant HUNCHs matkonkurranse i 2020 med marokkansk kyllingtagine. Retten måtte møte ernæringskrav og egne krav til videre behandling. Både maten og dokumentasjonen inngikk i vurderingen. NASAs artikkel omtaler en planlagt vei videre, ikke en bekreftet servering på ISS."}</p>
-<a href="https://www.nasa.gov/centers-and-facilities/marshall/alabama-high-school-students-create-a-meal-nasa-will-send-to-astronauts-in-space/">{"NASA: Hewitt-Trussvilles vinnermåltid ↗"}</a>
+<a href="https://www.nasa.gov/centers-and-facilities/marshall/alabama-high-school-students-create-a-meal-nasa-will-send-to-astronauts-in-space/">{"NASA: Hewitt-Trussvilles vinnermåltid "}<Arrow /></a>
 </aside>
 <div className="study-teaching">
 <span className="proposal-label">{"Forslag til norsk undervisning"}</span>
@@ -160,7 +161,7 @@ export default function Content() { return <>
 <p>{"Utvikle et måltid for en definert brukergruppe og et sett krav gitt av læreren. Prøv ut råvarer og tilberedningsmetoder, beregn næringsinnhold og sammenlign smak, konsistens og kvalitet. Dokumenter endringene fra første til siste oppskrift."}</p>
 <h3>{"Kobling til faget"}</h3>
 <p>{"Vg1 restaurant og matfag: råvarers egenskaper, planlegging med oppskrifter, mat for ulike brukergrupper og kvalitet i produksjonen."}</p>
-<a className="curriculum-link" href="https://www.udir.no/lk20/rmf01-03/kompetansemaal-og-vurdering/kv237">{"Læreplan: Vg1 restaurant og matfag, råvare, produksjon og kvalitet ↗"}</a>
+<a className="curriculum-link" href="https://www.udir.no/lk20/rmf01-03/kompetansemaal-og-vurdering/kv237">{"Læreplan: Vg1 restaurant og matfag, råvare, produksjon og kvalitet "}<Arrow /></a>
 <div className="study-delivery">
 <h3>{"Elevene kan levere"}</h3>
 <ul>
@@ -176,7 +177,7 @@ export default function Content() { return <>
 <br />{"Skolekjøkken og skolens rutiner for hygiene og mattrygghet. Dette forslaget omfatter ikke rommatproduksjon eller utprøving av langtidslagring."}</p>
 </div>
 </div>
-<a className="back-to-cases" href="#caseoversikt">{"↑ Til alle fagcase"}</a>
+<a className="back-to-cases" href="#caseoversikt"><Arrow dir="up" />{" Til alle fagcase"}</a>
 </article>
 <article className="subject-study subject-it" id="it">
 <header className="study-header">
@@ -191,7 +192,7 @@ export default function Content() { return <>
 <span className="proposal-label evidence-label">{"Det dokumenterte prosjektet"}</span>
 <h3>{"Konsept vurdert i designgjennomgang"}</h3>
 <p>{"NASA omtalte Poquoson High Schools prosjekt «Augmented Reality Object Recognition: QR Code» etter en designgjennomgang i 2019. Teamet ble vurdert som en kandidat til den avsluttende gjennomgangen. Kilden dokumenterer et elevkonsept, ikke et system satt i drift på ISS."}</p>
-<a href="https://www.nasa.gov/centers-and-facilities/langley/high-school-students-look-to-improve-astronauts-palates-workspaces-via-hunch-program/">{"NASA Langley: HUNCH-prosjekter i 2019 ↗"}</a>
+<a href="https://www.nasa.gov/centers-and-facilities/langley/high-school-students-look-to-improve-astronauts-palates-workspaces-via-hunch-program/">{"NASA Langley: HUNCH-prosjekter i 2019 "}<Arrow /></a>
 </aside>
 <div className="study-teaching">
 <span className="proposal-label">{"Forslag til norsk undervisning"}</span>
@@ -199,7 +200,7 @@ export default function Content() { return <>
 <p>{"Lag en liten utstyrsoversikt for skolens verksted. En QR-kode på en gjenstand åpner riktig utstyrsside med plassering og bruksinformasjon. Start uten AR. Test hva som skjer når koden er ukjent, en gjenstand er flyttet eller informasjonen mangler."}</p>
 <h3>{"Kobling til faget"}</h3>
 <p>{"Vg2 informasjonsteknologi, utvikling: behovskartlegging, funksjonelle krav, brukergrensesnitt, databaser, testing og teknisk dokumentasjon."}</p>
-<a className="curriculum-link" href="https://www.udir.no/lk20/itk02-01/kompetansemaal-og-vurdering/kv374">{"Læreplan: Vg2 informasjonsteknologi, utvikling ↗"}</a>
+<a className="curriculum-link" href="https://www.udir.no/lk20/itk02-01/kompetansemaal-og-vurdering/kv374">{"Læreplan: Vg2 informasjonsteknologi, utvikling "}<Arrow /></a>
 <div className="study-delivery">
 <h3>{"Elevene kan levere"}</h3>
 <ul>
@@ -215,7 +216,7 @@ export default function Content() { return <>
 <br />{"Datamaskiner, kamera eller mobil og utviklingsverktøy. Oppgaven kan gjennomføres lokalt uten tilgang til NASA-systemer."}</p>
 </div>
 </div>
-<a className="back-to-cases" href="#caseoversikt">{"↑ Til alle fagcase"}</a>
+<a className="back-to-cases" href="#caseoversikt"><Arrow dir="up" />{" Til alle fagcase"}</a>
 </article>
 </div>
 <section className="cross-subject">
@@ -226,7 +227,7 @@ export default function Content() { return <>
 <div className="prose">
 <p>{"En målerapport kan også gi materiale til beregninger og grafisk fremstilling. En teknisk presentasjon kan gi en konkret oppgave med skriftlig og muntlig formidling på engelsk."}</p>
 <p>{"Dette er forslag til samarbeid mellom lærere, ikke et eget dokumentert case eller en automatisk læreplankobling. Avtal hva hvert fag skal bidra med og vurdere."}</p>
-<a className="text-link" href="/skoler#interesse">{"Diskuter et opplegg for skolen "}<span aria-hidden="true">{"↗"}</span>
+<a className="text-link" href="/skoler#interesse">{"Diskuter et opplegg for skolen "}<Arrow />
 </a>
 </div>
 </div>

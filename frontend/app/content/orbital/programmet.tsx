@@ -1,3 +1,4 @@
+import { Arrow } from "@/app/components/orbital/Arrow";
 import { ContactLinks } from "@/app/components/orbital/ContactLinks";
 import Image from "next/image";
 
@@ -24,7 +25,7 @@ export default function Content() { return <>
 <p className="lead">{"Les kravene. Bygg og test. Dokumenter resultatet. Veien gjennom prosjektet avhenger av hva elevene skal lage."}</p>
 </div>
 <div className="orbit-art subpage-orbit composed-orbit" aria-hidden="true">
-<svg viewBox="0 0 600 600" preserveAspectRatio="xMidYMid slice">
+<svg viewBox="0 0 600 600" preserveAspectRatio="xMinYMid slice">
 <path fill="#211058" d="M 480 -100 C 180 60 150 420 460 720 L 720 720 L 720 -100 Z" />
 <path id="program-intro-field" className="hero-orbit-line" d="M 480 -100 C 180 60 150 420 460 720" />
 <g data-orbit-body="" data-path="program-intro-field" data-orbit-position=".4" data-orbit-drift=".035">
@@ -57,7 +58,7 @@ export default function Content() { return <>
 <p>{"Astronauter skriver oppgavene ut fra reelle problemer på romstasjonen og kommende måneferder. Elevene utvikler og tester løsninger som vurderes av NASA-ingeniører. Sporet starter i Norge skoleåret 2026/27, og er ikke kjørt utenfor USA før."}</p>
 </article>
 </div>
-<p className="source-note">{"Les mer om programsporene "}<a href="https://engineering.larc.nasa.gov/hunch-program/">{"hos NASA Langley ↗"}</a>
+<p className="source-note">{"Les mer om programsporene "}<a href="https://engineering.larc.nasa.gov/hunch-program/">{"hos NASA Langley "}<Arrow /></a>
 </p>
 </div>
 </section>
@@ -116,7 +117,7 @@ export default function Content() { return <>
 <li data-from="2"><b>{"Februar"}</b><span>{"Kritisk designgjennomgang før produksjon og testing."}</span></li>
 <li data-from="4"><b>{"Vår"}</b><span>{"Ferdige produkter overleveres ved slutten av skoleåret."}</span></li>
 </ol>
-<a className="text-link" href="https://nasahunch.com/programs/design-and-prototyping">{"Design and Prototyping hos NASA HUNCH"}<span aria-hidden="true">{"↗"}</span>
+<a className="text-link" href="https://nasahunch.com/programs/design-and-prototyping">{"Design and Prototyping hos NASA HUNCH"}<Arrow />
 </a>
 </div>
 </div>
@@ -140,7 +141,7 @@ export default function Content() { return <>
 <div>
 <h2>{"Et kamerafeste bygget av elever i USA."}</h2>
 <p>{"Ball Clamp Monopod ble testet på romstasjonen i 2023. Prosjektet viser hvordan designarbeid og produksjon kan henge sammen."}</p>
-<a className="text-link" href="/prosjekt">{"Se prosjektet"}<span aria-hidden="true">{"↗"}</span>
+<a className="text-link" href="/prosjekt">{"Se prosjektet"}<Arrow />
 </a>
 </div>
 </div>

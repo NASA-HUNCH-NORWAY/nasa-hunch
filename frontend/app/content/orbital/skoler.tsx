@@ -1,3 +1,4 @@
+import { Arrow } from "@/app/components/orbital/Arrow";
 import { ContactLinks } from "@/app/components/orbital/ContactLinks";
 
 export default function Content() { return <>
@@ -22,7 +23,7 @@ export default function Content() { return <>
 <div>
 <h1>{"Start med faget."}<br />{"Finn et oppdrag."}</h1>
 <p className="lead">{"For lærere og skoleledere i videregående skole. I Norge kjøres produksjon etter tegning og design og prototyping. Fagcasene viser hvordan flere fag kan bruke det samme arbeidet. Det er gratis for skolen å delta."}</p>
-<a className="text-link" href="#spor">{"Utforsk fagcasene "}<span aria-hidden="true">{"↓"}</span>
+<a className="text-link" href="#spor">{"Utforsk fagcasene "}<Arrow dir="down" />
 </a>
 </div>
 <div className="orbit-art hero-orbit hero-orbit-school subject-orbit" aria-hidden="true">
@@ -54,32 +55,32 @@ export default function Content() { return <>
 <span className="subject-label">{"TIF / Industriteknologi"}</span>
 <h3>{"Hylser etter tegning fra NASA"}</h3>
 <p>{"Måling, toleranser og produksjon, fra øvingsmodell til kontrollert del."}</p>
-<span className="card-action">{"Se fagcaset "}<span aria-hidden="true">{"↗"}</span>
+<span className="card-action">{"Se fagcaset "}<Arrow />
 </span>
 </a>
 <a className="subject-card subject-design" href="/fagcase#design">
 <span className="subject-label">{"Teknologi og forskningslære"}</span>
 <h3>{"Et grep som fungerer"}</h3>
 <p>{"CAD, prototyper og forsøksdata. Hvordan vet dere at en løsning er bedre?"}</p>
-<span className="card-action">{"Se fagcaset "}<span aria-hidden="true">{"↗"}</span>
+<span className="card-action">{"Se fagcaset "}<Arrow />
 </span>
 </a>
 <a className="subject-card subject-matfag" href="/fagcase#matfag">
 <span className="subject-label">{"Restaurant og matfag"}</span>
 <h3>{"En oppskrift med tekniske krav"}</h3>
 <p>{"Råvarevalg, ernæring og sensorisk vurdering. Romfart trenger også matfag."}</p>
-<span className="card-action">{"Se fagcaset "}<span aria-hidden="true">{"↗"}</span>
+<span className="card-action">{"Se fagcaset "}<Arrow />
 </span>
 </a>
 <a className="subject-card subject-it" href="/fagcase#it">
 <span className="subject-label">{"Informasjonsteknologi"}</span>
 <h3>{"Finn riktig utstyr med en kode"}</h3>
 <p>{"Brukerbehov, databaser og testing, med et konkret verktøy for verkstedet."}</p>
-<span className="card-action">{"Se fagcaset "}<span aria-hidden="true">{"↗"}</span>
+<span className="card-action">{"Se fagcaset "}<Arrow />
 </span>
 </a>
 </div>
-<a className="text-link" href="/fagcase">{"Se alle fagcasene samlet "}<span aria-hidden="true">{"↗"}</span>
+<a className="text-link" href="/fagcase">{"Se alle fagcasene samlet "}<Arrow />
 </a>
 </div>
 </section>
@@ -91,7 +92,7 @@ export default function Content() { return <>
 <div className="prose">
 <p>{"I Vg2 industriteknologi inngår blant annet målemetoder, måleutstyr og vurdering av resultater mot toleranser. En del produsert etter tegning kan gi elevene anledning til å arbeide med dette i sammenheng."}</p>
 <p>{"Elevene kan dokumentere fremgangsmåten, sammenligne målene med tegningen og forklare avvik. Læreren vurderer kompetansen som vises i arbeidet."}</p>
-<a className="text-link" href="https://www.udir.no/lk20/pin02-03/kompetansemaal-og-vurdering/kv343">{"Se læreplanen hos Udir"}<span aria-hidden="true">{"↗"}</span>
+<a className="text-link" href="https://www.udir.no/lk20/pin02-03/kompetansemaal-og-vurdering/kv343">{"Se læreplanen hos Udir"}<Arrow />
 </a>
 </div>
 </div>
@@ -104,7 +105,7 @@ export default function Content() { return <>
 <div className="prose">
 <p>{"Pilotprosjektet ved Eid vidaregåande skule er beskrevet i en norsk studie publisert i 2026. Elevene laget hylser etter NASAs tegninger, og undervisningen gikk fra forstørrede øvingsmodeller til deler i riktig størrelse."}</p>
 <p>{"Intervjuer med elleve elever og tre lærere pekte på motivasjon og fellesskap rundt oppdraget. Studien er liten og kvalitativ; den dokumenterer ikke en generell effekt på læringsresultater."}</p>
-<a className="text-link" href="https://link.springer.com/article/10.1007/s44217-026-01443-8">{"Les studien av Garrels og Brevik"}<span aria-hidden="true">{"↗"}</span>
+<a className="text-link" href="https://link.springer.com/article/10.1007/s44217-026-01443-8">{"Les studien av Garrels og Brevik"}<Arrow />
 </a>
 </div>
 </div>

@@ -1,4 +1,5 @@
 "use client";
+import { Arrow } from "@/app/components/orbital/Arrow";
 import { useEffect, useRef } from "react";
 import { SubmissionForm } from "./SubmissionForm";
 import { site } from "@/app/lib/site";
@@ -39,7 +40,7 @@ export function ContactPanel() {
       <label>Melding<textarea name="message" rows={5} minLength={5} maxLength={5000} required /></label>
       <label className="form-honeypot" aria-hidden="true">La dette feltet stå tomt<input name="website" tabIndex={-1} autoComplete="off" /></label>
       <p className="form-privacy">Når du sender inn, bruker vi opplysningene for å svare på henvendelsen. <a href="/personvern">Les personvernerklæringen</a>.</p>
-      <button className="form-submit" type="submit">Send melding <span aria-hidden="true">↗</span></button>
+      <button className="form-submit" type="submit">Send melding <Arrow /></button>
     </SubmissionForm>
   </dialog>;
 }

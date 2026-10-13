@@ -1,3 +1,4 @@
+import { Arrow } from "@/app/components/orbital/Arrow";
 import Image from "next/image";
 import type { ReactNode } from "react";
 import { ContactPanel } from "./ContactPanel";
@@ -20,7 +21,7 @@ export function SiteFrame({children, pageClass, current, home = false}: {childre
    <div><div className="footer-links"><a href="/">NASA HUNCH Norge</a><a href="/contact" data-contact-open="">Kontakt oss</a><a href={`mailto:${site.email}`}>{site.email}</a><a href="/personvern">Personvern</a><a href="/partnere">Samarbeid med oss</a></div><SocialLinks /><p className="footer-identity">{site.legalName}<br/>Organisasjonsnummer {site.organisationNumber}<br/>{addressLine}</p></div>
    <SubmissionForm kind="newsletter" className="newsletter-form">
     <div className="newsletter-copy"><p className="newsletter-title">Nyhetsbrev</p><p>Få oppdateringer fra NASA HUNCH Norge.</p></div>
-    <div className="newsletter-entry"><label className="visually-hidden" htmlFor="newsletter-footer">E-postadresse</label><input id="newsletter-footer" name="email" type="email" autoComplete="email" placeholder="E-postadresse" maxLength={254} required/><button type="submit" className="form-submit">Meld meg på <span aria-hidden="true">↗</span></button></div>
+    <div className="newsletter-entry"><label className="visually-hidden" htmlFor="newsletter-footer">E-postadresse</label><input id="newsletter-footer" name="email" type="email" autoComplete="email" placeholder="E-postadresse" maxLength={254} required/><button type="submit" className="form-submit">Meld meg på <Arrow /></button></div>
     <label className="newsletter-consent"><input type="checkbox" name="consent" required/><span>Jeg samtykker til å motta nyhetsbrev. Jeg kan melde meg av når som helst. <a href="/personvern">Personvern</a>.</span></label>
     <label className="form-honeypot" aria-hidden="true">La dette feltet stå tomt<input name="website" tabIndex={-1} autoComplete="off"/></label>
    </SubmissionForm>

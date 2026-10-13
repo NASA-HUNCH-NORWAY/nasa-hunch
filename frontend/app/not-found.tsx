@@ -1,3 +1,4 @@
+import { Arrow } from "@/app/components/orbital/Arrow";
 import type { Metadata } from "next";
 import { SiteFrame } from "@/app/components/orbital/SiteFrame";
 
@@ -9,9 +10,9 @@ export default function NotFound() {
    <h1>Vi fant ikke<br/>denne siden.</h1>
    <p className="lead">Adressen kan være skrevet feil, eller siden kan ha flyttet. Herfra kommer du videre.</p>
    <div className="home-actions">
-    <a className="home-primary-link" href="/">Til forsiden <span aria-hidden="true">↗</span></a>
-    <a className="text-link" href="/skoler">For skoler <span aria-hidden="true">↗</span></a>
-    <a className="text-link" href="/contact" data-contact-open="">Kontakt oss <span aria-hidden="true">↗</span></a>
+    <a className="home-primary-link" href="/">Til forsiden <Arrow /></a>
+    <a className="text-link" href="/skoler">For skoler <Arrow /></a>
+    <a className="text-link" href="/contact" data-contact-open="">Kontakt oss <Arrow /></a>
    </div>
   </main>
  </SiteFrame>;

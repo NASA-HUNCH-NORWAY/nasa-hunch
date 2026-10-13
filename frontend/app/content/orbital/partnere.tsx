@@ -1,3 +1,4 @@
+import { Arrow } from "@/app/components/orbital/Arrow";
 import { ContactLinks } from "@/app/components/orbital/ContactLinks";
 
 export default function Content() { return <>
@@ -23,7 +24,7 @@ export default function Content() { return <>
 <div>
 <h1>{"Gi elevene"}<br />{"muligheter."}</h1>
 <p className="lead">{"Vi søker partnere som vil støtte NASA HUNCH Norge økonomisk og bidra til at flere elever får jobbe med romfart. Fagkunnskap, materialer og tilgang til utstyr er også verdifulle bidrag."}</p>
-<a className="home-primary-link" href="/contact" data-contact-open="" data-contact-subject="Partnerskap og støtte">{"Bli partner "}<span aria-hidden="true">{"↗"}</span>
+<a className="home-primary-link" href="/contact" data-contact-open="" data-contact-subject="Partnerskap og støtte">{"Bli partner "}<Arrow />
 </a>
 </div>
 <div className="orbit-art hero-orbit hero-orbit-partner" aria-hidden="true">
@@ -114,7 +115,7 @@ export default function Content() { return <>
 </div>
 <div className="prose">
 <p>{"Det amerikanske kamerafestet Ball Clamp Monopod kombinerte elevbidrag innen design, 3D-print og maskinering. Les om oppgaven og resultatet på ISS."}</p>
-<a className="text-link" href="/prosjekt">{"Se Ball Clamp Monopod"}<span aria-hidden="true">{"↗"}</span>
+<a className="text-link" href="/prosjekt">{"Se Ball Clamp Monopod"}<Arrow />
 </a>
 </div>
 </div>

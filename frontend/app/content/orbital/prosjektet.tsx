@@ -1,3 +1,4 @@
+import { Arrow } from "@/app/components/orbital/Arrow";
 import Image from "next/image";
 
 export default function Content() { return <>
@@ -88,7 +89,7 @@ export default function Content() { return <>
 <div className="prose">
 <p>{"NASA omtalte testingen i sin oppsummering fra uken 8. mai 2023. Astronaut Stephen Bowen klargjorde festet, som skulle gjøre kameraarbeidet enklere og raskere for besetningen."}</p>
 <p>{"Dette er et dokumentert eksempel fra USA, ikke et norsk elevprosjekt eller en garanti for utfallet av andre oppdrag i HUNCH."}</p>
-<a className="text-link" href="https://www.nasa.gov/missions/station/iss-research/space-station-science-highlights-week-of-may-8-2023/">{"Les NASAs omtale av testen"}<span aria-hidden="true">{"↗"}</span>
+<a className="text-link" href="https://www.nasa.gov/missions/station/iss-research/space-station-science-highlights-week-of-may-8-2023/">{"Les NASAs omtale av testen"}<Arrow />
 </a>
 </div>
 </div>
@@ -96,13 +97,13 @@ export default function Content() { return <>
 <aside className="project-references" aria-label="Kilder og bilder">
 <h3>{"Kilder og bilder"}</h3>
 <p>{"Prosjekthistorien bygger på NASAs egne publikasjoner. Bildene er kreditert ved hvert motiv."}</p>
-<a href="https://www.nasa.gov/podcasts/houston-we-have-a-podcast/the-student-built-camera-mount/">{"Samtalen med elevene hos NASA ↗"}</a>
-<a href="https://www.nasa.gov/missions/station/iss-research/space-station-science-highlights-week-of-may-8-2023/">{"NASAs oppsummering fra mai 2023 ↗"}</a>
+<a href="https://www.nasa.gov/podcasts/houston-we-have-a-podcast/the-student-built-camera-mount/">{"Samtalen med elevene hos NASA "}<Arrow /></a>
+<a href="https://www.nasa.gov/missions/station/iss-research/space-station-science-highlights-week-of-may-8-2023/">{"NASAs oppsummering fra mai 2023 "}<Arrow /></a>
 </aside>
 <div className="project-next">
 <h3>{"Ta ideen inn i undervisningen."}</h3>
 <p>{"Se forslag til fagkoblinger og hva en norsk skole bør avklare før oppstart."}</p>
-<a className="text-link" href="/fagcase#design">{"Utforsk fagcaset"}<span aria-hidden="true">{"↗"}</span>
+<a className="text-link" href="/fagcase#design">{"Utforsk fagcaset"}<Arrow />
 </a>
 </div>
 </div>

@@ -1,3 +1,4 @@
+import { Arrow } from "@/app/components/orbital/Arrow";
 import { site, addressLine } from "@/app/lib/site";
 import Image from "next/image";
 import { SubmissionForm } from "@/app/components/orbital/SubmissionForm";
@@ -34,9 +35,9 @@ export default function Content() { return <>
 <h1>{"Elever bygger"}<br />{"for romfart."}</h1>
 <p className="lead">{"I NASA HUNCH bygger og utvikler elever i videregående skole utstyr etter behov hos NASA. Norge er det første landet utenfor USA med programmet, og det er gratis for skolen å delta."}</p>
 <div className="home-actions">
-<a className="home-primary-link" href="/skoler">{"For skoler "}<span aria-hidden="true">{"↗"}</span>
+<a className="home-primary-link" href="/skoler">{"For skoler "}<Arrow />
 </a>
-<a className="text-link" href="/about">{"Hva er NASA HUNCH? "}<span aria-hidden="true">{"↗"}</span>
+<a className="text-link" href="/about">{"Hva er NASA HUNCH? "}<Arrow />
 </a>
 </div>
 </div>
@@ -55,7 +56,7 @@ export default function Content() { return <>
 <figcaption>{"Et kamerafeste bygget av amerikanske HUNCH-elever, testet på ISS i 2023. Foto: NASA"}</figcaption>
 </figure>
 </div>
-<a className="scroll-hint" href="#program">{"Utforsk programmet "}<span aria-hidden="true">{"↓"}</span>
+<a className="scroll-hint" href="#program">{"Utforsk programmet "}<Arrow dir="down" />
 </a>
 </section>
 <section className="scroll-stop paper process-section" id="program" data-stop="">
@@ -63,7 +64,7 @@ export default function Content() { return <>
 <div className="stop-copy">
 <h2>{"Lær gjennom"}<br />{"å lage."}</h2>
 <p className="lead">{"Arbeid etter en ferdig tegning, eller utvikle en ny løsning. Testene og dokumentasjonen er en del av oppgaven."}</p>
-<a className="text-link" href="/programs">{"Slik foregår arbeidet"}<span aria-hidden="true">{"↗"}</span>
+<a className="text-link" href="/programs">{"Slik foregår arbeidet"}<Arrow />
 </a>
 </div>
 <div className="process-orbit orbit-art">
@@ -106,9 +107,9 @@ export default function Content() { return <>
 <h2>{"Laget på Eid."}<br />{"Levert til NASA."}</h2>
 <p className="lead">{"Elever på teknologi- og industrifag ved Eid vidaregåande skule i Nordfjordeid har i to år produsert deler etter tegninger og spesifikasjoner fra NASA. Skoleåret 2026/27 er rundt 100 elever med."}</p>
 <div className="home-actions">
-<a className="text-link" href="/fagcase#produksjon">{"Se hvordan elevene jobbet "}<span aria-hidden="true">{"↗"}</span>
+<a className="text-link" href="/fagcase#produksjon">{"Se hvordan elevene jobbet "}<Arrow />
 </a>
-<a className="text-link" href="/prosjekt">{"Et eksempel fra USA "}<span aria-hidden="true">{"↗"}</span>
+<a className="text-link" href="/prosjekt">{"Et eksempel fra USA "}<Arrow />
 </a>
 </div>
 </div>
@@ -129,9 +130,9 @@ export default function Content() { return <>
 <h2>{"En plass i"}<br />{"undervisningen."}</h2>
 <p className="lead">{"For lærere og skoleledere i videregående skole. Bli med i produksjon etter tegning eller design og prototyping, og se hvordan flere fag kan bruke arbeidet. Deltakelse er gratis for skolen."}</p>
 <div className="home-actions">
-<a className="home-primary-link" href="/skoler">{"For skoler "}<span aria-hidden="true">{"↗"}</span>
+<a className="home-primary-link" href="/skoler">{"For skoler "}<Arrow />
 </a>
-<a className="text-link" href="/fagcase">{"Se fagcasene "}<span aria-hidden="true">{"↗"}</span>
+<a className="text-link" href="/fagcase">{"Se fagcasene "}<Arrow />
 </a>
 </div>
 </div>
@@ -155,9 +156,9 @@ export default function Content() { return <>
 <p className="lead">{"Vi søker økonomiske støttepartnere. Bidrag kan gå til materialer, utstyr, læreropplæring og oppfølging av elevprosjekter. Vi avtaler sammen hva støtten skal brukes til."}</p>
 <p className="home-partner-note">{"Dere kan også bidra med fagkunnskap, materialer eller tilgang til verksted og utstyr."}</p>
 <div className="home-actions">
-<a className="home-primary-link" href="#contact-panel" data-contact-open="" data-contact-subject="Partnerskap og støtte">{"Ta kontakt om støtte "}<span aria-hidden="true">{"↗"}</span>
+<a className="home-primary-link" href="#contact-panel" data-contact-open="" data-contact-subject="Partnerskap og støtte">{"Ta kontakt om støtte "}<Arrow />
 </a>
-<a className="text-link" href="/partnere">{"Slik kan dere bidra "}<span aria-hidden="true">{"↗"}</span>
+<a className="text-link" href="/partnere">{"Slik kan dere bidra "}<Arrow />
 </a>
 </div>
 </div>
@@ -181,7 +182,7 @@ export default function Content() { return <>
 <p className="home-newsletter-copy">{"Nyheter om prosjekter og muligheter for skoler."}</p>
 <div className="newsletter-entry">
 <input id="newsletter-home" name="email" type="email" autoComplete="email" placeholder="E-postadresse" maxLength={254} required />
-<button type="submit">{"Meld meg på "}<span aria-hidden="true">{"↗"}</span>
+<button type="submit">{"Meld meg på "}<Arrow />
 </button>
 </div>
 <label className="newsletter-consent">
