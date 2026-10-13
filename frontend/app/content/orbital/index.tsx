@@ -136,19 +136,13 @@ export default function Content() { return <>
 </div>
 </div>
 <div className="orbit-art section-orbit-fields" aria-hidden="true">
-<svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
-<path fill="#211058" d="M 1210 -150 C 960 100 950 550 1300 1100 L 1600 1100 L 1600 -150 Z" />
-<path id="home-school-vertical" className="hero-orbit-line" d="M 1210 -150 C 960 100 950 550 1300 1100" />
-<g data-orbit-body="" data-path="home-school-vertical" data-orbit-position=".37" data-orbit-drift=".03">
+<svg viewBox="0 0 1440 900" preserveAspectRatio="xMaxYMid meet">
+<path fill="#211058" d="M 1440 30 C 980 160 960 720 1440 870 Z" />
+<path id="home-school-vertical" className="hero-orbit-line" d="M 1440 30 C 980 160 960 720 1440 870" />
+<g data-orbit-body="" data-path="home-school-vertical" data-orbit-position=".42" data-orbit-drift=".03">
 <circle className="planet-halo" r="26" />
 <circle className="planet" r="17" />
 <path fill="white" transform="translate(37 -28)" d="M 3 -8 A 9 9 0 1 0 9 5 A 9 9 0 0 1 3 -8" />
-</g>
-<path fill="#170c43" d="M -100 1020 C 280 680 820 670 1550 860 L 1550 1200 L -100 1200 Z" />
-<path id="home-school-horizontal" className="hero-orbit-line" d="M -100 1020 C 280 680 820 670 1550 860" />
-<g data-orbit-body="" data-path="home-school-horizontal" data-orbit-position=".69" data-orbit-drift=".025">
-<circle className="planet-halo" r="26" />
-<circle className="planet" r="17" />
 </g>
 </svg>
 </div>
@@ -168,13 +162,12 @@ export default function Content() { return <>
 </div>
 </div>
 <div className="orbit-art section-orbit-fields" aria-hidden="true">
-<svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
-<path fill="#211058" d="M 1210 -150 C 960 100 950 550 1300 1100 L 1600 1100 L 1600 -150 Z" />
-<path id="home-partner-vertical" className="hero-orbit-line" d="M 1210 -150 C 960 100 950 550 1300 1100" />
-<g data-orbit-body="" data-path="home-partner-vertical" data-orbit-position=".37" data-orbit-drift=".03">
+<svg viewBox="0 0 1440 900" preserveAspectRatio="xMaxYMid meet">
+<path fill="#211058" d="M 1440 80 C 1060 190 1040 600 1440 720 Z" />
+<path id="home-partner-vertical" className="hero-orbit-line" d="M 1440 80 C 1060 190 1040 600 1440 720" />
+<g data-orbit-body="" data-path="home-partner-vertical" data-orbit-position=".58" data-orbit-drift=".03">
 <circle className="planet-halo" r="26" />
 <circle className="planet" r="17" />
-<path fill="white" transform="translate(37 -28)" d="M 3 -8 A 9 9 0 1 0 9 5 A 9 9 0 0 1 3 -8" />
 </g>
 </svg>
 </div>
