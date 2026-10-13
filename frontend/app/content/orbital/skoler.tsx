@@ -21,7 +21,7 @@ export default function Content() { return <>
 <div className="shell school-masthead-grid">
 <div>
 <h1>{"Start med faget."}<br />{"Finn et oppdrag."}</h1>
-<p className="lead">{"For lærere og skoleledere i videregående skole. HUNCH kan passe i både verkstedet, kjøkkenet og datarommet, og det er gratis for skolen å delta."}</p>
+<p className="lead">{"For lærere og skoleledere i videregående skole. I Norge kjøres produksjon etter tegning og design og prototyping. Fagcasene viser hvordan flere fag kan bruke det samme arbeidet. Det er gratis for skolen å delta."}</p>
 <a className="text-link" href="#spor">{"Utforsk fagcasene "}<span aria-hidden="true">{"↓"}</span>
 </a>
 </div>
@@ -47,7 +47,7 @@ export default function Content() { return <>
 <div className="shell">
 <div className="section-heading">
 <h2>{"Hva kan elevene jobbe med?"}</h2>
-<p>{"Fire eksempler fra HUNCH, med forslag til oppgaver, fagkoblinger og elevarbeid. Undervisningsforslagene er våre tilpasninger, ikke oppdrag fra NASA."}</p>
+<p>{"Industriteknologi og teknologi og forskningslære passer de to sporene som kjøres i Norge nå. Matfag og IT er ideer for hvordan flere fag kan bruke HUNCH, bygget på eksempler fra USA. Undervisningsforslagene er våre tilpasninger, ikke oppdrag fra NASA."}</p>
 </div>
 <div className="subject-cards">
 <a className="subject-card subject-produksjon" href="/fagcase#produksjon">

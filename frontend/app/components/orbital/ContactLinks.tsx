@@ -4,8 +4,8 @@ type Subject = "Skole og elevprosjekt" | "Partnerskap og støtte" | "Generelt sp
 
 /**
  * Skjemaet og adressen side om side. Adressen er en ekte mailto-lenke, så den
- * kan kopieres og videresendes. Knappen åpner kontaktskuffen, og uten
- * JavaScript går den til /contact.
+ * kan kopieres og videresendes. Knappen åpner kontaktskuffen. Uten
+ * JavaScript går den til /contact, der knappene åpner e-postprogrammet.
  */
 export function ContactLinks({ subject, label = "Skriv til oss" }: { subject: Subject; label?: string }) {
  return <div className="contact-links">

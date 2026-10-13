@@ -126,7 +126,7 @@ export default function Content() { return <>
 <div className="shell home-grid">
 <div className="stop-copy">
 <h2>{"En plass i"}<br />{"undervisningen."}</h2>
-<p className="lead">{"For lærere og skoleledere i videregående skole. Utforsk oppgaver innen produksjon, teknologi, matfag og IT, og se hva som må være på plass. Deltakelse er gratis for skolen."}</p>
+<p className="lead">{"For lærere og skoleledere i videregående skole. Bli med i produksjon etter tegning eller design og prototyping, og se hvordan flere fag kan bruke arbeidet. Deltakelse er gratis for skolen."}</p>
 <div className="home-actions">
 <a className="home-primary-link" href="/skoler">{"For skoler "}<span aria-hidden="true">{"↗"}</span>
 </a>

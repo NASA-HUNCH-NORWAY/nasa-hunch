@@ -352,9 +352,9 @@ figcaption { font-size: 12px; color: var(--muted); margin-top: 12px; line-height
  .casebook-intro .orbit-art { position: relative; width: 100%; height: 140px; inset: auto; opacity: 1; }
  .casebook-lead { gap: 0; }
  .casebook-index { grid-template-columns: minmax(0,1fr); }
- .casebook-index a { display: grid; grid-template-columns: 24px minmax(0,1fr) 16px; align-items: center; padding: 20px 0; gap: 12px; border-bottom: 1px solid var(--line); }
+ .casebook-index a { display: grid; grid-template-columns: minmax(0,1fr) 16px; align-items: center; padding: 20px 0; gap: 12px; border-bottom: 1px solid var(--line); }
  .casebook-index a:last-child { border-bottom: none; }
- .casebook-index strong { font-size: 15px; overflow-wrap: anywhere; }
+ .casebook-index strong { font-size: 16px; overflow-wrap: break-word; }
  .casebook { padding-top: 25px; }
  .study-header { gap: 18px; }
  .study-number { font-size: 38px; }
@@ -730,3 +730,7 @@ figcaption { font-size: 12px; color: var(--muted); margin-top: 12px; line-height
  .year-cycle b { font-size: 18px; }
  .person-portrait { max-width: 160px; }
 }
+
+/* Polish: no text below 12px in the home footer and newsletter. */
+.home .home-footer, .home .home-newsletter .newsletter-consent, .home-newsletter-copy { font-size: 13px; }
+.footer-links a, .home-footer-links a { display: inline-block; padding-block: 8px; }
