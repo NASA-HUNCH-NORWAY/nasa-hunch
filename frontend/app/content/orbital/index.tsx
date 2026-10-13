@@ -1,6 +1,7 @@
 import { site, addressLine } from "@/app/lib/site";
 import Image from "next/image";
 import { SubmissionForm } from "@/app/components/orbital/SubmissionForm";
+import { SocialLinks } from "@/app/components/orbital/SocialLinks";
 
 export default function Content() { return <>
 <nav className="stop-nav" aria-label="Stopp på forsiden">
@@ -180,6 +181,7 @@ export default function Content() { return <>
 </div>
 <footer className="home-footer">
 <div className="home-footer-brand">NASA HUNCH Norge<p className="footer-identity">Organisasjonsnummer {site.organisationNumber}<br/>{addressLine}</p>
+<SocialLinks />
 </div>
 <SubmissionForm kind="newsletter" className="home-newsletter">
 <label htmlFor="newsletter-home">{"Følg elevprosjektene"}</label>

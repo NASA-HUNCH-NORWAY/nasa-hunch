@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import { ContactPanel } from "./ContactPanel";
 import { MotionRuntime } from "./MotionRuntime";
 import { SubmissionForm } from "./SubmissionForm";
+import { SocialLinks } from "./SocialLinks";
 import { site, addressLine } from "@/app/lib/site";
 
 const navigation = [["/about", "Om HUNCH"], ["/programs", "Programmet"], ["/skoler", "For skoler"], ["/fagcase", "Fagcase"], ["/partnere", "Partnere"], ["/team", "Teamet bak"]];
@@ -16,7 +17,7 @@ export function SiteFrame({children, pageClass, current, home = false}: {childre
   </header>
   {children}
   {!home && <footer className="site-footer shell">
-   <div><div className="footer-links"><a href="/">NASA HUNCH Norge</a><a href="/contact" data-contact-open="">Kontakt oss</a><a href={`mailto:${site.email}`}>{site.email}</a><a href="/personvern">Personvern</a><a href="/partnere">Samarbeid med oss</a></div><p className="footer-identity">{site.legalName}<br/>Organisasjonsnummer {site.organisationNumber}<br/>{addressLine}</p></div>
+   <div><div className="footer-links"><a href="/">NASA HUNCH Norge</a><a href="/contact" data-contact-open="">Kontakt oss</a><a href={`mailto:${site.email}`}>{site.email}</a><a href="/personvern">Personvern</a><a href="/partnere">Samarbeid med oss</a></div><SocialLinks /><p className="footer-identity">{site.legalName}<br/>Organisasjonsnummer {site.organisationNumber}<br/>{addressLine}</p></div>
    <SubmissionForm kind="newsletter" className="newsletter-form">
     <div className="newsletter-copy"><p className="newsletter-title">Nyhetsbrev</p><p>Få oppdateringer fra NASA HUNCH Norge.</p></div>
     <div className="newsletter-entry"><label className="visually-hidden" htmlFor="newsletter-footer">E-postadresse</label><input id="newsletter-footer" name="email" type="email" autoComplete="email" placeholder="E-postadresse" maxLength={254} required/><button type="submit" className="form-submit">Meld meg på <span aria-hidden="true">↗</span></button></div>

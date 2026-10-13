@@ -200,9 +200,45 @@ export function setupMotion() {
 
   // SVG path and planet share one coordinate system. Only visible artwork is
   // animated; hidden tabs and reduced-motion preferences stop the frame loop.
-  const bodies = [...document.querySelectorAll('[data-orbit-body]')].map(body => {
+  // The gap around a planet is cut out of the orbit line with a mask, so it shows
+  // whatever lies behind it on both sides of the line: page, colour field or photo.
+  // Without JavaScript the filled halo stays as a fallback.
+  const svgNS = 'http://www.w3.org/2000/svg';
+  const gapMasks = new Map();
+  function cutGap(path, halo, index) {
+    let mask = gapMasks.get(path);
+    if (!mask) {
+      const svg = path.ownerSVGElement;
+      const defs = svg.querySelector('defs') || svg.insertBefore(document.createElementNS(svgNS, 'defs'), svg.firstChild);
+      mask = document.createElementNS(svgNS, 'mask');
+      mask.id = 'orbit-gap-' + index;
+      mask.setAttribute('maskUnits', 'userSpaceOnUse');
+      for (const [name, value] of [['x', -1e5], ['y', -1e5], ['width', 2e5], ['height', 2e5]]) mask.setAttribute(name, value);
+      const keep = document.createElementNS(svgNS, 'rect');
+      for (const [name, value] of [['x', -1e5], ['y', -1e5], ['width', 2e5], ['height', 2e5], ['fill', 'white']]) keep.setAttribute(name, value);
+      mask.append(keep);
+      defs.append(mask);
+      path.setAttribute('mask', 'url(#' + mask.id + ')');
+      gapMasks.set(path, mask);
+    }
+    const hole = document.createElementNS(svgNS, 'circle');
+    hole.setAttribute('r', halo.getAttribute('r'));
+    hole.setAttribute('fill', 'black');
+    hole.setAttribute('cx', -1e5);
+    mask.append(hole);
+    halo.style.opacity = '0';
+    return hole;
+  }
+  // Remove the masks on teardown, so a remount does not leave stale masks with the same id behind.
+  controller.signal.addEventListener('abort', () => {
+    gapMasks.forEach((mask, path) => { path.removeAttribute('mask'); mask.remove(); });
+    document.querySelectorAll('.planet-halo,.crossing-halo').forEach(halo => { halo.style.opacity = ''; });
+  });
+  const bodies = [...document.querySelectorAll('[data-orbit-body]')].map((body, index) => {
     const path = document.getElementById(body.dataset.path);
-    return { body, path, length: path.getTotalLength(), moon: body.querySelector('[data-moon]'),
+    const halo = body.querySelector('.planet-halo,.crossing-halo');
+    return { body, path, length: path.getTotalLength(), moon: body.querySelector('[data-moon]'), halo,
+      hole: halo ? cutGap(path, halo, index) : null,
       art: body.closest('.orbit-art, .hero-photo-frame'), transit: body.hasAttribute('data-transit'), visible: false };
   });
   let animationFrame = 0, lastTime = 0, elapsed = 0;
@@ -223,10 +259,10 @@ export function setupMotion() {
         : progress;
       const point = item.path.getPointAtLength(boundedProgress * item.length);
       item.body.setAttribute('transform', 'translate(' + point.x.toFixed(2) + ' ' + point.y.toFixed(2) + ')');
+      if (item.hole) { item.hole.setAttribute('cx', point.x.toFixed(2)); item.hole.setAttribute('cy', point.y.toFixed(2)); }
       const angle = elapsed / 8500 + index;
       if (item.moon) {
-        const halo = item.body.querySelector('.planet-halo,.crossing-halo');
-        const radius = Number(halo?.getAttribute('r') || 17) + 22;
+        const radius = Number(item.halo?.getAttribute('r') || 17) + 22;
         item.moon.setAttribute('transform', 'translate(' + (Math.cos(angle)*radius).toFixed(2) + ' ' + (Math.sin(angle)*radius).toFixed(2) + ')');
       }
     });

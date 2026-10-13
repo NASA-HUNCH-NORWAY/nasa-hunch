@@ -34,6 +34,12 @@ export const site = {
   },
   /** Felles e-postadresse for skoler, partnere og personvernhenvendelser. */
   email: "kontakt@nasahunch.no",
+  /** Sosiale medier. En profil med url null vises ikke. */
+  socials: [
+    { name: "Instagram", url: "https://www.instagram.com/nasahunch_norge" },
+    { name: "LinkedIn", url: "https://www.linkedin.com/company/nasa-hunch-norway/" },
+    { name: "TikTok", url: null }, // TODO: legg inn TikTok-profilen
+  ] as { name: string; url: string | null }[],
   /** Brønnøysundregistrene, for de som vil kontrollere opplysningene. */
   registryUrl: "https://virksomhet.brreg.no/nb/oppslag/enheter/937749570",
 } as const;
