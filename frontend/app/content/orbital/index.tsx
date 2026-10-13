@@ -123,7 +123,7 @@ export default function Content() { return <>
 </div>
 </div>
 </section>
-<section className="scroll-stop" id="skoler" data-stop="">
+<section className="scroll-stop stop-mirrored" id="skoler" data-stop="">
 <div className="shell home-grid">
 <div className="stop-copy">
 <h2>{"En plass i"}<br />{"undervisningen."}</h2>
@@ -136,13 +136,13 @@ export default function Content() { return <>
 </div>
 </div>
 <div className="orbit-art section-orbit-fields" aria-hidden="true">
-<svg viewBox="0 0 1440 900" preserveAspectRatio="xMaxYMid meet">
-<path fill="#211058" d="M 1440 30 C 980 160 960 720 1440 870 Z" />
-<path id="home-school-vertical" className="hero-orbit-line" d="M 1440 30 C 980 160 960 720 1440 870" />
+<svg viewBox="0 0 1440 900" preserveAspectRatio="xMinYMid meet">
+<path fill="#211058" d="M 0 30 C 460 160 480 720 0 870 Z" />
+<path id="home-school-vertical" className="hero-orbit-line" d="M 0 30 C 460 160 480 720 0 870" />
 <g data-orbit-body="" data-path="home-school-vertical" data-orbit-position=".42" data-orbit-drift=".03">
 <circle className="planet-halo" r="26" />
 <circle className="planet" r="17" />
-<path fill="white" transform="translate(37 -28)" d="M 3 -8 A 9 9 0 1 0 9 5 A 9 9 0 0 1 3 -8" />
+<path fill="white" transform="translate(-37 -28)" d="M 3 -8 A 9 9 0 1 0 9 5 A 9 9 0 0 1 3 -8" />
 </g>
 </svg>
 </div>
