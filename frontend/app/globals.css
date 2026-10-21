@@ -808,23 +808,6 @@ html { scrollbar-color: #3d344f var(--ink); caret-color: var(--accent-light); }
 @keyframes fade-in { from { opacity: 0; } }
 @keyframes now-pulse { 0% { box-shadow: 0 0 0 5px var(--ink), 0 0 0 5px #a998ef90; } 70%, 100% { box-shadow: 0 0 0 5px var(--ink), 0 0 0 16px #a998ef00; } }
 
-/* ---------- Study: one orbit through the front page (/studie/bane) ---------- */
-.orbit-study { position: relative; }
-.orbit-study #scroll-story { position: relative; }
-.orbit-thread { position: absolute; left: 0; z-index: 5; pointer-events: none; overflow: visible; }
-.orbit-thread-line { fill: none; stroke: var(--accent-light); stroke-width: 1.5; opacity: .35; }
-.orbit-thread-trail { fill: none; stroke: var(--accent-light); stroke-width: 2.5; }
-.orbit-thread-node { fill: var(--ink); stroke: var(--accent-light); stroke-width: 1.5; }
-.orbit-thread-planet circle { fill: #fff; }
-.orbit-thread-planet .orbit-thread-halo { fill: none; stroke: var(--accent-light); stroke-width: 1.5; opacity: .6; }
-.orbit-study[data-thread="veving"] .section-orbit-fields, .orbit-study[data-thread="veving"] .stop-nav, .orbit-study[data-thread="skinne"] .stop-nav { display: none; }
-.study-panel { position: fixed; left: 20px; bottom: 20px; z-index: 40; width: min(320px, calc(100% - 40px)); padding: 16px 18px; background: #0e0d16f2; border: 1px solid #3d344f; font-size: 13px; }
-.study-panel-title { margin: 0 0 10px; color: var(--text); font-weight: 500; }
-.study-panel-options { display: flex; gap: 6px; }
-.study-panel-options button { flex: 1; padding: 7px 10px; border: 1px solid var(--line); background: transparent; color: var(--muted); cursor: pointer; font-size: 13px; }
-.study-panel-options button[aria-checked="true"] { background: var(--violet); border-color: var(--accent-light); color: var(--text); }
-.study-panel-note { margin: 10px 0 0; color: var(--muted); line-height: 1.5; }
-@media (max-width: 960px) { .orbit-thread { display: none; } .orbit-study .section-orbit-fields { display: block !important; } }
 
 /* Hero orbits on /programs, /fagcase and /team fill the whole hero and bleed to the right edge,
    like the heroes on /about, /skoler and /partnere, instead of sitting in a cropped box. */

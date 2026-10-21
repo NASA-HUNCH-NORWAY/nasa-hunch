@@ -1,6 +1,8 @@
 # Plan for orbitaldesignet
 
-## Status
+Dette er planen og loggen fra arbeidet med det nye designet. Gjeldende oppsett og det som gjenstår før lansering står i README.md.
+
+## Status ved oppstart
 
 Repoet er hentet lokalt og branchen orbital-redesign er opprettet fra main. Ingen endringer er publisert til GitHub, Vercel eller Sanity.
 
@@ -50,7 +52,7 @@ Samle korte kildenotater og videre lenker med innholdet de tilhører. Varier kom
 
 ## Implementert i orbital-redesign
 
-Sidene er nå React sider i frontend/app. Lokalt sideinnhold ligger i frontend/app/content/orbital. Sanity Studio og datasettet er ikke endret, og aktive sider gjør ingen Sanity forespørsler.
+Sidene er nå React sider i frontend/app. Lokalt sideinnhold ligger i frontend/app/content/orbital. Sidene gjør ingen Sanity forespørsler. Sanity Studio er fjernet fra repoet, og datasettet i Sanity er ikke endret.
 
 Felles navigasjon, kontaktpanel, nyhetsbrev og bevegelse ligger i frontend/app/components/orbital. Bevegelsen beholder prototypens hjulhåndtering og rydder opp hendelser, observatører og animasjonsrammer når komponenten avsluttes. Bilder ligger i frontend/public/assets og bruker Next.js bildekomponenten.
 
@@ -58,9 +60,9 @@ Kontakt og nyhetsbrev bruker Route Handlers med servervariabler. Innsending i Ve
 
 Om siden har en samlet avslutning som viser to arbeidsformer og kontakt som neste steg. Organisasjonsnummer og adresse er bevart i footeren. Norske adresser fra prototypen videresendes til de nye sidene, mens eksisterende /about, /programs, /team og /contact er beholdt.
 
-Lokalt kjøres den nye løsningen fra frontend med npm run dev. Bruk port 3002 mens den gamle prototypen kjører på port 3001.
+Lokalt kjøres den nye løsningen fra frontend med npm run dev. Bruk port 3001, siden port 3000 brukes til et annet prosjekt lokalt.
 
-For Vercel skal Root Directory være frontend. Framework Preset er Next.js. Miljøvariablene er dokumentert i frontend/.env.example. Sanity kreves ikke for denne branchen.
+For Vercel skal Root Directory være frontend. Framework Preset er Next.js. Miljøvariablene er dokumentert i frontend/.env.example. Sanity brukes ikke lenger.
 
 ## Leveranse
 

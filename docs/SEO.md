@@ -17,55 +17,59 @@ Dokumentet beskriver hva som er gjort i koden, og hva som må gjøres utenfor ko
 
 **Gamle URL-er**
 
-`/kontakt`, `/kontakt-skoler` og `/kontakt-partner` lå i Google som 404. De har nå permanent
-redirect (308) til `/contact`, satt opp i `frontend/next.config.ts`. Samme sted ligger
-`/om-oss`, `/om`, `/programmer` og `/teamet`, slik at gjettede norske adresser treffer riktig
-side.
+Alle permanente redirects (308) ligger i `frontend/next.config.ts`:
+
+- `/kontakt`, `/kontakt-skoler` og `/kontakt-partner` lå i Google som 404 og går til `/contact`.
+- `/om-oss`, `/om`, `/programmer` og `/teamet` går til de engelske adressene, slik at gjettede
+  norske adresser treffer riktig side.
+- Adressene fra prototypen (`/index.html`, `/om.html`, `/skoler.html` og så videre) går til de
+  tilsvarende sidene.
 
 **Domenet**
 
 nasahunch.no sender 308-redirect til www.nasahunch.no. Alle canonical-URL-er, Open Graph-URL-er,
-sitemap og robots peker derfor på `https://www.nasahunch.no`. Tidligere pekte de på varianten
-uten www, altså på URL-er som redirigerer. Det er årsaken til «Page with redirect» i Search
-Console.
+sitemap og robots peker derfor på `https://www.nasahunch.no`, satt som `SITE_URL` i
+`frontend/app/lib/seo.ts`.
 
 **Sider søkemotorer trenger**
 
-- `/robots.txt` genereres, og peker på sitemap.
-- `/sitemap.xml` inneholder alle fem sidene, med prioritet og oppdateringsfrekvens.
+- `/robots.txt` genereres fra `frontend/app/robots.ts`, og peker på sitemap.
+- `/sitemap.xml` genereres fra `frontend/app/sitemap.ts` og inneholder alle ti sidene: forsiden,
+  `/about`, `/programs`, `/skoler`, `/fagcase`, `/partnere`, `/prosjekt`, `/team`, `/contact`
+  og `/personvern`. Ny side må legges inn i listen der.
 
 **Strukturerte data (JSON-LD)**
 
-Alle sider sender med:
+Alle sider sender med, fra `frontend/app/components/StructuredData.tsx`:
 
 - `NGO`: navn, formål, organisasjonsnummer, adresse, e-post, sosiale profiler og lenke til
   Enhetsregisteret. Dette knytter nettsiden til den registrerte organisasjonen, som er nyttig
   både for Google-søk og for søknaden til Google for Nonprofits.
 - `WebSite`: navn og språk.
 
-I tillegg per side:
-
-- `/about`: brødsmulesti og `ScholarlyArticle` for forskningsartikkelen, med forfattere,
-  lisens og DOI-lenke.
-- `/programs`: brødsmulesti og `ItemList` med ett `Course`-objekt per programområde.
-- `/team` og `/contact`: brødsmulesti, og `ContactPage` på kontaktsiden.
+Organisasjonsdataene hentes fra `frontend/app/lib/site.ts`. Sidespesifikke data som brødsmulesti
+er ikke lagt inn på de nye sidene ennå. `breadcrumbSchema` i `seo.ts` er klar til bruk.
 
 **Struktur og ytelse**
 
-- Forsiden manglet `h1`. «NASA HUNCH Norge» i toppboksen er nå sidens `h1`, uten at utseendet
-  er endret. Alle undersider har én `h1`.
-- Kortbildene på forsiden gikk gjennom `<img>` uten optimalisering. De bruker nå `next/image`,
-  som gir riktig størrelse og moderne bildeformater.
-- AVIF er lagt til i bildeformatene, i tillegg til WebP.
-- `preconnect` til Google Fonts og Sanity CDN, som kutter ventetid på første besøk.
+- Hver side har én `h1`.
+- Alle bilder bruker `next/image`, med AVIF og WebP.
+- Skrifttypen er systemets Helvetica Neue, så siden laster ingen eksterne fonter.
+- Siden har ingen tredjepartsskript. Sikkerhetshodene i `next.config.ts` tillater bare egne
+  ressurser.
+
+**Delingsbilde**
+
+`frontend/public/NasaHunchOG.png` brukes på alle sider. Bildet er fra det gamle designet og bør
+byttes til et som matcher den nye profilen.
 
 ## Må gjøres utenfor koden
 
 **Verifisering og innsending**
 
 1. Search Console: sitemapet er allerede sendt inn som
-   `https://www.nasahunch.no/sitemap.xml`. Etter neste deploy inneholder det fem sider i stedet
-   for én. Be om ny gjennomlesing der.
+   `https://www.nasahunch.no/sitemap.xml`. Etter lanseringen av det nye designet inneholder det ti sider.
+   Be om ny gjennomlesing der.
 2. Trykk «Validate fix» på «Not found (404)» i Search Console etter deploy. De tre URL-ene
    (`/kontakt`, `/kontakt-skoler`, `/kontakt-partner`) har nå permanent redirect til
    `/contact`.
@@ -114,9 +118,3 @@ skoler faktisk søker etter:
   det skal være. De blir liggende i rapporten permanent.
 - **«Crawled – currently not indexed»** på en `.woff2`-fil, `site.webmanifest` og
   `favicon.ico`: dette er filer, ikke sider. De skal ikke indekseres.
-
-## Kjent avvik
-
-Toppboksen på forsiden sier «HQ → OSLO, NORGE», mens organisasjonen er registrert i Drammen,
-og det er Drammen-adressen som står i footeren og i de strukturerte dataene. Motstridende
-adresser svekker lokale søketreff. Teksten redigeres i Sanity under `Hero`.
