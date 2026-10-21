@@ -1,3 +1,4 @@
+import { Backdrop } from "@/app/components/orbital/Backdrop";
 import { Arrow } from "@/app/components/orbital/Arrow";
 import { ContactLinks } from "@/app/components/orbital/ContactLinks";
 
@@ -26,22 +27,7 @@ export default function Content() { return <>
 <a className="text-link" href="#spor">{"Utforsk fagcasene "}<Arrow dir="down" />
 </a>
 </div>
-<div className="orbit-art hero-orbit hero-orbit-school subject-orbit" aria-hidden="true">
-<svg viewBox="0 0 600 600" preserveAspectRatio="xMinYMid slice">
-<path className="hero-orbit-fill" d="M 300 -100 C -30 80 -30 520 300 700 L 700 700 L 700 -100 Z" />
-<path id="school-field-path" className="hero-orbit-line" d="M 300 -100 C -30 80 -30 520 300 700" />
-<g data-orbit-body="" data-path="school-field-path" data-orbit-position=".5" data-orbit-drift=".02">
-<circle className="planet-halo" r="26" />
-<circle className="planet" r="18" />
-</g>
-</svg>
-<ul className="subject-orbit-labels">
-<li>{"Industriteknologi"}</li>
-<li>{"Teknologi og forskningslære"}</li>
-<li>{"Restaurant og matfag"}</li>
-<li>{"Informasjonsteknologi"}</li>
-</ul>
-</div>
+<Backdrop image="orion-pad-moon" variant="right" position="40% 30%" priority />
 </div>
 </section>
 <section className="section paper" id="spor">
@@ -52,29 +38,29 @@ export default function Content() { return <>
 </div>
 <div className="subject-cards">
 <a className="subject-card subject-produksjon" href="/fagcase#produksjon">
-<span className="subject-label">{"TIF / Industriteknologi"}</span>
 <h3>{"Hylser etter tegning fra NASA"}</h3>
+<span className="subject-label">{"TIF / Industriteknologi"}</span>
 <p>{"Måling, toleranser og produksjon, fra øvingsmodell til kontrollert del."}</p>
 <span className="card-action">{"Se fagcaset "}<Arrow />
 </span>
 </a>
 <a className="subject-card subject-design" href="/fagcase#design">
-<span className="subject-label">{"Teknologi og forskningslære"}</span>
 <h3>{"Et grep som fungerer"}</h3>
+<span className="subject-label">{"Teknologi og forskningslære"}</span>
 <p>{"CAD, prototyper og forsøksdata. Hvordan vet dere at en løsning er bedre?"}</p>
 <span className="card-action">{"Se fagcaset "}<Arrow />
 </span>
 </a>
 <a className="subject-card subject-matfag" href="/fagcase#matfag">
-<span className="subject-label">{"Restaurant og matfag"}</span>
 <h3>{"En oppskrift med tekniske krav"}</h3>
+<span className="subject-label">{"Restaurant og matfag"}</span>
 <p>{"Råvarevalg, ernæring og sensorisk vurdering. Romfart trenger også matfag."}</p>
 <span className="card-action">{"Se fagcaset "}<Arrow />
 </span>
 </a>
 <a className="subject-card subject-it" href="/fagcase#it">
-<span className="subject-label">{"Informasjonsteknologi"}</span>
 <h3>{"Finn riktig utstyr med en kode"}</h3>
+<span className="subject-label">{"Informasjonsteknologi"}</span>
 <p>{"Brukerbehov, databaser og testing, med et konkret verktøy for verkstedet."}</p>
 <span className="card-action">{"Se fagcaset "}<Arrow />
 </span>

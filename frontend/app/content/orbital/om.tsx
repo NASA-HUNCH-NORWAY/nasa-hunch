@@ -1,3 +1,4 @@
+import { Backdrop } from "@/app/components/orbital/Backdrop";
 import { Arrow } from "@/app/components/orbital/Arrow";
 import { AboutClosing } from "@/app/components/orbital/AboutClosing";
 
@@ -17,7 +18,7 @@ export default function Content() { return <>
 </div>
 </div>
 <main id="main">
-<section className="about-masthead">
+<section className="about-masthead ar-cover">
 <div className="page-hero shell about-hero-grid">
 <div>
 <h1>{"Skole, verksted"}<br />{"og romfart."}</h1>
@@ -25,25 +26,7 @@ export default function Content() { return <>
 <a className="text-link" href="#bakgrunn">{"Hva er HUNCH? "}<Arrow dir="down" />
 </a>
 </div>
-<div className="orbit-art hero-orbit hero-orbit-about" aria-hidden="true">
-<svg viewBox="0 0 600 600" preserveAspectRatio="xMinYMid slice">
-<defs>
-<mask id="about-field-moon">
-<circle r="8" fill="white" />
-<circle cx="4" cy="-4" r="7" fill="black" />
-</mask>
-</defs>
-<path className="hero-orbit-fill" d="M 300 -100 C -30 80 -30 520 300 700 L 700 700 L 700 -100 Z" />
-<path id="about-field-path" className="hero-orbit-line" d="M 300 -100 C -30 80 -30 520 300 700" />
-<g data-orbit-body="" data-path="about-field-path" transform="translate(52.5 300)">
-<circle className="planet-halo" r="26" />
-<circle className="planet" r="18" />
-<g data-moon="" transform="translate(42 -30)">
-<circle r="8" fill="white" mask="url(#about-field-moon)" />
-</g>
-</g>
-</svg>
-</div>
+<Backdrop image="lunar-limb" position="50% 55%" priority />
 </div>
 </section>
 <section className="section paper" id="bakgrunn">

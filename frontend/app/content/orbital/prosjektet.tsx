@@ -1,3 +1,4 @@
+import { Backdrop } from "@/app/components/orbital/Backdrop";
 import { Arrow } from "@/app/components/orbital/Arrow";
 import Image from "next/image";
 
@@ -17,24 +18,11 @@ export default function Content() { return <>
 </div>
 </div>
 <main id="main">
-<section className="case-intro shell">
+<section className="case-intro shell ar-photo-masthead">
+<Backdrop image="ball-clamp-iss" position="62% 40%" priority alt="NASA-astronaut Stephen Bowen med Ball Clamp Monopod på romstasjonen" />
 <h1>{"Et kamerafeste til romstasjonen."}</h1>
 <p className="lead">{"Et eksempel fra USA. Ball Clamp Monopod ble utviklet og produsert med bidrag fra amerikanske elever i HUNCH, og testet på ISS i 2023."}</p>
 </section>
-<figure className="case-cover shell">
-<div className="photo-orbit-frame orbit-art">
-<Image src="/assets/ball-clamp-iss.jpg" width={2200} height={1466} priority sizes="(max-width: 720px) 100vw, 1180px" alt="NASA astronaut Stephen Bowen med Ball Clamp Monopod på romstasjonen." />
-<svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-<path className="photo-orbit-field" d="M -100 850 C 250 550 750 590 1300 780 L 1300 950 L -100 950 Z" />
-<path id="case-cover-photo-route" className="hero-orbit-line" d="M -100 850 C 250 550 750 590 1300 780" />
-<g data-orbit-body="" data-path="case-cover-photo-route" data-orbit-position=".62" data-orbit-drift=".025">
-<circle className="planet-halo" r="27" />
-<circle className="planet" r="18" />
-</g>
-</svg>
-</div>
-<figcaption>{"Stephen Bowen klargjør kamerafestet for testing på ISS, Foto: NASA"}</figcaption>
-</figure>
 <dl className="project-facts shell">
 <div>
 <dt>{"Prosjekt"}</dt>

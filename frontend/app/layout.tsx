@@ -1,7 +1,12 @@
 import { StructuredData } from "@/app/components/StructuredData";
 import type { Metadata } from "next";
 import "./globals.css";
+import "./artemis.css";
+import { Archivo, Martian_Mono } from "next/font/google";
 import { DEFAULT_DESCRIPTION, SITE_NAME, SITE_URL } from "@/app/lib/seo";
+
+const display = Archivo({ subsets: ["latin", "latin-ext"], axes: ["wdth"], variable: "--font-display", display: "swap" });
+const mono = Martian_Mono({ subsets: ["latin", "latin-ext"], axes: ["wdth"], variable: "--font-mono", display: "swap" });
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -60,5 +65,5 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({children}:Readonly<{children:React.ReactNode}>) {
- return <html lang="nb-NO"><body><StructuredData />{children}</body></html>;
+ return <html lang="nb-NO" className={`${display.variable} ${mono.variable}`}><body><StructuredData />{children}</body></html>;
 }

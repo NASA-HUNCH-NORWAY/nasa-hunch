@@ -34,24 +34,9 @@ export default function Content() { return <>
 <h1>{"Teamet bak."}</h1>
 <p className="lead">{"NASA HUNCH Norge drives av et lite team. Vi har ansvar for daglig ledelse, styret og økonomien i foreningen, og for kontakten med skolene."}</p>
 </div>
-<div className="orbit-art subpage-orbit composed-orbit" aria-hidden="true">
-<svg viewBox="0 0 600 600" preserveAspectRatio="xMinYMid slice">
-<path fill="#211058" d="M 480 -100 C 180 60 150 420 460 720 L 720 720 L 720 -100 Z" />
-<path id="team-intro-field" className="hero-orbit-line" d="M 480 -100 C 180 60 150 420 460 720" />
-<g data-orbit-body="" data-path="team-intro-field" data-orbit-position=".4" data-orbit-drift=".035">
-<circle className="planet-halo" r="24" />
-<circle className="planet" r="16" />
-</g>
-<path fill="#170c43" d="M -100 700 C 130 410 430 450 750 600 L 750 800 L -100 800 Z" />
-<path id="team-intro-lower" className="hero-orbit-line" d="M -100 700 C 130 410 430 450 750 600" />
-<g data-orbit-body="" data-path="team-intro-lower" data-orbit-position=".65" data-orbit-drift=".025">
-<circle className="planet-halo" r="24" />
-<circle className="planet" r="16" />
-</g>
-</svg>
-</div>
 </section>
-<section className="team-directory shell" id="menneskene" aria-label="Teammedlemmer">
+<section className="team-directory shell" id="menneskene" aria-labelledby="menneskene-tittel">
+<h2 id="menneskene-tittel" className="visually-hidden">{"Menneskene"}</h2>
 {people.map(person => <article className="team-person" key={person.name}>
 <div className="person-portrait" aria-hidden={person.photo ? undefined : true}>
 {person.photo ? <Image src={person.photo} width={480} height={600} alt={`Portrett av ${person.name}`} sizes="(max-width: 720px) 100vw, 33vw" /> : <span>{person.initials}</span>}

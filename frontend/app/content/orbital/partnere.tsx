@@ -1,3 +1,4 @@
+import { Backdrop } from "@/app/components/orbital/Backdrop";
 import { Arrow } from "@/app/components/orbital/Arrow";
 import { ContactLinks } from "@/app/components/orbital/ContactLinks";
 
@@ -27,25 +28,7 @@ export default function Content() { return <>
 <a className="home-primary-link" href="/contact" data-contact-open="" data-contact-subject="Partnerskap og støtte">{"Bli partner "}<Arrow />
 </a>
 </div>
-<div className="orbit-art hero-orbit hero-orbit-partner" aria-hidden="true">
-<svg viewBox="0 0 600 600" preserveAspectRatio="xMinYMid slice">
-<defs>
-<mask id="partner-field-moon">
-<circle r="8" fill="white" />
-<circle cx="4" cy="-4" r="7" fill="black" />
-</mask>
-</defs>
-<path className="hero-orbit-fill" d="M 300 -100 C -30 80 -30 520 300 700 L 700 700 L 700 -100 Z" />
-<path id="partner-field-path" className="hero-orbit-line" d="M 300 -100 C -30 80 -30 520 300 700" />
-<g data-orbit-body="" data-path="partner-field-path" transform="translate(52.5 300)">
-<circle className="planet-halo" r="26" />
-<circle className="planet" r="18" />
-<g data-moon="" transform="translate(42 -30)">
-<circle r="8" fill="white" mask="url(#partner-field-moon)" />
-</g>
-</g>
-</svg>
-</div>
+<Backdrop image="launch" variant="right" position="50% 35%" priority />
 </div>
 </div>
 </section>

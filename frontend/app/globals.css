@@ -779,17 +779,11 @@ html { scrollbar-color: #3d344f var(--ink); caret-color: var(--accent-light); }
   ::view-transition-old(root) { animation: vt-fade-out .22s ease both; }
   ::view-transition-new(root) { animation: vt-fade-in .4s ease .05s both; }
 
-  /* Arrival: the hero orbit draws in from the top, the heading and lead rise after it. */
-  .hero-orbit svg, .subpage-orbit svg { animation: orbit-wipe var(--dur-slow) var(--ease-out) .1s both; }
-  .hero-photo-frame > img { animation: photo-reveal 1.3s var(--ease-out) .05s both; }
-  .hero-photo-orbit { animation: orbit-wipe-x 1.2s var(--ease-out) .45s both; }
+  /* Arrival: subpage headings and leads rise in. Orbits and planets are in place from the start. */
   :is(#oppdrag .stop-copy, .about-hero-grid > div:first-child, .school-masthead-grid > div:first-child, .partner-invitation-grid > div:first-child, .workbench-grid > div:first-child, .team-masthead > div:first-child, .case-intro, .contact-landing) > *,
   .casebook-intro > h1, .casebook-intro .casebook-lead { animation: rise .9s var(--ease-out) both; }
   :is(#oppdrag .stop-copy, .about-hero-grid > div:first-child, .school-masthead-grid > div:first-child, .partner-invitation-grid > div:first-child, .workbench-grid > div:first-child, .team-masthead > div:first-child, .case-intro, .contact-landing) > :nth-child(2), .casebook-intro .casebook-lead { animation-delay: .12s; }
   :is(#oppdrag .stop-copy, .about-hero-grid > div:first-child, .school-masthead-grid > div:first-child, .partner-invitation-grid > div:first-child, .workbench-grid > div:first-child, .team-masthead > div:first-child, .case-intro, .contact-landing) > :nth-child(n+3) { animation-delay: .24s; }
-  [data-orbit-body] { animation: fade-in .6s ease .6s both; }
-  .subject-orbit-labels li { animation: rise .8s var(--ease-out) both; }
-  .subject-orbit-labels li:nth-child(2) { animation-delay: .5s; } .subject-orbit-labels li:nth-child(3) { animation-delay: .62s; } .subject-orbit-labels li:nth-child(4) { animation-delay: .74s; } .subject-orbit-labels li:nth-child(1) { animation-delay: .38s; }
 
   /* Process: the planet travels from node to node; each step appears as it is reached (motion.js). */
   .process-orbit[data-journey] .orbital-steps li { transition: opacity .7s var(--ease-out), translate .7s var(--ease-out); }

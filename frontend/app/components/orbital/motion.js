@@ -93,7 +93,7 @@ export function setupMotion() {
   // The school year marks the current phase from today's date. Months count from August.
   const schoolMonth = month => (month + 5) % 12; // getMonth(): August (7) becomes 0
   const now = schoolMonth(new Date().getMonth());
-  document.querySelectorAll('.year-cycle').forEach(list => {
+  document.querySelectorAll('.year-cycle, .year-scale').forEach(list => {
     const phases = [...list.querySelectorAll('li[data-from]')];
     const current = phases.filter(li => schoolMonth(Number(li.dataset.from) - 1) <= now).pop();
     if (!current) return;
@@ -182,7 +182,7 @@ export function setupMotion() {
     const halo = body.querySelector('.planet-halo,.crossing-halo');
     return { body, path, length: path.getTotalLength(), moon: body.querySelector('[data-moon]'), halo,
       hole: halo ? cutGap(path, halo, index) : null,
-      art: body.closest('.orbit-art, .hero-photo-frame'), transit: body.hasAttribute('data-transit'), visible: false };
+      art: body.closest('.wk-orbits, .orbit-art, .hero-photo-frame'), transit: body.hasAttribute('data-transit'), visible: false };
   });
   let animationFrame = 0, lastTime = 0, elapsed = 0;
   function paint() {
@@ -193,8 +193,10 @@ export function setupMotion() {
       if (!item.visible) return;
       const rect = rects[index] || {top: 0, height: 0};
       const passage = Math.max(0, Math.min(1, (innerHeight - rect.top) / (innerHeight + rect.height)));
+      // A transit body travels its line while the artwork passes through the window: data-transit="from to".
+      const [from, to] = (item.body.dataset.transit || '.02 .98').split(' ').map(Number);
       const progress = item.transit
-        ? (reduced.matches ? .5 : .02 + passage * .96)
+        ? from + (to - from) * (reduced.matches ? .5 : passage) + (reduced.matches ? 0 : Math.sin(elapsed / 9000 + index) * .006)
         : ((item.art.classList.contains('hero-orbit') ? .3 : .14) + index * .18 + elapsed / 100000 + scroll / 30000) % 1;
       const journey = item.art.classList.contains('process-orbit') ? journeyProgress(item.art) : null;
       if (journey === null && item.art.dataset.journey === 'done' && !item.settled) { item.settled = true; item.body.dataset.orbitPosition = String(journeyTo); }

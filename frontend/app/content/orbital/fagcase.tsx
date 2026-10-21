@@ -1,3 +1,4 @@
+import { Backdrop } from "@/app/components/orbital/Backdrop";
 import { Arrow } from "@/app/components/orbital/Arrow";
 
 export default function Content() { return <>
@@ -18,22 +19,7 @@ export default function Content() { return <>
 </div>
 <main id="main">
 <section className="casebook-intro shell">
-<div className="orbit-art subpage-orbit composed-orbit" aria-hidden="true">
-<svg viewBox="0 0 600 600" preserveAspectRatio="xMinYMid slice">
-<path fill="#211058" d="M 480 -100 C 180 60 150 420 460 720 L 720 720 L 720 -100 Z" />
-<path id="case-intro-field" className="hero-orbit-line" d="M 480 -100 C 180 60 150 420 460 720" />
-<g data-orbit-body="" data-path="case-intro-field" data-orbit-position=".4" data-orbit-drift=".035">
-<circle className="planet-halo" r="24" />
-<circle className="planet" r="16" />
-</g>
-<path fill="#170c43" d="M -100 700 C 130 410 430 450 750 600 L 750 800 L -100 800 Z" />
-<path id="case-intro-lower" className="hero-orbit-line" d="M -100 700 C 130 410 430 450 750 600" />
-<g data-orbit-body="" data-path="case-intro-lower" data-orbit-position=".65" data-orbit-drift=".025">
-<circle className="planet-halo" r="24" />
-<circle className="planet" r="16" />
-</g>
-</svg>
-</div>
+<Backdrop image="lunar-surface" variant="band" position="50% 45%" priority />
 <h1>{"Fra romoppdrag"}<br />{"til faglig arbeid."}</h1>
 <div className="casebook-lead">
 <p className="lead">{"Hva kan elevene gjøre, og hva kan læreren vurdere? Her er fire konkrete innganger."}</p>
@@ -62,34 +48,34 @@ export default function Content() { return <>
 <article className="subject-study subject-produksjon" id="produksjon">
 <header className="study-header">
 <div>
-<p className="subject-label">{"TIF / Industriteknologi"}</p>
 <h2>{"Hylser etter tegning fra NASA"}</h2>
+<p className="subject-label">{"TIF / Industriteknologi"}</p>
 <p className="study-origin">{"Eid vidaregåande skule, dokumentert i en studie fra 2026"}</p>
 </div>
 </header>
 <div className="study-grid">
 <aside className="study-evidence">
-<span className="proposal-label evidence-label">{"Det dokumenterte prosjektet"}</span>
 <h3>{"Deler levert til NASA"}</h3>
+<p className="study-meta">{"Det dokumenterte prosjektet"}</p>
 <p>{"Elever på teknologi- og industrifag ved Eid vidaregåande skule fikk tegninger, spesifikasjoner og stål fra NASA for å produsere hylser til en transportbeholder. Lærerne la opp et løp med forstørrede øvingsmodeller før elevene laget deler i riktig størrelse. Studien beskriver at hylsene ble overlevert til NASA, ikke at de allerede hadde vært i rommet."}</p>
 <a href="https://link.springer.com/article/10.1007/s44217-026-01443-8">{"Garrels og Brevik: norsk HUNCH-studie "}<Arrow /></a>
 </aside>
 <div className="study-teaching">
-<span className="proposal-label">{"Forslag til norsk undervisning"}</span>
-<h3>{"En mulig oppgave"}</h3>
+<h3 className="teaching-title">{"Forslag til norsk undervisning"}</h3>
+<h4>{"En mulig oppgave"}</h4>
 <p>{"La elevene produsere en enkel hylse fra en arbeidstegning, først som øvingsmodell. De planlegger rekkefølgen på operasjonene, måler delen og forklarer eventuelle avvik. Bruk bare et godkjent teknisk underlag hvis arbeidet skal leveres til en ekstern mottaker."}</p>
-<h3>{"Kobling til faget"}</h3>
+<h4>{"Kobling til faget"}</h4>
 <p>{"Vg2 industriteknologi: valg av målemetode og måleutstyr, vurdering mot toleranser og dokumentasjon av eget arbeid."}</p>
 <a className="curriculum-link" href="https://www.udir.no/lk20/pin02-03/kompetansemaal-og-vurdering/kv343">{"Læreplan: Vg2 industriteknologi, teknologi "}<Arrow /></a>
 <div className="study-delivery">
-<h3>{"Elevene kan levere"}</h3>
+<h4>{"Elevene kan levere"}</h4>
 <ul>
 <li>{"Arbeidsplan og risikovurdering"}</li>
 <li>{"Øvingsdel og målerapport"}</li>
 <li>{"Avvikslogg med forslag til forbedring"}</li>
 </ul>
 </div>
-<h3>{"Hva kan vurderes?"}</h3>
+<h4>{"Hva kan vurderes?"}</h4>
 <p>{"Læreren kan se etter begrunnede metodevalg, riktig bruk av måleutstyr og om eleven klarer å vurdere eget resultat."}</p>
 <p className="study-practical">
 <strong>{"Utstyr og rammer"}</strong>
@@ -101,15 +87,15 @@ export default function Content() { return <>
 <article className="subject-study subject-design" id="design">
 <header className="study-header">
 <div>
-<p className="subject-label">{"Teknologi og forskningslære"}</p>
 <h2>{"Et grep som fungerer"}</h2>
+<p className="subject-label">{"Teknologi og forskningslære"}</p>
 <p className="study-origin">{"USA, Ball Clamp Monopod, 2023"}</p>
 </div>
 </header>
 <div className="study-grid">
 <aside className="study-evidence">
-<span className="proposal-label evidence-label">{"Det dokumenterte prosjektet"}</span>
 <h3>{"Kamerafeste testet på ISS"}</h3>
+<p className="study-meta">{"Det dokumenterte prosjektet"}</p>
 <p>{"I Ball Clamp Monopod-prosjektet arbeidet elever med tommelskruen i et kamerafeste. De prøvde ut former med CAD og 3D-print før løsningen gikk videre. Kamerafestet ble testet på ISS i 2023."}</p>
 <a href="https://www.nasa.gov/podcasts/houston-we-have-a-podcast/the-student-built-camera-mount/">{"NASA: The Student Built Camera Mount "}<Arrow /></a>
 <p>
@@ -117,21 +103,21 @@ export default function Content() { return <>
 </p>
 </aside>
 <div className="study-teaching">
-<span className="proposal-label">{"Forslag til norsk undervisning"}</span>
-<h3>{"En mulig oppgave"}</h3>
+<h3 className="teaching-title">{"Forslag til norsk undervisning"}</h3>
+<h4>{"En mulig oppgave"}</h4>
 <p>{"Utvikle et grep til en ufarlig modellklemme. Lag to eller tre varianter og bestem på forhånd hvordan dere skal sammenligne dem. Mål for eksempel tiden det tar å stramme klemmen, og registrer brukerens opplevelse av grepet. Hold belastning og testoppsett likt."}</p>
-<h3>{"Kobling til faget"}</h3>
+<h4>{"Kobling til faget"}</h4>
 <p>{"Teknologi og forskningslære 1: utvikling og testing ut fra krav og arbeidstegninger, kvantitative forsøk og vurdering av usikkerhet."}</p>
 <a className="curriculum-link" href="https://www.udir.no/lk20/tnf01-03/kompetansemaal-og-vurdering/kv975">{"Læreplan: Teknologi og forskningslære 1 "}<Arrow /></a>
 <div className="study-delivery">
-<h3>{"Elevene kan levere"}</h3>
+<h4>{"Elevene kan levere"}</h4>
 <ul>
 <li>{"En enkel kravspesifikasjon og CAD-modeller"}</li>
 <li>{"Prototyper og en begrunnet testmetode"}</li>
 <li>{"Resultater, usikkerhet og anbefalt løsning"}</li>
 </ul>
 </div>
-<h3>{"Hva kan vurderes?"}</h3>
+<h4>{"Hva kan vurderes?"}</h4>
 <p>{"Eleven kan vise om testen faktisk undersøker kravet, hvordan dataene brukes og hvorfor én løsning velges fremfor en annen."}</p>
 <p className="study-practical">
 <strong>{"Utstyr og rammer"}</strong>
@@ -143,34 +129,34 @@ export default function Content() { return <>
 <article className="subject-study subject-matfag" id="matfag">
 <header className="study-header">
 <div>
-<p className="subject-label">{"Restaurant og matfag"}</p>
 <h2>{"En oppskrift med tekniske krav"}</h2>
+<p className="subject-label">{"Restaurant og matfag"}</p>
 <p className="study-origin">{"USA, Hewitt-Trussville High School, 2020"}</p>
 </div>
 </header>
 <div className="study-grid">
 <aside className="study-evidence">
-<span className="proposal-label evidence-label">{"Det dokumenterte prosjektet"}</span>
 <h3>{"Vinner av HUNCHs matkonkurranse"}</h3>
+<p className="study-meta">{"Det dokumenterte prosjektet"}</p>
 <p>{"Elever ved Hewitt-Trussville High School vant HUNCHs matkonkurranse i 2020 med marokkansk kyllingtagine. Retten måtte møte ernæringskrav og egne krav til videre behandling. Både maten og dokumentasjonen inngikk i vurderingen. NASAs artikkel omtaler en planlagt vei videre, ikke en bekreftet servering på ISS."}</p>
 <a href="https://www.nasa.gov/centers-and-facilities/marshall/alabama-high-school-students-create-a-meal-nasa-will-send-to-astronauts-in-space/">{"NASA: Hewitt-Trussvilles vinnermåltid "}<Arrow /></a>
 </aside>
 <div className="study-teaching">
-<span className="proposal-label">{"Forslag til norsk undervisning"}</span>
-<h3>{"En mulig oppgave"}</h3>
+<h3 className="teaching-title">{"Forslag til norsk undervisning"}</h3>
+<h4>{"En mulig oppgave"}</h4>
 <p>{"Utvikle et måltid for en definert brukergruppe og et sett krav gitt av læreren. Prøv ut råvarer og tilberedningsmetoder, beregn næringsinnhold og sammenlign smak, konsistens og kvalitet. Dokumenter endringene fra første til siste oppskrift."}</p>
-<h3>{"Kobling til faget"}</h3>
+<h4>{"Kobling til faget"}</h4>
 <p>{"Vg1 restaurant og matfag: råvarers egenskaper, planlegging med oppskrifter, mat for ulike brukergrupper og kvalitet i produksjonen."}</p>
 <a className="curriculum-link" href="https://www.udir.no/lk20/rmf01-03/kompetansemaal-og-vurdering/kv237">{"Læreplan: Vg1 restaurant og matfag, råvare, produksjon og kvalitet "}<Arrow /></a>
 <div className="study-delivery">
-<h3>{"Elevene kan levere"}</h3>
+<h4>{"Elevene kan levere"}</h4>
 <ul>
 <li>{"Oppskrift, råvarevalg og næringsberegning"}</li>
 <li>{"Produksjonsplan og sensorisk vurdering"}</li>
 <li>{"Kort fagrapport om endringene"}</li>
 </ul>
 </div>
-<h3>{"Hva kan vurderes?"}</h3>
+<h4>{"Hva kan vurderes?"}</h4>
 <p>{"Læreren kan vurdere sammenhengen mellom brukerbehov, råvarevalg, arbeidsmetode og resultat, ikke bare hvordan retten smaker."}</p>
 <p className="study-practical">
 <strong>{"Utstyr og rammer"}</strong>
@@ -182,34 +168,34 @@ export default function Content() { return <>
 <article className="subject-study subject-it" id="it">
 <header className="study-header">
 <div>
-<p className="subject-label">{"Informasjonsteknologi"}</p>
 <h2>{"Finn riktig utstyr med en kode"}</h2>
+<p className="subject-label">{"Informasjonsteknologi"}</p>
 <p className="study-origin">{"USA, Poquoson High School, 2019"}</p>
 </div>
 </header>
 <div className="study-grid">
 <aside className="study-evidence">
-<span className="proposal-label evidence-label">{"Det dokumenterte prosjektet"}</span>
 <h3>{"Konsept vurdert i designgjennomgang"}</h3>
+<p className="study-meta">{"Det dokumenterte prosjektet"}</p>
 <p>{"NASA omtalte Poquoson High Schools prosjekt «Augmented Reality Object Recognition: QR Code» etter en designgjennomgang i 2019. Teamet ble vurdert som en kandidat til den avsluttende gjennomgangen. Kilden dokumenterer et elevkonsept, ikke et system satt i drift på ISS."}</p>
 <a href="https://www.nasa.gov/centers-and-facilities/langley/high-school-students-look-to-improve-astronauts-palates-workspaces-via-hunch-program/">{"NASA Langley: HUNCH-prosjekter i 2019 "}<Arrow /></a>
 </aside>
 <div className="study-teaching">
-<span className="proposal-label">{"Forslag til norsk undervisning"}</span>
-<h3>{"En mulig oppgave"}</h3>
+<h3 className="teaching-title">{"Forslag til norsk undervisning"}</h3>
+<h4>{"En mulig oppgave"}</h4>
 <p>{"Lag en liten utstyrsoversikt for skolens verksted. En QR-kode på en gjenstand åpner riktig utstyrsside med plassering og bruksinformasjon. Start uten AR. Test hva som skjer når koden er ukjent, en gjenstand er flyttet eller informasjonen mangler."}</p>
-<h3>{"Kobling til faget"}</h3>
+<h4>{"Kobling til faget"}</h4>
 <p>{"Vg2 informasjonsteknologi, utvikling: behovskartlegging, funksjonelle krav, brukergrensesnitt, databaser, testing og teknisk dokumentasjon."}</p>
 <a className="curriculum-link" href="https://www.udir.no/lk20/itk02-01/kompetansemaal-og-vurdering/kv374">{"Læreplan: Vg2 informasjonsteknologi, utvikling "}<Arrow /></a>
 <div className="study-delivery">
-<h3>{"Elevene kan levere"}</h3>
+<h4>{"Elevene kan levere"}</h4>
 <ul>
 <li>{"Brukerbehov og funksjonelle krav"}</li>
 <li>{"En prototype med et lite eksempelregister"}</li>
 <li>{"Testplan, versjonshistorikk og dokumentasjon"}</li>
 </ul>
 </div>
-<h3>{"Hva kan vurderes?"}</h3>
+<h4>{"Hva kan vurderes?"}</h4>
 <p>{"Elevene kan vise hvordan løsningen dekker behovet, håndterer feil og er testet. Bruk et eksempelregister uten personopplysninger."}</p>
 <p className="study-practical">
 <strong>{"Utstyr og rammer"}</strong>
